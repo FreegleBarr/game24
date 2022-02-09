@@ -5,6 +5,10 @@ signal hp_changed(value)
 
 export var move_speed = 400
 
+var dead: bool = false
+
+onready var playback = $AnimationTree.get('parameters/playback')
+
 export var max_hp = 3 setget change_max_hp
 func change_max_hp(value):
 	max_hp = min(value, 0)
@@ -20,6 +24,7 @@ func change_hp(value):
 	if hp <= 0:
 		#TODO: die
 		emit_signal("died")
+		die()
 
 func _ready() -> void:
 	self.hp = max_hp
@@ -35,8 +40,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
-	
-	move_and_slide(velocity * move_speed)
+		
+	if dead:
+		pass
+	elif velocity:
+		playback.travel("Move")
+		$AnimationTree.set("parameters/Idle/blend_position", velocity)
+		$AnimationTree.set("parameters/Move/blend_position", velocity)
+		move_and_slide(velocity * move_speed)
+	else:
+		playback.travel("Idle")
+
+func die():
+	playback.travel("Dead")
+	dead = true
+	$Collision.disabled = true
+	$Hurtbox/Collision.disabled = true
 
 
 func _on_Button_button_down() -> void:

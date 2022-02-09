@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game 24"
+run/main_scene="res://Battle/Arena.tscn"
 config/icon="res://icon.png"
 
 [layer_names]
