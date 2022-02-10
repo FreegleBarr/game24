@@ -1,24 +1,7 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://Battle/Assets/pngwing.com.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Assets/player arena spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Battle/Player.gd" type="Script" id=2]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-render_mode blend_add;
-const float PI = 3.1416;
-
-void fragment(){
-	COLOR = texture(TEXTURE, UV);
-	vec2 coord = UV;
-	if (COLOR.a > 0. && COLOR.r > 0. && COLOR.g > 0. && COLOR.b >0.){
-	}
-	coord.y -= 0.25*coord.x*coord.x*sin(100.*coord.x*coord.x*coord.x - TIME*10.);
-	COLOR = texture(TEXTURE, coord);		
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 height = 4.0
@@ -48,7 +31,9 @@ loop = true
 
 [sub_resource type="Animation" id=7]
 resource_name = "IdleLeft"
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:flip_h")
 tracks/0/interp = 1
@@ -59,7 +44,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -75,7 +72,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -99,7 +96,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -115,7 +112,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -147,6 +144,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=28]
@@ -228,9 +237,9 @@ collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 2 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
+hframes = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
