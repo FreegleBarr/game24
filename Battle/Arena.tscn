@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Battle/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Bullets.gd" type="Script" id=2]
-[ext_resource path="res://Battle/BulletSpawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Battle/AttackChoreography.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Battle/HUD.gd" type="Script" id=4]
+[ext_resource path="res://Battle/Attacks/BulletSpawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Battle/Arena.gd" type="Script" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="Arena" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -55,13 +58,15 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PoolVector2Array( -162, -277, -76, -309, 96, -302, 249, -144, 244, 370, 102, 542, -67, 575, -135, 468, -249, 190, -268, -28, -177, -267, -209, -292, -333, 41, -313, 318, -118, 634, 141, 633, 304, 411, 351, -190, 113, -384, -93, -365, -81, -434, -116, -436, -108, -365, -155, -337, -178, -412, -217, -353, -183, -333, -212, -291 )
 
-[node name="Spawners" type="Node2D" parent="."]
+[node name="AttackChoreography" parent="." instance=ExtResource( 3 )]
+default_path = "res://Battle/Fights/demo_fight.btl"
 
-[node name="0" parent="Spawners" instance=ExtResource( 3 )]
-position = Vector2( -16, -183 )
+[node name="BulletSpawn" parent="AttackChoreography" instance=ExtResource( 5 )]
 
 [node name="Bullets" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [connection signal="hp_changed" from="Player" to="CanvasLayer/HUD" method="_on_Player_hp_changed"]
-[connection signal="spawn_bullet" from="Spawners/0" to="Bullets" method="_on_0_spawn_bullet"]
+[connection signal="spawn_bullet" from="AttackChoreography/BulletSpawn" to="Bullets" method="_on_0_spawn_bullet"]
+
+[editable path="AttackChoreography/BulletSpawn"]

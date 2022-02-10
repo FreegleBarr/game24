@@ -1,6 +1,8 @@
 extends Node
 class_name Choreography
 
+signal fight_over
+
 enum {
 	SLEEP,
 	ATTACK
@@ -24,12 +26,11 @@ class Action:
 		match type:
 			SLEEP:
 				chor.timer.wait_time = self.args["time"]
-				chor.timer.connect("timeout", chor, "next_inst")
 				chor.timer.start()
 			ATTACK:
+				print("attacking with attack " + str(args["atk"]))
 				var attack: BaseAttack = args["atk"]
-				attack.connect("attack_done", chor, "next_inst")
-				attack.start()
+				attack.start(args["args"])
 
 
 var available_attacks: Dictionary = {}
@@ -38,7 +39,10 @@ var execution_order: Array = []
 
 func _ready() -> void:
 	for child in get_children():
+		if child == timer:
+			continue
 		available_attacks[child.name] = child
+		child.connect("attack_done", self, "next_inst")
 	load_script(default_path)
 
 func load_script(path) -> void:
@@ -53,7 +57,29 @@ func load_script(path) -> void:
 			execution_order.append(Action.new(self, SLEEP, {"time": time}))
 		elif words[0] in available_attacks.keys():
 			var attack: BaseAttack = available_attacks[words[0]]
-			execution_order.append(Action.new(self, ATTACK, {"atk": attack}))
+			if len(words) == 1:
+				execution_order.append(Action.new(
+					self, 
+					ATTACK, 
+					{"atk": attack, "args": []}
+				))
+			else:
+				execution_order.append(Action.new(
+					self, 
+					ATTACK, 
+					{"atk": attack, 
+					"args": words.slice(1, len(words) - 1)}
+				))
+
+func start():
+	print("h")
+	current_inst = 0
+	next_inst()
 
 func next_inst():
-	pass
+	current_inst += 1
+	if current_inst > len(execution_order):
+		emit_signal("fight_over")
+		return
+	execution_order[current_inst - 1].exec()
+
