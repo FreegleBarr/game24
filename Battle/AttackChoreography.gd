@@ -8,7 +8,7 @@ enum {
 	ATTACK
 }
 
-export (String, FILE) var default_path
+export (String, FILE, "*.tres") var default_path
 
 onready var timer = $Timer
 
@@ -46,10 +46,8 @@ func _ready() -> void:
 	load_script(default_path)
 
 func load_script(path) -> void:
-	var file: File = File.new()
-	file.open(path, File.READ)
-	var play_by_play: Array = file.get_as_text().split("\n")
-	file.close()
+	var choreography_steps: ChoreographySteps = load(default_path)
+	var play_by_play: Array = choreography_steps.steps.split("\n")
 	for line in play_by_play:
 		var words: Array = line.split(" ")
 		if words[0].to_lower() == "sleep":

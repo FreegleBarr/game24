@@ -10,7 +10,7 @@ func _ready():
 		var bullet = Bullet.instance()
 		BulletPool.append(bullet)
 
-func _on_0_spawn_bullet(pos, dir) -> void:
+func _on_spawn_bullet(pos, dir) -> void:
 	var bullet: Bullet = BulletPool[current]
 	var parent: Node = bullet.get_parent()
 	if parent:
@@ -20,5 +20,4 @@ func _on_0_spawn_bullet(pos, dir) -> void:
 	add_child(bullet)
 	current += 1
 	current %= 100
-	
-		
+
