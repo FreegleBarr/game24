@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "BaseAttack",
+"language": "GDScript",
+"path": "res://Battle/Attacks/BaseAttack.gd"
+}, {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://Battle/Bullet.gd"
+}, {
+"base": "Node",
+"class": "Choreography",
+"language": "GDScript",
+"path": "res://Battle/AttackChoreography.gd"
 } ]
 _global_script_class_icons={
-"Bullet": ""
+"BaseAttack": "",
+"Bullet": "",
+"Choreography": ""
 }
 
 [application]
