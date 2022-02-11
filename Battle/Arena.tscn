@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Battle/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Bullets.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Lungs/background mask 0.png" type="Texture" id=10]
 [ext_resource path="res://Brain/sillhoute.png" type="Texture" id=11]
 [ext_resource path="res://Battle/Attacks/SpiralAttack1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=13]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -149,7 +150,7 @@ position = Vector2( -305, 62 )
 current = true
 
 [node name="AttackChoreography" parent="." instance=ExtResource( 3 )]
-default_path = "res://Battle/Fights/fight1.tres"
+choreography_steps = ExtResource( 13 )
 
 [node name="BulletSpawn" parent="AttackChoreography" instance=ExtResource( 5 )]
 

@@ -8,7 +8,7 @@ enum Type {
 	ATTACK
 }
 
-export (String, FILE, "*.tres") var default_path
+export (Resource) var choreography_steps
 
 onready var timer = $Timer
 
@@ -51,10 +51,9 @@ func _ready() -> void:
 			continue
 		available_attacks[child.name] = child
 		child.connect("attack_done", self, "attack_done")
-	load_script(default_path)
+	load_script(choreography_steps)
 
-func load_script(path) -> void:
-	var choreography_steps: ChoreographySteps = load(default_path)
+func load_script(choreography_steps) -> void:
 	var play_by_play: Array = choreography_steps.steps.split("\n")
 	for line in play_by_play:
 		var words: Array = line.split(" ")
