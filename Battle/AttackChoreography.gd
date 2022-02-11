@@ -3,7 +3,7 @@ class_name Choreography
 
 signal fight_over
 
-enum {
+enum Type {
 	SLEEP,
 	ATTACK
 }
@@ -12,6 +12,11 @@ export (String, FILE, "*.tres") var default_path
 
 onready var timer = $Timer
 
+const modifiers = ["nowait"]
+var available_attacks: Dictionary = {}
+var current_inst = 0
+var execution_order: Array = []
+var active_actions: int = 0
 
 class Action:
 	var type
@@ -24,25 +29,28 @@ class Action:
 	
 	func exec():
 		match type:
-			SLEEP:
+			Type.SLEEP:
+				chor.active_actions += 1
 				chor.timer.wait_time = self.args["time"]
 				chor.timer.start()
-			ATTACK:
+			Type.ATTACK:
+				chor.active_actions += 1
 				print("attacking with attack " + str(args["atk"]))
 				var attack: BaseAttack = args["atk"]
+				if "nowait" in args["mods"]:
+					chor.next_inst()
 				attack.start(args["args"])
+				
 
 
-var available_attacks: Dictionary = {}
-var current_inst = 0
-var execution_order: Array = []
+
 
 func _ready() -> void:
 	for child in get_children():
 		if child == timer:
 			continue
 		available_attacks[child.name] = child
-		child.connect("attack_done", self, "next_inst")
+		child.connect("attack_done", self, "attack_done")
 	load_script(default_path)
 
 func load_script(path) -> void:
@@ -52,27 +60,50 @@ func load_script(path) -> void:
 		var words: Array = line.split(" ")
 		if words[0].to_lower() == "sleep":
 			var time: float = words[1] as int
-			execution_order.append(Action.new(self, SLEEP, {"time": time}))
-		elif words[0] in available_attacks.keys():
-			var attack: BaseAttack = available_attacks[words[0]]
-			if len(words) == 1:
-				execution_order.append(Action.new(
-					self, 
-					ATTACK, 
-					{"atk": attack, "args": []}
-				))
-			else:
-				execution_order.append(Action.new(
-					self, 
-					ATTACK, 
-					{"atk": attack, 
-					"args": words.slice(1, len(words) - 1)}
-				))
+			execution_order.append(Action.new(self, Type.SLEEP, {"time": time}))
+		else:
+			var mods: Array = []
+			var attack: BaseAttack
+			var args: Array = []
+			var mod_section = true
+			for word in words:
+				if mod_section:
+					if word in modifiers:
+						mods.append(word)
+					else:
+						attack = available_attacks[word]
+						mod_section = false
+				else:
+					args.append(word)
+					
+			execution_order.append(Action.new(
+				self,
+				Type.ATTACK,
+				{"atk": attack, "args": args, "mods": mods}
+			))
+#			if len(words) == 1:
+#				execution_order.append(Action.new(
+#					self, 
+#					Type.ATTACK, 
+#					{"atk": attack, "args": []}
+#				))
+#			else:
+#				execution_order.append(Action.new(
+#					self, 
+#					Type.ATTACK, 
+#					{"atk": attack, 
+#					"args": words.slice(1, len(words) - 1)}
+#				))
 
 func start():
 	print("h")
 	current_inst = 0
 	next_inst()
+
+func attack_done():
+	active_actions -= 1
+	if active_actions == 0:
+		next_inst()
 
 func next_inst():
 	current_inst += 1
