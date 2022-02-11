@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Battle/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Bullets.gd" type="Script" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://Lungs/background mask 0.png" type="Texture" id=10]
 [ext_resource path="res://Brain/sillhoute.png" type="Texture" id=11]
 [ext_resource path="res://Battle/Attacks/SpiralAttack1.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=13]
+[ext_resource path="res://Battle/Assets/Arena background.png" type="Texture" id=13]
+[ext_resource path="res://Battle/WallSprite.gd" type="Script" id=14]
+[ext_resource path="res://Brain/walls closed.png" type="Texture" id=15]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -30,6 +32,7 @@ shader = SubResource( 1 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "Arena background.png 0"
+0/texture = ExtResource( 13 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 50, 50 )
@@ -66,7 +69,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ null ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -76,6 +79,9 @@ animations = [ {
 "name": "gimmick",
 "speed": 5.0
 } ]
+
+[sub_resource type="PhysicsMaterial" id=9]
+friction = 0.0
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
@@ -137,11 +143,13 @@ frames = SubResource( 8 )
 
 [node name="WallSprite" type="AnimatedSprite" parent="Organ"]
 frames = SubResource( 7 )
+script = ExtResource( 14 )
 
-[node name="Walls" type="StaticBody2D" parent="Organ"]
+[node name="Walls" type="StaticBody2D" parent="Organ/WallSprite"]
 collision_mask = 0
+physics_material_override = SubResource( 9 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Organ/Walls"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Organ/WallSprite/Walls"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -305, 62 )

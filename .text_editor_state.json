@@ -1,0 +1,266 @@
+{
+	"save_version": "1",
+	"font_size": 12,
+	"font_size_ui": 12,
+	"tabs": {
+
+	},
+	"selected": "",
+	"word_wrap": false,
+	"show": {
+		"dir": {
+			"empty": true,
+			"hidden": true,
+			"gdignore": true,
+			"addons": false,
+			"git": false,
+			"import": false,
+			"trash": false
+		},
+		"file": {
+			"hidden": false,
+			"extensionless": false
+		}
+	},
+	"tags": [
+
+	],
+	"tag_counts": {
+
+	},
+	"tags_enabled": {
+
+	},
+	"exts_enabled": {
+		"txt": true,
+		"md": true,
+		"json": true,
+		"csv": true,
+		"cfg": true,
+		"ini": true,
+		"yaml": true,
+		"gd": false,
+		"tres": false,
+		"tscn": false,
+		"import": false,
+		"gdignore": false,
+		"gitignore": false
+	},
+	"shortcuts": {
+
+	},
+	"file_list": {
+		"": {
+			"file_path": "res://",
+			"all": {
+				"Battle": {
+					"file_path": "res://Battle",
+					"all": {
+						"Attacks": {
+							"file_path": "res://Battle/Attacks",
+							"all": {
+
+							},
+							"files": [
+
+							],
+							"dirs": [
+
+							],
+							"show": true,
+							"open": true,
+							"tint": "1,1,1,1"
+						},
+						"Fights": {
+							"file_path": "res://Battle/Fights",
+							"all": {
+
+							},
+							"files": [
+
+							],
+							"dirs": [
+
+							],
+							"show": true,
+							"open": true,
+							"tint": "1,1,1,1"
+						},
+						"Assets": {
+							"file_path": "res://Battle/Assets",
+							"all": {
+
+							},
+							"files": [
+
+							],
+							"dirs": [
+
+							],
+							"show": true,
+							"open": true,
+							"tint": "1,1,1,1"
+						}
+					},
+					"files": [
+
+					],
+					"dirs": [
+						"Assets",
+						"Attacks",
+						"Fights"
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"Lungs": {
+					"file_path": "res://Lungs",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"Music": {
+					"file_path": "res://Music",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"Map": {
+					"file_path": "res://Map",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"Eyes": {
+					"file_path": "res://Eyes",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"SFX": {
+					"file_path": "res://SFX",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"VFX": {
+					"file_path": "res://VFX",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"Brain": {
+					"file_path": "res://Brain",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"Heart": {
+					"file_path": "res://Heart",
+					"all": {
+
+					},
+					"files": [
+
+					],
+					"dirs": [
+
+					],
+					"show": true,
+					"open": true,
+					"tint": "1,1,1,1"
+				},
+				"README.md": "res://README.md"
+			},
+			"files": [
+				"res://README.md"
+			],
+			"dirs": [
+				"Battle",
+				"Brain",
+				"Eyes",
+				"Heart",
+				"Lungs",
+				"Map",
+				"Music",
+				"SFX",
+				"VFX"
+			],
+			"show": true,
+			"open": true,
+			"tint": "1,1,1,1"
+		}
+	},
+	"div1": -300,
+	"div2": -80,
+	"div3": -200,
+	"div4": 180,
+	"window_size": [
+		1366,
+		744
+	]
+}
