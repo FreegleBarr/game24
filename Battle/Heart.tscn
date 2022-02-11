@@ -52,3 +52,5 @@ frames = SubResource( 2 )
 
 [node name="WallSprite" parent="Organ" index="2"]
 frames = SubResource( 3 )
+
+[editable path="AttackChoreography/BulletSpawn"]

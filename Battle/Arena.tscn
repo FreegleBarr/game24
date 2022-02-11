@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Battle/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Bullets.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Battle/Assets/Arena background.png" type="Texture" id=13]
 [ext_resource path="res://Battle/WallSprite.gd" type="Script" id=14]
 [ext_resource path="res://Brain/walls closed.png" type="Texture" id=15]
+[ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=16]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -158,7 +159,7 @@ position = Vector2( -305, 62 )
 current = true
 
 [node name="AttackChoreography" parent="." instance=ExtResource( 3 )]
-choreography_steps = ExtResource( 13 )
+choreography_steps = ExtResource( 16 )
 
 [node name="BulletSpawn" parent="AttackChoreography" instance=ExtResource( 5 )]
 

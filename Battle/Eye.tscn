@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Battle/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Lungs/background mask 2.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Lungs/background mask 0.png" type="Texture" id=4]
 [ext_resource path="res://Eyes/Eye arena outline.png" type="Texture" id=5]
 [ext_resource path="res://Eyes/Eye arena mask.png" type="Texture" id=6]
-[ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -47,18 +46,10 @@ friction = 0.0
 
 [node name="Eye" instance=ExtResource( 1 )]
 
-[node name="HUD" parent="CanvasLayer" index="0"]
-visible = false
-
-[node name="BG" parent="Organ" index="0"]
-visible = false
-
 [node name="BGMap" parent="Organ/BG" index="0"]
-visible = false
 frames = SubResource( 1 )
 
 [node name="Silloutte" parent="Organ" index="1"]
-visible = false
 frames = SubResource( 2 )
 
 [node name="WallSprite" parent="Organ" index="2"]
@@ -70,8 +61,5 @@ physics_material_override = SubResource( 4 )
 
 [node name="Player" parent="." index="2"]
 position = Vector2( 0, 0 )
-
-[node name="AttackChoreography" parent="." index="4"]
-choreography_steps = ExtResource( 7 )
 
 [editable path="AttackChoreography/BulletSpawn"]
