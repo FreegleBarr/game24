@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://Battle/Bullet.gd"
+"path": "res://Battle/Projectiles/Bullet.gd"
 }, {
 "base": "Node",
 "class": "Choreography",
@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game 24"
-run/main_scene="res://Battle/Eye.tscn"
+run/main_scene="res://Battle/Arenas/Eye.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 

@@ -1,11 +1,11 @@
-extends BaseAttack
+extends Position2D
 
 signal spawn_bullet(pos, dir)
 
-onready var spawn_position: Position2D = $SpawnPosition
+var Bullet = preload("res://Battle/Projectiles/Bullet.tscn")
 
 
-func start(args: Array) -> void:
+
+func _on_Timer_timeout() -> void:
 	var direction = Vector2.RIGHT.rotated(randf()*TAU)
-	emit_signal('spawn_bullet', spawn_position.position, direction)
-	emit_signal('attack_done')
+	emit_signal('spawn_bullet', position, direction)
