@@ -238,7 +238,9 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+flip_h = true
 hframes = 6
+frame = 1
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false

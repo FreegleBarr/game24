@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Battle/Projectiles/ProjectileManager.gd" type="Script" id=2]
+[ext_resource path="res://Battle/Projectiles/Managers.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/AttackChoreography.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Battle/HUD/HUD.gd" type="Script" id=4]
 [ext_resource path="res://Battle/Attacks/BulletSpawn.tscn" type="PackedScene" id=5]
@@ -214,8 +214,7 @@ position = Vector2( -305, 62 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Projectiles" type="Node2D" parent="."]
-script = ExtResource( 2 )
+[node name="ProjectileManagers" parent="." instance=ExtResource( 2 )]
 
 [node name="AttackChoreography" parent="." instance=ExtResource( 3 )]
 choreography_steps = ExtResource( 16 )
@@ -225,7 +224,7 @@ choreography_steps = ExtResource( 16 )
 [node name="SpiralAttack" parent="AttackChoreography" instance=ExtResource( 12 )]
 
 [connection signal="hp_changed" from="Player" to="CanvasLayer/HUD" method="_on_Player_hp_changed"]
-[connection signal="spawn_bullet" from="AttackChoreography/BulletSpawn" to="Projectiles" method="_on_spawn_bullet"]
-[connection signal="spawn_bullet" from="AttackChoreography/SpiralAttack" to="Projectiles" method="_on_spawn_bullet"]
+[connection signal="spawn_bullet" from="AttackChoreography/BulletSpawn" to="ProjectileManagers" method="_on_spawn_bullet"]
 
+[editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BulletSpawn"]

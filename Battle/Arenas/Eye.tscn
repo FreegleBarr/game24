@@ -61,6 +61,5 @@ choreography_steps = ExtResource( 3 )
 
 [node name="EyeBasicAttack" parent="AttackChoreography" index="3" instance=ExtResource( 2 )]
 
-[connection signal="spawn_bullet" from="AttackChoreography/EyeBasicAttack" to="Projectiles" method="_on_spawn_bullet"]
-
+[editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BulletSpawn"]
