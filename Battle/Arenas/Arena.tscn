@@ -205,7 +205,7 @@ physics_material_override = SubResource( 9 )
 [node name="InnerWalls" type="Sprite" parent="Organ"]
 script = ExtResource( 17 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Organ/InnerWalls"]
+[node name="Walls" type="StaticBody2D" parent="Organ/InnerWalls"]
 physics_material_override = SubResource( 13 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
