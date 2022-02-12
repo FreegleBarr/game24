@@ -43,6 +43,10 @@ run/main_scene="res://Battle/Arenas/Eye.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
+[autoload]
+
+Battle="*res://Battle/autoload.gd"
+
 [display]
 
 window/size/width=1280

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/ProjectileManager.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Battle/Arenas/Assets/Arena background.png" type="Texture" id=7]
 [ext_resource path="res://Battle/Arenas/Assets/Brain/anti outer walls.png" type="Texture" id=8]
 [ext_resource path="res://Battle/Arenas/Assets/background scroll.png" type="Texture" id=9]
+[ext_resource path="res://Battle/Arenas/Assets/win background scroll.png" type="Texture" id=10]
+[ext_resource path="res://Battle/Arenas/Assets/lose background scroll.png" type="Texture" id=11]
 [ext_resource path="res://Battle/Attacks/SpiralAttack1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Battle/Arenas/Assets/Brain/background mask.png" type="Texture" id=13]
 [ext_resource path="res://Battle/WallSprite.gd" type="Script" id=14]
@@ -30,6 +32,14 @@ void fragment(){
 shader = SubResource( 10 )
 shader_param/speed = 1.0
 shader_param/direction = Vector2( 1, 1 )
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends TextureRect
+
+export(StreamTexture) var win
+export(StreamTexture) var lose
+
+"
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -104,15 +114,18 @@ script = ExtResource( 6 )
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+[node name="Background" type="TextureRect" parent="CanvasLayer2"]
 material = SubResource( 11 )
 margin_right = 4096.0
 margin_bottom = 4096.0
 texture = ExtResource( 9 )
 stretch_mode = 2
+script = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+win = ExtResource( 10 )
+lose = ExtResource( 11 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -186,6 +199,9 @@ position = Vector2( -305, 62 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+[node name="Projectiles" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
 [node name="AttackChoreography" parent="." instance=ExtResource( 3 )]
 choreography_steps = ExtResource( 16 )
 
@@ -193,11 +209,8 @@ choreography_steps = ExtResource( 16 )
 
 [node name="SpiralAttack" parent="AttackChoreography" instance=ExtResource( 12 )]
 
-[node name="Bullets" type="Node2D" parent="."]
-script = ExtResource( 2 )
-
 [connection signal="hp_changed" from="Player" to="CanvasLayer/HUD" method="_on_Player_hp_changed"]
-[connection signal="spawn_bullet" from="AttackChoreography/BulletSpawn" to="Bullets" method="_on_spawn_bullet"]
-[connection signal="spawn_bullet" from="AttackChoreography/SpiralAttack" to="Bullets" method="_on_spawn_bullet"]
+[connection signal="spawn_bullet" from="AttackChoreography/BulletSpawn" to="Projectiles" method="_on_spawn_bullet"]
+[connection signal="spawn_bullet" from="AttackChoreography/SpiralAttack" to="Projectiles" method="_on_spawn_bullet"]
 
 [editable path="AttackChoreography/BulletSpawn"]

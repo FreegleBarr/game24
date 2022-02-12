@@ -11,6 +11,7 @@ func _ready():
 		BulletPool.append(bullet)
 
 func _on_spawn_bullet(pos, dir) -> void:
+	print("bullet spawned at ", pos)
 	var bullet: Bullet = BulletPool[current]
 	var parent: Node = bullet.get_parent()
 	if parent:

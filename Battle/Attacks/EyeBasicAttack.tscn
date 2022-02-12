@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://EyeBasicAttack.gd" type="Script" id=1]
+[ext_resource path="res://Battle/Attacks/EyeBasicAttack.gd" type="Script" id=1]
 
 [node name="EyeBasicAttack" type="Node"]
 script = ExtResource( 1 )
+
+[node name="SpawnPosition" type="Position2D" parent="."]
