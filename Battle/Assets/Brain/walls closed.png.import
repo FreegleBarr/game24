@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background scroll.png-7c4f7c313d793635d1b02aac98ecfad4.stex"
+path="res://.import/walls closed.png-f80858a21ca054cb6ee78403634a4192.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/finished pngs/battle/background scroll.png"
-dest_files=[ "res://.import/background scroll.png-7c4f7c313d793635d1b02aac98ecfad4.stex" ]
+source_file="res://Art/finished pngs/battle/Brain/walls closed.png"
+dest_files=[ "res://.import/walls closed.png-f80858a21ca054cb6ee78403634a4192.stex" ]
 
 [params]
 

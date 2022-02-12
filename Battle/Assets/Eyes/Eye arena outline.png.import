@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background scroll.png-7c4f7c313d793635d1b02aac98ecfad4.stex"
+path="res://.import/Eye arena outline.png-8c3c4d4d0ce6d7fd2c53ab8228a3202b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/finished pngs/battle/background scroll.png"
-dest_files=[ "res://.import/background scroll.png-7c4f7c313d793635d1b02aac98ecfad4.stex" ]
+source_file="res://Art/finished pngs/battle/Eyes/Eye arena outline.png"
+dest_files=[ "res://.import/Eye arena outline.png-8c3c4d4d0ce6d7fd2c53ab8228a3202b.stex" ]
 
 [params]
 

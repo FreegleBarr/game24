@@ -5,12 +5,12 @@
 [ext_resource path="res://Battle/BulletSpawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Battle/HUD.gd" type="Script" id=4]
 [ext_resource path="res://Battle/Assets/Arena background.png" type="Texture" id=5]
-[ext_resource path="res://Eyes/Eye arena outline.png" type="Texture" id=6]
 [ext_resource path="res://Lungs/background mask 2.png" type="Texture" id=7]
 [ext_resource path="res://Brain/background mask.png" type="Texture" id=8]
 [ext_resource path="res://Lungs/background mask 1.png" type="Texture" id=9]
 [ext_resource path="res://Lungs/background mask 0.png" type="Texture" id=10]
 [ext_resource path="res://Brain/sillhoute.png" type="Texture" id=11]
+[ext_resource path="res://Brain/outer walls.png" type="Texture" id=17]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -65,7 +65,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -76,7 +76,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
