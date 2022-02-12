@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BG 2.png-0bc5e892f27038b8217285966d6951e8.stex"
+path="res://.import/BG 2.png-d94a96001e205d6115a93c4d930ea879.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lungs/BG 2.png"
-dest_files=[ "res://.import/BG 2.png-0bc5e892f27038b8217285966d6951e8.stex" ]
+source_file="res://Battle/Arenas/Assets/Lungs/BG 2.png"
+dest_files=[ "res://.import/BG 2.png-d94a96001e205d6115a93c4d930ea879.stex" ]
 
 [params]
 

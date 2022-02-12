@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/walls 1.png-9095ca7851958019853cdc96304381c5.stex"
+path="res://.import/walls 1.png-a57ab634e0ebaa03d9c9826dafb41037.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lungs/walls 1.png"
-dest_files=[ "res://.import/walls 1.png-9095ca7851958019853cdc96304381c5.stex" ]
+source_file="res://Battle/Arenas/Assets/Lungs/walls 1.png"
+dest_files=[ "res://.import/walls 1.png-a57ab634e0ebaa03d9c9826dafb41037.stex" ]
 
 [params]
 
