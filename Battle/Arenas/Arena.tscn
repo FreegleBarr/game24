@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/ProjectileManager.gd" type="Script" id=2]
@@ -14,31 +14,39 @@
 [ext_resource path="res://Battle/Attacks/SpiralAttack1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Battle/Arenas/Assets/Brain/background mask.png" type="Texture" id=13]
 [ext_resource path="res://Battle/WallSprite.gd" type="Script" id=14]
-[ext_resource path="res://Battle/Arenas/Assets/Brain/walls closed.png" type="Texture" id=15]
+[ext_resource path="res://Battle/Arenas/Assets/Brain/outer walls.png" type="Texture" id=15]
 [ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=16]
+[ext_resource path="res://Battle/Arenas/InnerWalls.gd" type="Script" id=17]
 
 [sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
 uniform float speed = 1.;
 uniform vec2 direction = vec2(1.);
+uniform sampler2D tex;
+uniform vec2 rect_size;
 
 void fragment(){
-	vec2 coord = UV + TIME*speed*direction/length(direction);
-	coord = round(coord/TEXTURE_PIXEL_SIZE)*TEXTURE_PIXEL_SIZE;
-	COLOR = texture(TEXTURE, coord);
+	vec2 coord = UV;
+	vec2 size = vec2(textureSize(tex, 0));
+	coord = mod(round(coord/SCREEN_PIXEL_SIZE), size)/size;
+	coord += TIME*speed*direction/length(direction);
+	COLOR = texture(tex, coord);
 }"
 
 [sub_resource type="ShaderMaterial" id=11]
 shader = SubResource( 10 )
 shader_param/speed = 1.0
 shader_param/direction = Vector2( 1, 1 )
+shader_param/rect_size = null
+shader_param/tex = ExtResource( 9 )
 
 [sub_resource type="GDScript" id=12]
-script/source = "extends TextureRect
+script/source = "extends ColorRect
+
 
 export(StreamTexture) var win
 export(StreamTexture) var lose
-
+export(StreamTexture) var battle
 "
 
 [sub_resource type="Shader" id=1]
@@ -108,24 +116,25 @@ animations = [ {
 [sub_resource type="PhysicsMaterial" id=9]
 friction = 0.0
 
+[sub_resource type="PhysicsMaterial" id=13]
+
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Background" type="TextureRect" parent="CanvasLayer2"]
+[node name="Background" type="ColorRect" parent="CanvasLayer2"]
 material = SubResource( 11 )
-margin_right = 4096.0
-margin_bottom = 4096.0
-texture = ExtResource( 9 )
-stretch_mode = 2
+margin_right = 2000.0
+margin_bottom = 1000.0
 script = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 win = ExtResource( 10 )
 lose = ExtResource( 11 )
+battle = ExtResource( 9 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -182,16 +191,22 @@ frames = SubResource( 5 )
 [node name="Silloutte" type="AnimatedSprite" parent="Organ"]
 frames = SubResource( 8 )
 
-[node name="WallSprite" type="AnimatedSprite" parent="Organ"]
+[node name="Contour" type="AnimatedSprite" parent="Organ"]
 frames = SubResource( 7 )
 script = ExtResource( 14 )
 background = ExtResource( 8 )
 
-[node name="Walls" type="StaticBody2D" parent="Organ/WallSprite"]
+[node name="Walls" type="StaticBody2D" parent="Organ/Contour"]
 collision_mask = 0
 physics_material_override = SubResource( 9 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Organ/WallSprite/Walls"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Organ/Contour/Walls"]
+
+[node name="InnerWalls" type="Sprite" parent="Organ"]
+script = ExtResource( 17 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Organ/InnerWalls"]
+physics_material_override = SubResource( 13 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -305, 62 )

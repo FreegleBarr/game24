@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Battle/Attacks/BaseAttack.gd"
 }, {
-"base": "Area2D",
-"class": "Bullet",
-"language": "GDScript",
-"path": "res://Battle/Projectiles/Bullet.gd"
-}, {
 "base": "Node",
 "class": "Choreography",
 "language": "GDScript",
@@ -28,12 +23,17 @@ _global_script_classes=[ {
 "class": "ChoreographySteps",
 "language": "GDScript",
 "path": "res://Battle/Fights/Choreography.gd"
+}, {
+"base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Battle/Projectiles/Base.gd"
 } ]
 _global_script_class_icons={
 "BaseAttack": "",
-"Bullet": "",
 "Choreography": "",
-"ChoreographySteps": ""
+"ChoreographySteps": "",
+"Projectile": ""
 }
 
 [application]

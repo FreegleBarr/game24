@@ -1,7 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Battle/Projectiles/Assets/virus.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Projectiles/Base.gd" type="Script" id=2]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 9
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+monitoring = false

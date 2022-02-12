@@ -62,6 +62,6 @@ func _on_Button_button_down() -> void:
 	self.hp = -9999
 
 
-func _on_Hurtbox_area_entered(area: Bullet) -> void:
+func _on_Hurtbox_area_entered(area: Projectile) -> void:
 	area.contact()
 	self.hp -= 1

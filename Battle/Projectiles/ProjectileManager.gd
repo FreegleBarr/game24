@@ -1,7 +1,7 @@
 extends Node2D
 
 var BulletPool = []
-var Bullet = preload("res://Battle/Projectiles/Bullet.tscn")
+var Bullet = preload("res://Battle/Projectiles/Base.tscn")
 
 var current = 0
 
@@ -12,7 +12,8 @@ func _ready():
 
 func _on_spawn_bullet(pos, dir) -> void:
 	print("bullet spawned at ", pos)
-	var bullet: Bullet = BulletPool[current]
+	return
+	var bullet: Projectile = BulletPool[current]
 	var parent: Node = bullet.get_parent()
 	if parent:
 		parent.remove_child(bullet)
