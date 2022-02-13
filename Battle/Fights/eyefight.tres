@@ -4,16 +4,32 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "EyeBasicAttack
+steps = "EyeWallWalker
+EyeBasic
+sleep 1EyeWallWalker
+EyeBasic
 sleep 1
-EyeBasicAttack
+EyeWallWalker
+EyeBasic
 sleep 1
-EyeBasicAttack
+EyeWallWalker
+EyeBasic
 sleep 1
-EyeBasicAttack
+EyeWallWalker
+EyeBasic
 sleep 1
-EyeBasicAttack
+EyeWallWalker
+EyeBasic
 sleep 1
-EyeBasicAttack
+EyeWallWalker
+EyeBasic
 sleep 1
-EyeBasicAttack"
+EyeWallWalker
+EyeBasic
+sleep 1
+EyeWallWalker
+EyeBasic
+sleep 1
+EyeWallWalker
+EyeBasic
+sleep 1"
