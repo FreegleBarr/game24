@@ -47,7 +47,8 @@ _global_script_class_icons={
 config/name="Game 24"
 run/main_scene="res://Battle/Arenas/Eye.tscn"
 boot_splash/use_filter=false
-config/icon="res://icon.png"
+config/icon="res://Icons/icon.png"
+config/windows_native_icon="res://Icons/icon.ico"
 
 [autoload]
 
