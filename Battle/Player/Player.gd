@@ -22,7 +22,6 @@ func change_hp(value):
 	hp = min(max_hp, value)
 	emit_signal("hp_changed", hp)
 	if hp <= 0:
-		#TODO: die
 		emit_signal("died")
 		die()
 
@@ -30,7 +29,7 @@ func _ready() -> void:
 	self.hp = max_hp
 	
 var velocity: Vector2
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity = Vector2()
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
@@ -44,18 +43,22 @@ func _physics_process(delta: float) -> void:
 	if dead:
 		pass
 	elif velocity:
-		playback.travel("Move")
-		$AnimationTree.set("parameters/Idle/blend_position", velocity)
-		$AnimationTree.set("parameters/Move/blend_position", velocity)
-		move_and_slide(velocity * move_speed)
+		if velocity.x > 0:
+			$Sprite.flip_h = false
+		elif velocity.x < 0:
+			$Sprite.flip_h = true
+#		playback.travel("Move")
+		velocity = move_and_slide(velocity * move_speed)
 	else:
-		playback.travel("Idle")
+		pass
+#		playback.travel("Idle")
 
 func die():
+	#TODO: die
 	playback.travel("Dead")
 	dead = true
-	$Collision.disabled = true
-	$Hurtbox/Collision.disabled = true
+	$Collision.set_deferred("disabled", true)
+	$Hurtbox/Collision.set_deferred("disabled", true)
 
 
 func _on_Button_button_down() -> void:
@@ -64,4 +67,5 @@ func _on_Button_button_down() -> void:
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	area.owner.contact()
+	playback.travel("Hurt")
 	self.hp -= 1

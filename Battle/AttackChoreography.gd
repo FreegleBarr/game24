@@ -51,6 +51,8 @@ func _ready() -> void:
 			continue
 		available_attacks[child.name] = child
 		child.connect("attack_done", self, "attack_done")
+		if Battle.projectile_manager:
+			child.connect("spawn_bullet", Battle.projectile_manager, "_on_spawn_bullet")
 	load_script(choreography_steps)
 
 func load_script(choreography_steps) -> void:

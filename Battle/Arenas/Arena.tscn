@@ -28,7 +28,7 @@ uniform vec2 rect_size;
 void fragment(){
 	vec2 coord = UV;
 	vec2 size = vec2(textureSize(tex, 0));
-	coord = mod(round(coord/SCREEN_PIXEL_SIZE), size)/size;
+	coord = mod(round(coord*rect_size), size)/size;
 	coord += TIME*speed*direction/length(direction);
 	COLOR = texture(tex, coord);
 }"
@@ -37,7 +37,7 @@ void fragment(){
 shader = SubResource( 10 )
 shader_param/speed = 1.0
 shader_param/direction = Vector2( 1, 1 )
-shader_param/rect_size = null
+shader_param/rect_size = Vector2( 2000, 1000 )
 shader_param/tex = ExtResource( 9 )
 
 [sub_resource type="GDScript" id=12]
@@ -47,6 +47,13 @@ script/source = "extends ColorRect
 export(StreamTexture) var win
 export(StreamTexture) var lose
 export(StreamTexture) var battle
+
+
+func lost():
+	material.set(\"shader_param/tex\", lose)
+
+func won():
+	material.set(\"shader_param/tex\", win)
 "
 
 [sub_resource type="Shader" id=1]
@@ -121,10 +128,10 @@ friction = 0.0
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="BG" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Background" type="ColorRect" parent="CanvasLayer2"]
+[node name="Scroll" type="ColorRect" parent="BG"]
 material = SubResource( 11 )
 margin_right = 2000.0
 margin_bottom = 1000.0
@@ -136,9 +143,9 @@ win = ExtResource( 10 )
 lose = ExtResource( 11 )
 battle = ExtResource( 9 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUDControls" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
+[node name="HUD" type="Control" parent="HUDControls"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -146,26 +153,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD"]
+[node name="PanelContainer" type="PanelContainer" parent="HUDControls/HUD"]
 anchor_right = 1.0
 margin_bottom = 84.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDControls/HUD/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1273.0
 margin_bottom = 77.0
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD/PanelContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HUDControls/HUD/PanelContainer/HBoxContainer"]
 margin_top = 28.0
 margin_right = 22.0
 margin_bottom = 42.0
 text = "HP:"
 
-[node name="Label2" type="Label" parent="CanvasLayer/HUD/PanelContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="HUDControls/HUD/PanelContainer/HBoxContainer"]
 margin_left = 26.0
 margin_top = 28.0
 margin_right = 34.0
@@ -223,7 +230,9 @@ choreography_steps = ExtResource( 16 )
 
 [node name="SpiralAttack" parent="AttackChoreography" instance=ExtResource( 12 )]
 
-[connection signal="hp_changed" from="Player" to="CanvasLayer/HUD" method="_on_Player_hp_changed"]
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
+[connection signal="hp_changed" from="Player" to="HUDControls/HUD" method="_on_Player_hp_changed"]
+[connection signal="fight_over" from="AttackChoreography" to="." method="_on_AttackChoreography_fight_over"]
 [connection signal="spawn_bullet" from="AttackChoreography/BulletSpawn" to="ProjectileManagers" method="_on_spawn_bullet"]
 
 [editable path="ProjectileManagers"]

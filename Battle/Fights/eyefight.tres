@@ -5,4 +5,15 @@
 [resource]
 script = ExtResource( 1 )
 steps = "EyeBasicAttack
+sleep 1
+EyeBasicAttack
+sleep 1
+EyeBasicAttack
+sleep 1
+EyeBasicAttack
+sleep 1
+EyeBasicAttack
+sleep 1
+EyeBasicAttack
+sleep 1
 EyeBasicAttack"

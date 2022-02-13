@@ -10,5 +10,5 @@ script = ExtResource( 2 )
 collision_layer = 2
 monitoring = true
 
-[connection signal="area_entered" from="FloatableSprite/Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="FloatableSprite/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="FloatableSprite/Area2D" to="." method="_on_Area2D_body_exited"]

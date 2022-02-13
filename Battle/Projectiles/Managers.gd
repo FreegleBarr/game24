@@ -1,5 +1,7 @@
 extends Node2D
 
+func _ready() -> void:
+	Battle.projectile_manager = self
 
 	
 func _on_spawn_bullet(type, pos, dir) -> void:

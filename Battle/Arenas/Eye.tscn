@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Battle/Arenas/Arena.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Battle/Attacks/EyeBasicAttack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Battle/Attacks/CenteredBasicAttack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Fights/eyefight.tres" type="Resource" id=3]
 [ext_resource path="res://Battle/Arenas/Assets/Eyes/Eye arena mask.png" type="Texture" id=4]
 [ext_resource path="res://Battle/Arenas/Assets/Eyes/Eye arena outline.png" type="Texture" id=5]
@@ -42,6 +42,7 @@ animations = [ {
 } ]
 
 [node name="Eye" instance=ExtResource( 1 )]
+position = Vector2( 0, -1 )
 
 [node name="BGMap" parent="Organ/BG" index="0"]
 frames = SubResource( 1 )
@@ -61,5 +62,17 @@ choreography_steps = ExtResource( 3 )
 
 [node name="EyeBasicAttack" parent="AttackChoreography" index="3" instance=ExtResource( 2 )]
 
+[node name="SpawnPosition" parent="AttackChoreography/EyeBasicAttack" index="0"]
+position = Vector2( 500, 0 )
+
+[node name="CenterAngles" type="Position2D" parent="." index="7"]
+
+[node name="Top" type="Position2D" parent="CenterAngles" index="0"]
+position = Vector2( 177, -133 )
+
+[node name="Bottom" type="Position2D" parent="CenterAngles" index="1"]
+position = Vector2( 177, 133 )
+
 [editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BulletSpawn"]
+[editable path="AttackChoreography/EyeBasicAttack"]
