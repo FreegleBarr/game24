@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/npc skully billy.png-17ae00bb34af7ed674ca8ed0cda03d5b.stex"
+path="res://.import/npc cowman.png-9a70e842f76c11153bdf35ad226e3908.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overworld/Assets/npc skully billy.png"
-dest_files=[ "res://.import/npc skully billy.png-17ae00bb34af7ed674ca8ed0cda03d5b.stex" ]
+source_file="res://Overworld/Objects/Sprites/npc cowman.png"
+dest_files=[ "res://.import/npc cowman.png-9a70e842f76c11153bdf35ad226e3908.stex" ]
 
 [params]
 

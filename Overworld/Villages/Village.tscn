@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Overworld/Villages/Collision.gd" type="Script" id=1]
 [ext_resource path="res://Overworld/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Overworld/Objects/Monument.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Overworld/Utils/TrackerCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Overworld/Objects/Interactable.tscn" type="PackedScene" id=5]
 
 [node name="Village" type="Node2D"]
 
@@ -19,6 +20,18 @@ script = ExtResource( 1 )
 [node name="Monument" parent="YSort" instance=ExtResource( 3 )]
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
+
+[node name="Cowman" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 143, -1 )
+
+[node name="Cowman2" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 96, -39 )
+
+[node name="Cowman3" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 189, -30 )
+
+[node name="Cowman4" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 98, 29 )
 
 [node name="TrackerCamera" parent="." instance=ExtResource( 4 )]
 current = true

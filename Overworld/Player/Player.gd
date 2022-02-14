@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
-var velocity = Vector2.ZERO
-var speed = 50
-var acceleration = 50
-var deceleration = 50
-var maxSpeed = 10
+var velocity := Vector2.ZERO
+var speed: float = 50
+var acceleration: float = 50
+var deceleration: float = 50
+var maxSpeed: float = 10
+
+var talking := false
 
 
 func _physics_process(delta):
