@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portrait skully billy.png-477e7f6a1fb8ae1a491183dc57a4f253.stex"
+path="res://.import/portrait cowman.png-6bba9dd2b3bd1fc946fb239541b8e64b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overworld/Assets/portrait skully billy.png"
-dest_files=[ "res://.import/portrait skully billy.png-477e7f6a1fb8ae1a491183dc57a4f253.stex" ]
+source_file="res://Overworld/Dialogue/Portraits/portrait cowman.png"
+dest_files=[ "res://.import/portrait cowman.png-6bba9dd2b3bd1fc946fb239541b8e64b.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portrait old johnkins.png-d4a74ae3a3d4ed791410ef12fc504c5d.stex"
+path="res://.import/portrait skully billy.png-3f9fb05261ac195e4d7c235159436f4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overworld/Assets/portrait old johnkins.png"
-dest_files=[ "res://.import/portrait old johnkins.png-d4a74ae3a3d4ed791410ef12fc504c5d.stex" ]
+source_file="res://Overworld/Dialogue/Portraits/portrait skully billy.png"
+dest_files=[ "res://.import/portrait skully billy.png-3f9fb05261ac195e4d7c235159436f4e.stex" ]
 
 [params]
 

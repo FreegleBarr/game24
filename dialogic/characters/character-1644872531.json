@@ -1,11 +1,11 @@
 {
-	"color": "#fff7b3b3",
+	"color": "#ffffffff",
 	"description": "",
 	"display_name": "",
 	"display_name_bool": false,
-	"id": "character-1644862958.json",
+	"id": "character-1644872531.json",
 	"mirror_portraits": false,
-	"name": "Skelly",
+	"name": "Old Johnkin",
 	"nickname": "",
 	"nickname_bool": false,
 	"offset_x": -40,
@@ -13,11 +13,11 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://Overworld/Dialogue/Portraits/portrait skully billy.png"
+			"path": "res://Overworld/Dialogue/Portraits/portrait old johnkins.png"
 		},
 		{
-			"name": "Speaking",
-			"path": "res://Overworld/Dialogue/Portraits/portrait skully billy.png"
+			"name": "portrait old johnkins",
+			"path": "res://Overworld/Dialogue/Portraits/portrait old johnkins.png"
 		}
 	],
 	"scale": 100,

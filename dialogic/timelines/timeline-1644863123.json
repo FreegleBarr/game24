@@ -15,11 +15,11 @@
 			"portrait": "Default",
 			"portrait_definition": "",
 			"position": {
-				"0": true,
+				"0": false,
 				"1": false,
 				"2": false,
 				"3": false,
-				"4": false
+				"4": true
 			},
 			"type": 0,
 			"z_index": 0
@@ -31,8 +31,20 @@
 			"text": "This is test dialogue. Skelly will prolly give tips to the player."
 		},
 		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Really long message to see how they are handled. I  really like the colour red, it's a neat colour and it's quite common in nature. Really long mes"
+		},
+		{
 			"event_id": "dialogic_022",
 			"transition_duration": 1
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": ""
 		}
 	],
 	"metadata": {
