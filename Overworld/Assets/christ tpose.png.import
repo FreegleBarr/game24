@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/christ tpose.png-468a6081f215e6592f723300d8e9d514.stex"
+path="res://.import/christ tpose.png-70036d5f48a5b6edb6d25e435f9a6607.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overworld/christ tpose.png"
-dest_files=[ "res://.import/christ tpose.png-468a6081f215e6592f723300d8e9d514.stex" ]
+source_file="res://Overworld/Assets/christ tpose.png"
+dest_files=[ "res://.import/christ tpose.png-70036d5f48a5b6edb6d25e435f9a6607.stex" ]
 
 [params]
 

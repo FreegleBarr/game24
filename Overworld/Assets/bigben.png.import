@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bigben.png-4641c0267209a1210b189da41df8c67a.stex"
+path="res://.import/bigben.png-289d581af13d18e6408988f58f0bedb2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overworld/bigben.png"
-dest_files=[ "res://.import/bigben.png-4641c0267209a1210b189da41df8c67a.stex" ]
+source_file="res://Overworld/Assets/bigben.png"
+dest_files=[ "res://.import/bigben.png-289d581af13d18e6408988f58f0bedb2.stex" ]
 
 [params]
 

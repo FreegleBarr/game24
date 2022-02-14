@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/building1.png-3a9808b2b7eab5349cf1aa3df4ee743d.stex"
+path="res://.import/building1.png-51fc0f1ec7809eef243b4800c141a07b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overworld/building1.png"
-dest_files=[ "res://.import/building1.png-3a9808b2b7eab5349cf1aa3df4ee743d.stex" ]
+source_file="res://Overworld/Assets/building1.png"
+dest_files=[ "res://.import/building1.png-51fc0f1ec7809eef243b4800c141a07b.stex" ]
 
 [params]
 
