@@ -18,12 +18,12 @@ func _physics_process(delta: float) -> void:
 	position += direction*move_speed*delta
 	
 
-func _on_Area2D_body_entered(body: Node) -> void:
+func _on_Area2D_body_entered(_body: Node) -> void:
 	if spawned:
 		get_parent().call_deferred("remove_child", self)
 
 
 
 
-func _on_Area2D_body_exited(body: Node) -> void:
+func _on_Area2D_body_exited(_body: Node) -> void:
 	spawned = true

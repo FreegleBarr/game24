@@ -19,7 +19,6 @@ func create_collision_polygon():
 		out_pool_array.append(out_array[0][j]-texture_offset/2)
 	for i in range(in_array[0].size()):
 		in_pool_array.append(in_array[0][i]-texture_offset/2)
-	var closest
 #	out_pool_array.remove(-1)
 	var in_pool_reverse = PoolVector2Array()
 	var size = in_pool_array.size()

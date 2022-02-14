@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Battle/Attacks/EyeWallWalker.gd" type="Script" id=1]
+[ext_resource path="res://Battle/Arenas/Assets/Arena background.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "From"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 40.0, 320.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "To"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 320.0, 40.0 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "From"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "To"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=7]
+states/From/node = SubResource( 3 )
+states/From/position = Vector2( 463, 47 )
+states/To/node = SubResource( 4 )
+states/To/position = Vector2( 280, 47 )
+transitions = [ "To", "From", SubResource( 5 ), "From", "To", SubResource( 6 ) ]
+start_node = "To"
+
+[sub_resource type="AnimationNodeTimeScale" id=8]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+graph_offset = Vector2( -210, 71 )
+nodes/StateMachine/node = SubResource( 7 )
+nodes/StateMachine/position = Vector2( -120, 120 )
+nodes/TimeScale/node = SubResource( 8 )
+nodes/TimeScale/position = Vector2( 100, 120 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "StateMachine" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
+
+[node name="EyeWallWalker" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Pivot" type="Node2D" parent="."]
+rotation = 5.24419
+
+[node name="SpawnPoint" type="Position2D" parent="Pivot"]
+position = Vector2( 220, 0 )
+
+[node name="Sprite" type="Sprite" parent="Pivot/SpawnPoint"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/From = SubResource( 1 )
+anims/To = SubResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/StateMachine/playback = SubResource( 10 )
+parameters/TimeScale/scale = 1.0
