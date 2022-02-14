@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/speechbubble.png-174ff5d384c8fc64b2e4eb78e0a5b4f1.stex"
+path="res://.import/speechbubble.png-d44e186c3a3487dd0f684becf7ebb5e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Overworld/Dialogue/speechbubble.png"
-dest_files=[ "res://.import/speechbubble.png-174ff5d384c8fc64b2e4eb78e0a5b4f1.stex" ]
+source_file="res://overworld/Dialogue/speechbubble.png"
+dest_files=[ "res://.import/speechbubble.png-d44e186c3a3487dd0f684becf7ebb5e7.stex" ]
 
 [params]
 
