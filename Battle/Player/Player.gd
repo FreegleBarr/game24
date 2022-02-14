@@ -22,7 +22,6 @@ func change_hp(value):
 	hp = min(max_hp, value)
 	emit_signal("hp_changed", hp)
 	if hp <= 0:
-		emit_signal("died")
 		die()
 
 func _ready() -> void:
@@ -42,7 +41,7 @@ func _physics_process(_delta: float) -> void:
 		
 	if dead:
 		pass
-	elif velocity:
+	elif velocity.length():
 		if velocity.x > 0:
 			$Sprite.flip_h = false
 		elif velocity.x < 0:
@@ -55,6 +54,7 @@ func _physics_process(_delta: float) -> void:
 
 func die():
 	#TODO: die
+	emit_signal("died")
 	playback.travel("Dead")
 	dead = true
 	$Collision.set_deferred("disabled", true)
