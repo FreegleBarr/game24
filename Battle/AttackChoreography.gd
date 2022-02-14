@@ -68,6 +68,7 @@ func load_script(choreography_steps) -> void:
 			var args: Array = []
 			var mod_section = true
 			for word in words:
+				assert(word != "", "Trailing whitespace")
 				if mod_section:
 					if word in modifiers:
 						mods.append(word)
@@ -102,6 +103,7 @@ func start():
 	next_inst()
 
 func attack_done():
+	print("actions: ", active_actions)
 	active_actions -= 1
 	if active_actions == 0:
 		next_inst()
