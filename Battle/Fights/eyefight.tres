@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "CentredSequence 1 0
-CentredSequence 1 1"
+steps = "nowait CentredSequence 1 0
+EyeWallWalker 9 1"

@@ -73,7 +73,7 @@ node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "StateMachine" ]
 script = ExtResource( 1 )
 
 [node name="Pivot" type="Node2D" parent="."]
-rotation = 5.24419
+rotation = 1.13156
 
 [node name="SpawnPoint" type="Position2D" parent="Pivot"]
 position = Vector2( 220, 0 )
@@ -92,3 +92,5 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/StateMachine/playback = SubResource( 10 )
 parameters/TimeScale/scale = 1.0
+
+[node name="Timer" type="Timer" parent="."]
