@@ -44,7 +44,9 @@ class Action:
 				attack.start(args["args"])
 			Type.NEW_CHOR:
 				print("starting new choreography")
+				chor.active_actions += 1
 				args["subchor"].start()
+				chor.attack_done()
 				
 
 
