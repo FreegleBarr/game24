@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pngwing.com2.png-4028d667a3ef848d270288a544fff51f.stex"
+path="res://.import/pngwing.com2.png-d10780e03c76b1ce90c307dcd175ee6d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overworld/Assets/pngwing.com2.png"
-dest_files=[ "res://.import/pngwing.com2.png-4028d667a3ef848d270288a544fff51f.stex" ]
+source_file="res://Overworld/Assets/pngwing.com2.png"
+dest_files=[ "res://.import/pngwing.com2.png-d10780e03c76b1ce90c307dcd175ee6d.stex" ]
 
 [params]
 
