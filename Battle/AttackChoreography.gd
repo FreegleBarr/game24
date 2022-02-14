@@ -5,7 +5,8 @@ signal fight_over
 
 enum Type {
 	SLEEP,
-	ATTACK
+	ATTACK,
+	NEW_CHOR
 }
 
 export (Resource) var choreography_steps
@@ -14,6 +15,7 @@ onready var timer = $Timer
 
 const modifiers = ["nowait"]
 var available_attacks: Dictionary = {}
+var available_subchors: Dictionary = {}
 var current_inst = 0
 var execution_order: Array = []
 var active_actions: int = 0
@@ -40,6 +42,9 @@ class Action:
 				if "nowait" in args["mods"]:
 					chor.next_inst()
 				attack.start(args["args"])
+			Type.NEW_CHOR:
+				print("starting new choreography")
+				args["subchor"].start()
 				
 
 
@@ -47,12 +52,13 @@ class Action:
 
 func _ready() -> void:
 	for child in get_children():
-		if child == timer:
-			continue
-		available_attacks[child.name] = child
-		child.connect("attack_done", self, "attack_done")
-		if Battle.projectile_manager:
-			child.connect("spawn_bullet", Battle.projectile_manager, "_on_spawn_bullet")
+		if child.is_class(BaseAttack):
+			available_attacks[child.name] = child
+			child.connect("attack_done", self, "attack_done")
+			if Battle.projectile_manager:
+				child.connect("spawn_bullet", Battle.projectile_manager, "_on_spawn_bullet")
+		if child.is_class(Choreography):
+			available_subchors[child.name] = child
 	load_script(choreography_steps)
 
 func load_script(choreography_steps) -> void:
@@ -62,6 +68,8 @@ func load_script(choreography_steps) -> void:
 		if words[0].to_lower() == "sleep":
 			var time: float = words[1] as int
 			execution_order.append(Action.new(self, Type.SLEEP, {"time": time}))
+		elif words[0].to_lower() == "start":
+			execution_order.append(Action.new(self, Type.NEW_CHOR, {"subchor": available_subchors[words[1]]}))
 		else:
 			var mods: Array = []
 			var attack: BaseAttack
