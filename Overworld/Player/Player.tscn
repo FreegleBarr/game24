@@ -4,8 +4,8 @@
 [ext_resource path="res://Overworld/Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 5.0
-height = 6.0
+radius = 6.99998
+height = 12.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 100.0
@@ -48,7 +48,6 @@ collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
 hframes = 2
 
