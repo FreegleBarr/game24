@@ -18,7 +18,11 @@ func _physics_process(delta):
 	#in which case set it to zero
 	if xInput == 0:
 		velocity.x -= sign(velocity.x)*min(abs(velocity.x), deceleration*delta)
-				
+	elif xInput > 0:
+		$Sprite.flip_h = false
+	else:
+		$Sprite.flip_h = true
+
 	if yInput == 0:
 		velocity.y -= sign(velocity.y)*min(abs(velocity.y), deceleration*delta)
 	

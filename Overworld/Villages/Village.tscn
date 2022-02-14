@@ -1,3 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Overworld/Villages/Collision.gd" type="Script" id=1]
+[ext_resource path="res://Overworld/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Overworld/Objects/Monument.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Overworld/Utils/TrackerCamera.tscn" type="PackedScene" id=4]
 
 [node name="Village" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+
+[node name="Collision" type="StaticBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Village" type="Sprite" parent="YSort"]
+
+[node name="Monument" parent="YSort" instance=ExtResource( 3 )]
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+
+[node name="TrackerCamera" parent="." instance=ExtResource( 4 )]
+current = true
+tracked = NodePath("../YSort/Player")

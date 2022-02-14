@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PortraitPlaceHolder.png-2019be98f57f383cd6b8bde2bf0505dc.stex"
+path="res://.import/PortraitPlaceHolder.png-443bd35190c4124c1e30281fc98c4f72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overworld/Dialogue/Portraits/PortraitPlaceHolder.png"
-dest_files=[ "res://.import/PortraitPlaceHolder.png-2019be98f57f383cd6b8bde2bf0505dc.stex" ]
+source_file="res://Overworld/Dialogue/Portraits/PortraitPlaceHolder.png"
+dest_files=[ "res://.import/PortraitPlaceHolder.png-443bd35190c4124c1e30281fc98c4f72.stex" ]
 
 [params]
 
