@@ -35,8 +35,8 @@ func _process(delta):
 			if velocity.y > 0:
 				velocity.y -= deceleration
 				
-	velocity.x = clamp(velocity.x, -maxSpeed, maxSpeed)
-	velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
+	velocity = velocity.normalized()*min(velocity.length(), maxSpeed)
 	
-	move_and_slide(velocity*speed)
+	velocity = move_and_slide(velocity*speed)
+	velocity /= speed
 
