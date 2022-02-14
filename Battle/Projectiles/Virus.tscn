@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Battle/Projectiles/Base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Battle/Projectiles/Virus.gd" type="Script" id=2]
+
+[node name="Virus" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Area2D" parent="FloatableSprite" index="0"]
+collision_layer = 2
+monitoring = true
+
+[connection signal="body_entered" from="FloatableSprite/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="FloatableSprite/Area2D" to="." method="_on_Area2D_body_exited"]

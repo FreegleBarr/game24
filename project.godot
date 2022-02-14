@@ -9,20 +9,85 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "Bullet",
+"base": "Node",
+"class": "BaseAttack",
 "language": "GDScript",
-"path": "res://Battle/Bullet.gd"
+"path": "res://Battle/Attacks/BaseAttack.gd"
+}, {
+"base": "Node",
+"class": "Choreography",
+"language": "GDScript",
+"path": "res://Battle/AttackChoreography.gd"
+}, {
+"base": "Resource",
+"class": "ChoreographySteps",
+"language": "GDScript",
+"path": "res://Battle/Fights/Choreography.gd"
+}, {
+"base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Battle/Projectiles/Base.gd"
+}, {
+"base": "Node2D",
+"class": "ProjectileManager",
+"language": "GDScript",
+"path": "res://Battle/Projectiles/Managers/ProjectileManager.gd"
 } ]
 _global_script_class_icons={
-"Bullet": ""
+"BaseAttack": "",
+"Choreography": "",
+"ChoreographySteps": "",
+"Projectile": "",
+"ProjectileManager": ""
 }
 
 [application]
 
 config/name="Game 24"
-run/main_scene="res://Battle/Arena.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Battle/Arenas/Eye.tscn"
+boot_splash/use_filter=false
+config/icon="res://Icons/icon.png"
+config/windows_native_icon="res://Icons/icon.ico"
+
+[autoload]
+
+Battle="*res://Battle/autoload.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [layer_names]
 
@@ -32,7 +97,3 @@ config/icon="res://icon.png"
 [physics]
 
 common/enable_pause_aware_picking=true
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

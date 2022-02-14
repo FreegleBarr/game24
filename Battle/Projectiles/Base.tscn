@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Battle/Projectiles/Assets/virus.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Projectiles/Base.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 28.0
+height = 68.0
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FloatableSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "active"
+length = 1.35
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("FloatableSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="."]
+
+[node name="FloatableSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 9
+
+[node name="Area2D" type="Area2D" parent="FloatableSprite"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloatableSprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/active = SubResource( 2 )
