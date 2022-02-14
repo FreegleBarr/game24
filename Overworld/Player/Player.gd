@@ -2,39 +2,26 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 var speed = 50
-var acceleration = 0.5
-var deceleration = 0.5
+var acceleration = 50
+var deceleration = 50
 var maxSpeed = 10
 
 
-func _process(delta):
+func _physics_process(delta):
 	
 	var xInput = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	var yInput = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up") 
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += acceleration
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= acceleration
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += acceleration
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= acceleration
-		
+	velocity += Vector2(xInput, yInput).normalized()*acceleration*delta
+	
+	#complex code, but basically decrease speed until it's smaller than deceleration
+	#in which case set it to zero
 	if xInput == 0:
-		if velocity.x != 0:
-			if velocity.x < 0:
-				velocity.x += deceleration
-			if velocity.x > 0:
-				velocity.x -= deceleration
+		velocity.x -= sign(velocity.x)*min(abs(velocity.x), deceleration*delta)
 				
 	if yInput == 0:
-		if velocity.y != 0:
-			if velocity.y < 0:
-				velocity.y += deceleration
-			if velocity.y > 0:
-				velocity.y -= deceleration
-				
+		velocity.y -= sign(velocity.y)*min(abs(velocity.y), deceleration*delta)
+	
 	velocity = velocity.normalized()*min(velocity.length(), maxSpeed)
 	
 	velocity = move_and_slide(velocity*speed)
