@@ -127,6 +127,3 @@ func next_inst():
 
 func is_chor() -> bool:
 	return true
-
-func is_attack() -> bool:
-	return true
