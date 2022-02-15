@@ -3,6 +3,9 @@ class_name BaseAttack
 
 signal attack_done
 
+func is_attack():
+	return true
+
 func start(_args: Array) -> void:
 	emit_signal("attack_done")
 

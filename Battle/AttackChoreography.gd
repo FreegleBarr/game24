@@ -54,12 +54,12 @@ class Action:
 
 func _ready() -> void:
 	for child in get_children():
-		if child.is_class(BaseAttack):
+		if child.has_method('is_attack'):
 			available_attacks[child.name] = child
 			child.connect("attack_done", self, "attack_done")
 			if Battle.projectile_manager:
 				child.connect("spawn_bullet", Battle.projectile_manager, "_on_spawn_bullet")
-		if child.is_class(Choreography):
+		if child.has_method('is_chor'):
 			available_subchors[child.name] = child
 	load_script(choreography_steps)
 
@@ -113,7 +113,6 @@ func start():
 	next_inst()
 
 func attack_done():
-	print("actions: ", active_actions)
 	active_actions -= 1
 	if active_actions == 0:
 		next_inst()
@@ -125,3 +124,9 @@ func next_inst():
 		return
 	execution_order[current_inst - 1].exec()
 
+
+func is_chor() -> bool:
+	return true
+
+func is_attack() -> bool:
+	return true
