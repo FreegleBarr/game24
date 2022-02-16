@@ -28,7 +28,5 @@ func _on_Area2D_body_entered(_body: Node) -> void:
 		contact()
 
 
-
-
 func _on_Area2D_body_exited(_body: Node) -> void:
 	spawned = true

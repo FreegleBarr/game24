@@ -67,6 +67,7 @@ func _on_Button_button_down() -> void:
 
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
+	print("Hurtbox entered: ", area.owner)
 	area.owner.contact()
 	playback.travel("Hurt")
 	self.hp -= 1

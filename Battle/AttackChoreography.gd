@@ -70,7 +70,12 @@ func load_script(choreography_steps) -> void:
 	var play_by_play: Array = choreography_steps.steps.split("\n")
 	total_time = 0
 	for line in play_by_play:
-		var words: Array = line.split(" ")
+		
+		var raw_words: Array = line.split(" ")
+		var words = []
+		for word in raw_words:
+			words.append(word.strip_edges())
+		
 		if words[0].to_lower() == "sleep":
 			var time: float = words[1] as int
 			total_time += time

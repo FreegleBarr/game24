@@ -2,7 +2,7 @@ extends Node
 class_name BaseAttack
 
 signal attack_done
-signal spawn_bullet(type, pos, dir)
+#signal spawn_bullet(type, pos, dir)
 
 func is_attack():
 	return true
