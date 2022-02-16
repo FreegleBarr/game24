@@ -26,6 +26,7 @@ func change_hp(value):
 
 func _ready() -> void:
 	self.hp = max_hp
+	Battle.player = self
 	
 var velocity: Vector2
 func _physics_process(_delta: float) -> void:

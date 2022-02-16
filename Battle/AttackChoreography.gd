@@ -2,6 +2,7 @@ extends Node
 class_name Choreography
 
 signal fight_over
+signal time_calculated(time)
 
 enum Type {
 	SLEEP,
@@ -19,6 +20,8 @@ var available_subchors: Dictionary = {}
 var current_inst = 0
 var execution_order: Array = []
 var active_actions: int = 0
+var total_time: float = 0
+var nowait_time: float = -1
 
 class Action:
 	var type
@@ -65,12 +68,16 @@ func _ready() -> void:
 
 func load_script(choreography_steps) -> void:
 	var play_by_play: Array = choreography_steps.steps.split("\n")
+	total_time = 0
 	for line in play_by_play:
 		var words: Array = line.split(" ")
 		if words[0].to_lower() == "sleep":
 			var time: float = words[1] as int
+			total_time += time
 			execution_order.append(Action.new(self, Type.SLEEP, {"time": time}))
 		elif words[0].to_lower() == "start":
+			var subchor: Choreography = available_subchors[words[1]]
+			total_time += subchor.total_time
 			execution_order.append(Action.new(self, Type.NEW_CHOR, {"subchor": available_subchors[words[1]]}))
 		else:
 			var mods: Array = []
@@ -93,6 +100,9 @@ func load_script(choreography_steps) -> void:
 				Type.ATTACK,
 				{"atk": attack, "args": args, "mods": mods}
 			))
+			if 'nowait' in mods:
+				if nowait_time == -1:
+					nowait_time = attack.time(args)
 #			if len(words) == 1:
 #				execution_order.append(Action.new(
 #					self, 

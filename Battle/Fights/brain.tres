@@ -4,5 +4,13 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "start BaseSequence
-sleep 16"
+steps = "WallWalker
+sleep 1
+WallWalker
+sleep 1
+WallWalker
+sleep 1
+WallWalker
+sleep 1
+WallWalker
+sleep 1"

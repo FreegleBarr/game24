@@ -45,5 +45,6 @@ func create_collision_polygon():
 
 
 func _ready() -> void:
+	Battle.background = background
 	create_collision_polygon()
 
