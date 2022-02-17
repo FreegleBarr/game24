@@ -75,6 +75,8 @@ position = Vector2( 252, -160 )
 [node name="TrackerCamera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 10, -5 )
 current = true
+process_mode = 0
+smoothing_speed = 10.0
 tracked = NodePath("../YSort/Player")
 
 [connection signal="body_entered" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_entered"]

@@ -42,4 +42,5 @@ func _physics_process(delta):
 	velocity = velocity.normalized()*min(velocity.length(), maxSpeed)
 	
 	velocity = move_and_slide(velocity*speed)
+	position = position.round()
 	velocity /= speed

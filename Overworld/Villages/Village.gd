@@ -11,7 +11,7 @@ func _ready():
 	pass
 		
 
-func respawn_player(last_pos=Vector2()):
+func respawn_player(last_pos:=Vector2()):
 	if last_pos == Vector2():
 		player.position = $SpawnPoint.position
 	else:
