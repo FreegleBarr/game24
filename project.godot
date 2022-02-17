@@ -79,11 +79,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Battle/Player/Player.gd"
-}, {
 "base": "Node2D",
 "class": "Projectile",
 "language": "GDScript",
@@ -109,7 +104,6 @@ _global_script_class_icons={
 "DialogicResources": "",
 "DialogicUtil": "",
 "HistoryRow": "",
-"Player": "",
 "Projectile": "",
 "ProjectileManager": ""
 }

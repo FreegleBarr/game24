@@ -8,8 +8,20 @@ var maxSpeed: float = 10
 
 var talking := false
 
+var accepting_inputs := true
+
+func _ready():
+	owner.connect("npc_interaction", self, "_on_npc_interaction")
+
+
+func _on_npc_interaction(b):
+	accepting_inputs = not b
+
 func _physics_process(delta):
 	
+	if not accepting_inputs:
+		return 
+		
 	var xInput = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	var yInput = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up") 
 	
