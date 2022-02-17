@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "nowait CentredSequence 1 0
-EyeWallWalker 9 1
-nowait CentredSequence 1 1
-EyeWallWalker 9 1"
+steps = "nowait CentredSequence 0.5 0
+EyeWallWalker 9 0.5
+nowait CentredSequence 1 0.5
+EyeWallWalker 9 0.5"

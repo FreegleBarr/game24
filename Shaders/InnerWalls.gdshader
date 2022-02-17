@@ -1,10 +1,19 @@
 shader_type canvas_item;
-const vec2 centre = vec2(0.5);
+uniform bool flashing = false;
+uniform bool disappearing = true;
+uniform float speed = 1;
+const float TAU = 6.283185307;
 
 void fragment(){
 	COLOR = texture(TEXTURE, UV);
-	if (COLOR.a == -1.){
-		vec2 offset = UV - centre;
-		COLOR = texture(TEXTURE, UV+offset*offset);
+	if (flashing){
+		// total time must be a whole number for smooth transition
+		float sintime;
+		if (disappearing){
+			sintime = sin(TAU*speed*TIME);
+		} else {
+			sintime = sin(TAU/2.+ TAU*speed*TIME);
+		}
+		COLOR *= sqrt(sintime*sintime);
 	}
 }
