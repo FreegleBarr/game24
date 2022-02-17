@@ -49,7 +49,7 @@ animations = [ {
 [node name="Eye" instance=ExtResource( 1 )]
 position = Vector2( 0, -1 )
 
-[node name="Scroll" parent="BG/Control" index="0"]
+[node name="Scroll" parent="BG" index="0"]
 visible = true
 
 [node name="BGMap" parent="Organ/BG" index="0"]
