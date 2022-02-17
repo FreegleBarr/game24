@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/Managers.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/AttackChoreography.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Battle/HUD/HUD.gd" type="Script" id=4]
+[ext_resource path="res://Battle/Projectiles/Assets/timer bar.png" type="Texture" id=4]
+[ext_resource path="res://Battle/Projectiles/Assets/resist bar.png" type="Texture" id=5]
 [ext_resource path="res://Battle/Arenas/Arena.gd" type="Script" id=6]
 [ext_resource path="res://Battle/Arenas/Assets/Arena background.png" type="Texture" id=7]
 [ext_resource path="res://Battle/Arenas/Assets/Brain/anti outer walls.png" type="Texture" id=8]
@@ -53,6 +54,34 @@ func lost():
 func won():
 	material.set(\"shader_param/tex\", win)
 "
+
+[sub_resource type="Shader" id=16]
+code = "shader_type canvas_item;
+uniform vec4 color: hint_color;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	if (COLOR == color){
+		vec2 coord = UV;
+		coord.y -= SCREEN_PIXEL_SIZE.y;
+		vec4 top = texture(TEXTURE, coord);
+		if (top.a==0.){
+//			COLOR.rgb *=0.5;
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = SubResource( 16 )
+shader_param/color = Color( 1, 0.14902, 0.658824, 1 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 67, 670 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 67, 0, 67, 660 )
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -129,7 +158,15 @@ script = ExtResource( 6 )
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Scroll" type="ColorRect" parent="BG"]
+[node name="Control" type="Control" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scroll" type="ColorRect" parent="BG/Control"]
+visible = false
 material = SubResource( 11 )
 margin_right = 2000.0
 margin_bottom = 1000.0
@@ -143,39 +180,59 @@ battle = ExtResource( 9 )
 
 [node name="HUDControls" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="HUDControls"]
+[node name="HUD" type="HBoxContainer" parent="HUDControls"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
+
+[node name="BorderL" type="TextureRect" parent="HUDControls/HUD"]
+margin_right = 136.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.13
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="HUDControls/HUD"]
-anchor_right = 1.0
-margin_bottom = 84.0
+[node name="Center" type="Control" parent="HUDControls/HUD"]
+margin_left = 140.0
+margin_right = 1139.0
+margin_bottom = 720.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.95
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDControls/HUD/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1273.0
-margin_bottom = 77.0
+[node name="TextureProgress" type="TextureProgress" parent="HUDControls/HUD/Center"]
+material = SubResource( 17 )
+margin_right = 40.0
+margin_bottom = 40.0
+value = 50.0
+texture_over = SubResource( 14 )
+texture_progress = SubResource( 15 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="HUDControls/HUD/PanelContainer/HBoxContainer"]
-margin_top = 28.0
-margin_right = 22.0
-margin_bottom = 42.0
-text = "HP:"
-
-[node name="Label2" type="Label" parent="HUDControls/HUD/PanelContainer/HBoxContainer"]
-margin_left = 26.0
-margin_top = 28.0
-margin_right = 34.0
-margin_bottom = 42.0
-text = "0"
+[node name="BorderR" type="TextureRect" parent="HUDControls/HUD"]
+margin_left = 1143.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.13
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Organ" type="Node2D" parent="."]
 __meta__ = {
@@ -225,7 +282,6 @@ current = true
 choreography_steps = ExtResource( 16 )
 
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
-[connection signal="hp_changed" from="Player" to="HUDControls/HUD" method="_on_Player_hp_changed"]
 [connection signal="fight_over" from="AttackChoreography" to="." method="_on_AttackChoreography_fight_over"]
 
 [editable path="ProjectileManagers"]

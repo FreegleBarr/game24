@@ -26,7 +26,7 @@ func _on_AttackChoreography_fight_over() -> void:
 	timer.queue_free()
 	if not $Player.dead:
 		print("You Win")
-		$BG/Scroll.won()
+		$BG/Control/Scroll.won()
 
 
 func _on_Player_died() -> void:

@@ -49,9 +49,6 @@ animations = [ {
 [node name="Eye" instance=ExtResource( 1 )]
 position = Vector2( 0, -1 )
 
-[node name="HUD" parent="HUDControls" index="0"]
-visible = false
-
 [node name="BGMap" parent="Organ/BG" index="0"]
 frames = SubResource( 1 )
 
