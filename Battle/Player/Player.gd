@@ -5,8 +5,11 @@ signal died
 signal hp_changed(value)
 
 export var move_speed = 400
+export var ghost_time: float = 2
 
-var dead: bool = false
+var dead := false
+var ghosting := false
+var invuln := false
 
 onready var playback = $AnimationTree.get('parameters/playback')
 
@@ -28,7 +31,11 @@ func change_hp(value):
 func _ready() -> void:
 	self.hp = max_hp
 	Battle.player = self
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		ghost()
+
 var velocity: Vector2
 func _physics_process(_delta: float) -> void:
 	velocity = Vector2()
@@ -62,13 +69,34 @@ func die():
 	$Collision.set_deferred("disabled", true)
 	$Hurtbox/Collision.set_deferred("disabled", true)
 
+func ghost():
+	if $GhostCooldown.is_stopped() and not ghosting:
+		$Sprite.material.set('shader_param/ghosting', true)
+		ghosting = true
+		$Hurtbox/Collision.set_deferred("disabled", true)
+		$GhostTimer.start()
+
+func end_ghost() -> void:
+	if ghosting:
+		$GhostCooldown.start()
+		$Sprite.material.set('shader_param/ghosting', false)
+		ghosting = false
+		$Hurtbox/Collision.set_deferred("disabled", false)
+
+func end_invuln() -> void:
+	if not dead:
+		invuln = false
+		$Hurtbox/Collision.set_deferred("disabled", false)
+
 
 func _on_Button_button_down() -> void:
 	self.hp = -9999
 
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
-	print("Hurtbox entered: ", area.owner)
 	area.owner.contact()
 	playback.travel("Hurt")
+	$InvulnTimer.start()
+	$Hurtbox/Collision.set_deferred("disabled", true)
+	invuln = true
 	self.hp -= 1
