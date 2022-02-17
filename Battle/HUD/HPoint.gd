@@ -2,4 +2,4 @@ extends Control
 
 
 func hurt():
-	$Sprite.playing = true
+	$Sprite.play("Hurt")

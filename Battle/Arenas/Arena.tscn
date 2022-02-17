@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/Managers.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/AttackChoreography.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Battle/HUD/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Battle/Arenas/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Battle/Arenas/Arena.gd" type="Script" id=6]
 [ext_resource path="res://Battle/Arenas/Assets/Arena background.png" type="Texture" id=7]
 [ext_resource path="res://Battle/Arenas/Assets/Brain/anti outer walls.png" type="Texture" id=8]
@@ -185,8 +186,7 @@ physics_material_override = SubResource( 13 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -305, 62 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="Camera" parent="." instance=ExtResource( 5 )]
 
 [node name="ProjectileManagers" parent="." instance=ExtResource( 2 )]
 
@@ -195,6 +195,7 @@ choreography_steps = ExtResource( 16 )
 
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="hp_changed" from="Player" to="HUDControls/HUD" method="_on_Player_hp_changed"]
+[connection signal="hp_changed" from="Player" to="Camera" method="_on_Player_hp_changed"]
 [connection signal="fight_over" from="AttackChoreography" to="." method="_on_AttackChoreography_fight_over"]
 
 [editable path="ProjectileManagers"]

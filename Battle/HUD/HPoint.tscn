@@ -17,10 +17,15 @@ region = Rect2( 200, 0, 100, 100 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 18 ) ],
 "loop": false,
 "name": "default",
 "speed": 4.0
+}, {
+"frames": [ SubResource( 19 ), SubResource( 20 ) ],
+"loop": false,
+"name": "Hurt",
+"speed": 6.67
 } ]
 
 [node name="3" type="Control"]
