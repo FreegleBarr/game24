@@ -1,10 +1,9 @@
 extends Camera2D
 
-export(NodePath) var tracked
-onready var _tracked = get_node_or_null(tracked)
+export(NodePath) onready var tracked = get_node(tracked) as Node2D
 
 var float_position = position
 func _physics_process(delta: float) -> void:
-	if _tracked:
-		float_position = lerp(position, _tracked.position, delta*10)
+	if tracked:
+		float_position = lerp(position, tracked.position, delta*10)
 		position = float_position.round()

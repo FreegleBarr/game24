@@ -8,7 +8,6 @@ var maxSpeed: float = 10
 
 var talking := false
 
-
 func _physics_process(delta):
 	
 	var xInput = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -32,4 +31,3 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity*speed)
 	velocity /= speed
-

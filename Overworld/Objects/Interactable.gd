@@ -1,7 +1,7 @@
 extends Area2D
 
 func select():
-	modulate = Color.red
+	modulate = Color.green
 
 func deselect():
 	modulate = Color.white
