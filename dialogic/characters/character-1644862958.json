@@ -1,19 +1,25 @@
 {
 	"color": "#fff7b3b3",
 	"description": "",
-	"display_name": "",
+	"display_name": "Display Name",
 	"display_name_bool": false,
 	"id": "character-1644862958.json",
 	"mirror_portraits": false,
 	"name": "Skelly",
 	"nickname": "",
 	"nickname_bool": false,
+<<<<<<< Updated upstream
 	"offset_x": -40,
 	"offset_y": -270,
+=======
+	"offset_x": 30,
+	"offset_y": -350,
+>>>>>>> Stashed changes
 	"portraits": [
 		{
 			"name": "Default",
 			"path": "res://Overworld/Dialogue/Portraits/portrait skully billy.png"
+<<<<<<< Updated upstream
 		},
 		{
 			"name": "Speaking",
@@ -22,4 +28,10 @@
 	],
 	"scale": 100,
 	"theme": "theme-1644860438.cfg"
+=======
+		}
+	],
+	"scale": 100,
+	"theme": "default-theme.cfg"
+>>>>>>> Stashed changes
 }

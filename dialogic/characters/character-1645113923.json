@@ -1,0 +1,25 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1645113923.json",
+	"mirror_portraits": false,
+	"name": "Cowman",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 30,
+	"offset_y": -350,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Overworld/Dialogue/Portraits/portrait cowman1.png"
+		},
+		{
+			"name": "Speaking",
+			"path": "res://Overworld/Dialogue/Portraits/portrait cowman2.png"
+		}
+	],
+	"scale": 100,
+	"theme": "default-theme.cfg"
+}

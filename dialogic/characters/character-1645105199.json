@@ -1,0 +1,25 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1645105199.json",
+	"mirror_portraits": false,
+	"name": "Antibody",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -30,
+	"offset_y": -350,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Overworld/Dialogue/Portraits/antibody portrai1t1.png"
+		},
+		{
+			"name": "Speaking",
+			"path": "res://Overworld/Dialogue/Portraits/antibody portrai1t2.png"
+		}
+	],
+	"scale": 100,
+	"theme": "theme-1645108128.cfg"
+}

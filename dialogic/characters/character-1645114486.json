@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1645114486.json",
+	"mirror_portraits": false,
+	"name": "Rescue",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 30,
+	"offset_y": -350,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Overworld/Dialogue/Portraits/portrait rescue.png"
+		}
+	],
+	"scale": 100,
+	"theme": "default-theme.cfg"
+}
