@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 signal died
 signal hp_changed(value)

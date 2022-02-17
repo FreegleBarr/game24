@@ -262,7 +262,6 @@ texture = null
 hframes = 11
 
 [node name="Area2D" parent="FloatableSprite" index="0"]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="FloatableSprite/Area2D" index="0"]
