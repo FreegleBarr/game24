@@ -49,6 +49,9 @@ animations = [ {
 [node name="Eye" instance=ExtResource( 1 )]
 position = Vector2( 0, -1 )
 
+[node name="Scroll" parent="BG/Control" index="0"]
+visible = true
+
 [node name="BGMap" parent="Organ/BG" index="0"]
 frames = SubResource( 1 )
 
@@ -120,9 +123,6 @@ position = Vector2( 177, 133 )
 
 [node name="EnemyObjects" type="Node2D" parent="." index="8"]
 script = ExtResource( 11 )
-
-[node name="Cancer" parent="." index="9"]
-position = Vector2( 89, 110 )
 
 [editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic0"]

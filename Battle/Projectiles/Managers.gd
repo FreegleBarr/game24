@@ -5,7 +5,7 @@ func _ready() -> void:
 
 	
 func _on_spawn_bullet(type, pos, dir) -> void:
-	type = "cancer"
+	type = "rocky rock"
 #	print("trying to spawn ", type, "at ", pos)
 	if has_node(type.capitalize()):
 		var manager: ProjectileManager = get_node(type.capitalize())

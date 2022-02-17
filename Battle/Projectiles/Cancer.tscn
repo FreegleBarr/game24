@@ -59,7 +59,6 @@ contacts_reported = 1
 contact_monitor = true
 can_sleep = false
 linear_damp = 0.0
-angular_damp = 0.371
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 scale = Vector2( 0.75, 0.75 )
