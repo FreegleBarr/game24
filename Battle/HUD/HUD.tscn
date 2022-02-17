@@ -136,22 +136,32 @@ margin_right = 999.0
 margin_bottom = 720.0
 alignment = 2
 
-[node name="HP" type="VBoxContainer" parent="Center/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Center/HBoxContainer/VBoxContainer"]
 margin_top = 258.0
 margin_right = 150.0
 margin_bottom = 566.0
-rect_min_size = Vector2( 150, 0 )
+alignment = 2
+
+[node name="HP" type="VBoxContainer" parent="Center/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 50.0
+margin_right = 150.0
+margin_bottom = 308.0
 alignment = 2
 script = ExtResource( 6 )
 
-[node name="3" parent="Center/HBoxContainer/VBoxContainer/HP" instance=ExtResource( 1 )]
+[node name="3" parent="Center/HBoxContainer/VBoxContainer/HBoxContainer/HP" instance=ExtResource( 1 )]
+margin_right = 100.0
+margin_bottom = 100.0
+size_flags_horizontal = 0
 
-[node name="2" parent="Center/HBoxContainer/VBoxContainer/HP" instance=ExtResource( 1 )]
+[node name="2" parent="Center/HBoxContainer/VBoxContainer/HBoxContainer/HP" instance=ExtResource( 1 )]
 margin_top = 104.0
+margin_right = 100.0
 margin_bottom = 204.0
 
-[node name="1" parent="Center/HBoxContainer/VBoxContainer/HP" instance=ExtResource( 1 )]
+[node name="1" parent="Center/HBoxContainer/VBoxContainer/HBoxContainer/HP" instance=ExtResource( 1 )]
 margin_top = 208.0
+margin_right = 100.0
 margin_bottom = 308.0
 
 [node name="Portrait" type="Control" parent="Center/HBoxContainer/VBoxContainer"]

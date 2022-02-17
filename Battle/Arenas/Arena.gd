@@ -30,4 +30,4 @@ func _on_AttackChoreography_fight_over() -> void:
 
 
 func _on_Player_died() -> void:
-	$BG/Control/Scroll.lost()
+	$BG/Scroll.lost()

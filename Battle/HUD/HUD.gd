@@ -1,6 +1,6 @@
 extends Control
 
-onready var hpcounter = $Center/HBoxContainer/VBoxContainer/HP
+onready var hpcounter = $Center/HBoxContainer/VBoxContainer/HBoxContainer/HP
 
 
 
