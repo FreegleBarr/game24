@@ -5,6 +5,7 @@ func _ready() -> void:
 
 	
 func _on_spawn_bullet(type: String, pos: Vector2, dir: Vector2) -> void:
+	print("trying to spawn ", type)
 	if has_node(type.capitalize()):
 		var manager: ProjectileManager = get_node(type.capitalize())
 		manager.spawn_projectile(pos, dir)

@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "start BaseSequence
-sleep 16"
+steps = "start BaseSequence"
