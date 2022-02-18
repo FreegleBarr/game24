@@ -11,6 +11,9 @@ var grounded := true setget set_grounded
 
 func set_grounded(b:bool):
 	grounded = b
+	if not owner:
+		print("huh?")
+		return
 	owner.player.modulate = [Color(1,1,1,0.5), Color.white][int(b)]
 	print("Grounded: ", b)
 
