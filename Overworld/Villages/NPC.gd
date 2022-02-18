@@ -1,5 +1,8 @@
 extends Area2D
 
+export var assignedDialogue = ""
+
+
 var selected := false setget set_selected
 
 var interacting := false setget set_interacting
@@ -14,7 +17,18 @@ func _input(event):
 	if Input.is_action_just_pressed("interact"):
 		set_interacting(not interacting)
 		owner.emit_signal("npc_interaction", interacting)
-		print("Hello! My name is ", name)
+	#		print("Hello! My name is ", name)
+		if assignedDialogue != "":
+			var dialogue = Dialogic.start(assignedDialogue)
+			add_child(dialogue)
+			dialogue.connect("timeline_end", self, "dialogue_end")
+
+
+
+func dialogue_end(timeline_name):
+	set_interacting(false)
+	owner.emit_signal("npc_interaction", false)
+
 
 func set_interacting(b:bool):
 	interacting = b

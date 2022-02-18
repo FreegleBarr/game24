@@ -6,18 +6,14 @@
 		"Characters": {
 			"files": [
 				"character-1644862958.json",
-<<<<<<< Updated upstream
-				"character-1644872531.json"
-=======
-				"character-1645105199.json",
 				"character-1645113855.json",
 				"character-1645113923.json",
 				"character-1645114344.json",
 				"character-1645114411.json",
 				"character-1645114443.json",
 				"character-1645114486.json",
-				"character-1645114551.json"
->>>>>>> Stashed changes
+				"character-1645114551.json",
+				"character-1645105199.json"
 			],
 			"folders": {
 
@@ -42,7 +38,15 @@
 		"Themes": {
 			"files": [
 				"default-theme.cfg",
-				"theme-1645108128.cfg"
+				"theme-1645108128.cfg",
+				"theme-1645222956.cfg",
+				"theme-1645222974.cfg",
+				"theme-1645222989.cfg",
+				"theme-1645223004.cfg",
+				"theme-1645223015.cfg",
+				"theme-1645223031.cfg",
+				"theme-1645223042.cfg",
+				"theme-1645223065.cfg"
 			],
 			"folders": {
 

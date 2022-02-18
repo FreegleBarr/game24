@@ -65,6 +65,7 @@ texture = ExtResource( 7 )
 
 [node name="NPC" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 141, -58 )
+assignedDialogue = "Test Timeline"
 
 [node name="NPC3" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 284, -19 )

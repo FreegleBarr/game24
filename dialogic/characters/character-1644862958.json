@@ -1,5 +1,5 @@
 {
-	"color": "#fff7b3b3",
+	"color": "#ffffffff",
 	"description": "",
 	"display_name": "Display Name",
 	"display_name_bool": false,
@@ -17,5 +17,5 @@
 		}
 	],
 	"scale": 100,
-	"theme": "default-theme.cfg"
+	"theme": "theme-1645222956.cfg"
 }
