@@ -36,6 +36,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		ghost()
 
+var total_force := Vector2()
+func apply_force(force: Vector2):
+	total_force += force
+
 var velocity: Vector2
 func _physics_process(_delta: float) -> void:
 	velocity = Vector2()
@@ -47,7 +51,9 @@ func _physics_process(_delta: float) -> void:
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
-		
+	
+	velocity += total_force
+	total_force = Vector2()
 	if dead:
 		pass
 	elif velocity.length():
@@ -55,11 +61,7 @@ func _physics_process(_delta: float) -> void:
 			$Sprite.flip_h = false
 		elif velocity.x < 0:
 			$Sprite.flip_h = true
-#		playback.travel("Move")
 		velocity = move_and_slide(velocity * move_speed)
-	else:
-		pass
-#		playback.travel("Idle")
 
 func die():
 	#TODO: die
