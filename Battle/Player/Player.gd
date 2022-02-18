@@ -51,9 +51,12 @@ func _physics_process(_delta: float) -> void:
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
+	velocity = velocity.normalized()
 	
-	velocity += total_force
-	total_force = Vector2()
+	var force = total_force.normalized()
+	force *= min(total_force.length(), 0.5)
+	velocity += force
+	total_force -= force
 	if dead:
 		pass
 	elif velocity.length():
