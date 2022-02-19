@@ -13,14 +13,14 @@ var interacting := false setget set_interacting
 
 func set_texture(t:Texture):
 	SpriteTexture = t
-	if $Sprite:
+	if get_node_or_null("Sprite"):
 		$Sprite.texture = t
 	set_frame_count(FrameCount)
 	
 func set_frame_count(i:int):
 	i = max(i,1)
 	FrameCount = i
-	if $Sprite:
+	if get_node_or_null("Sprite"):
 		$Sprite.hframes = FrameCount
 
 func _ready():
