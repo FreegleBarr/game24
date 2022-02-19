@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 			closest = area
 	if closest == current:
 		return
-<<<<<<< HEAD
 	if current:
 		current.deselect()
 	closest.select()
@@ -28,6 +27,4 @@ func _on_area_exited(area: Area2D) -> void:
 	if area == current:
 		current.deselect()
 		current = null
-=======
 	
->>>>>>> main
