@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Battle/Fights/Choreography.gd"
 }, {
+"base": "GraphNode",
+"class": "CommonNode",
+"language": "GDScript",
+"path": "res://addons/project_map/pm_common_node.gd"
+}, {
 "base": "Reference",
 "class": "DTS",
 "language": "GDScript",
@@ -79,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Battle/Player/Player.gd"
+}, {
 "base": "Node2D",
 "class": "Projectile",
 "language": "GDScript",
@@ -93,6 +103,7 @@ _global_script_class_icons={
 "BaseAttack": "",
 "Choreography": "",
 "ChoreographySteps": "",
+"CommonNode": "",
 "DTS": "",
 "Dialogic": "",
 "DialogicAnimaPropertiesHelper": "",
@@ -104,6 +115,7 @@ _global_script_class_icons={
 "DialogicResources": "",
 "DialogicUtil": "",
 "HistoryRow": "",
+"Player": "",
 "Projectile": "",
 "ProjectileManager": ""
 }
@@ -114,7 +126,6 @@ config/name="Game 24"
 run/main_scene="res://Overworld/Villages/Brain.tscn"
 boot_splash/use_filter=false
 config/icon="res://Icons/icon.png"
-config/windows_native_icon="res://Icons/icon.ico"
 
 [autoload]
 

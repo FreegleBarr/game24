@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Battle/Arenas/Assets/Heart/background mask.png" type="Texture" id=1]
 [ext_resource path="res://Battle/Arenas/Assets/Heart/silhoutte.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Battle/Arenas/Arena.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Battle/Arenas/Assets/Heart/BG.png" type="Texture" id=5]
 [ext_resource path="res://Battle/Arenas/Assets/Heart/inner_wall.png" type="Texture" id=6]
+[ext_resource path="res://Battle/Arenas/Warps.gd" type="Script" id=7]
+[ext_resource path="res://Battle/Arenas/Assets/Heart/contour-sheet.png" type="Texture" id=8]
+[ext_resource path="res://Battle/Arenas/Heart.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,20 +31,51 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
+region = Rect2( 749, 0, 749, 808 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 8 )
+region = Rect2( 1498, 0, 749, 808 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 749, 0, 749, 808 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 749, 808 )
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
-"speed": 5.0
+"speed": 1.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "gimmick",
-"speed": 5.0
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": false,
+"name": "close",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "open",
+"speed": 1.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=4]
+height = 38.4044
+
+[sub_resource type="CapsuleShape2D" id=5]
+height = 38.4044
+
 [node name="Heart" instance=ExtResource( 4 )]
+script = ExtResource( 9 )
+
+[node name="Scroll" parent="BG" index="0"]
+visible = true
 
 [node name="BG" parent="Organ" index="0"]
 tile_data = PoolIntArray( -524297, 0, 0, -524295, 0, 0, -589823, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458744, 0, 0, -458743, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327672, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 458748, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 589822, 0, 0, 524288, 0, 0 )
@@ -54,9 +88,52 @@ frames = SubResource( 2 )
 
 [node name="Contour" parent="Organ" index="2"]
 frames = SubResource( 3 )
+animation = "close"
+frame = 1
+playing = true
 background = ExtResource( 5 )
 
 [node name="InnerWalls" parent="Organ" index="3"]
 texture = ExtResource( 6 )
 
-[editable path="AttackChoreography/BulletSpawn"]
+[node name="Warps" type="Node2D" parent="Organ" index="4"]
+script = ExtResource( 7 )
+
+[node name="WarpLeft" type="Area2D" parent="Organ/Warps" index="0"]
+position = Vector2( -43, -226 )
+rotation = -0.923279
+collision_layer = 0
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="Organ/Warps/WarpLeft" index="0"]
+shape = SubResource( 4 )
+
+[node name="WarpRight" type="Area2D" parent="Organ/Warps" index="1"]
+position = Vector2( 101, -240 )
+rotation = 1.03673
+collision_layer = 0
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="Organ/Warps/WarpRight" index="0"]
+shape = SubResource( 5 )
+
+[node name="Player" parent="." index="3"]
+position = Vector2( -158, -19 )
+
+[node name="HeartBeatTimer" type="Timer" parent="." index="7"]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="Organ/Warps/WarpLeft" to="Organ/Warps" method="_on_WarpLeft_body_entered"]
+[connection signal="body_exited" from="Organ/Warps/WarpLeft" to="Organ/Warps" method="_on_Warp_body_exited"]
+[connection signal="body_entered" from="Organ/Warps/WarpRight" to="Organ/Warps" method="_on_WarpRight_body_entered"]
+[connection signal="body_exited" from="Organ/Warps/WarpRight" to="Organ/Warps" method="_on_Warp_body_exited"]
+[connection signal="timeout" from="HeartBeatTimer" to="." method="_on_HeartBeatTimer_timeout"]
+
+[editable path="ProjectileManagers"]

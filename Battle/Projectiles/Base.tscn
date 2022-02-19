@@ -5,10 +5,9 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 28.0
-height = 68.0
+height = 98.0
 
 [sub_resource type="Animation" id=3]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("FloatableSprite:frame")
 tracks/0/interp = 1

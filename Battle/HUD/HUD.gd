@@ -1,8 +1,12 @@
 extends Control
 
-onready var hp_label = $PanelContainer/HBoxContainer/Label2
-
+onready var hpcounter = $Center/HBoxContainer/VBoxContainer/HBoxContainer/HP
+onready var timebar = $Center/HBoxContainer/MarginContainer/HBoxContainer/CenterContainer/TimeBar
 
 
 func _on_Player_hp_changed(value) -> void:
-	hp_label.text = str(value)
+	hpcounter.change_hp(value)
+
+
+func _on_AttackChoreography_script_loaded(time) -> void:
+	timebar.start(time)
