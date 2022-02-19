@@ -11,14 +11,20 @@ uniform bool ghosting = false;
 void fragment(){
 	COLOR = texture(TEXTURE, UV);
 	if (ghosting) {
-		float sintime = sin(UV.y+TIME*fade_speed);
-		COLOR *= sintime*sintime;
+		float sintime1 = sin(UV.y+TIME*fade_speed*2.);
+		float sintime2 = sin(12544.5252+10.*UV.y+TIME*fade_speed*10.);
+		float sintime3 = sin(5253.53523+20.*UV.y+TIME*fade_speed*20.);
+		sintime1 = sintime1*sintime1;
+		sintime2 = sintime2 * sintime2;
+		sintime3 = sintime3 * sintime3;
+		float sintime = pow(sintime1*sintime2*sintime3, 1./3.);
+		COLOR *= sintime;
 	}
 }"
 
 [sub_resource type="ShaderMaterial" id=44]
 shader = SubResource( 43 )
-shader_param/fade_speed = 4.0
+shader_param/fade_speed = 1.0
 shader_param/ghosting = false
 
 [sub_resource type="CapsuleShape2D" id=3]

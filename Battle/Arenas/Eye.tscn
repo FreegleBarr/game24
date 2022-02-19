@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Battle/Arenas/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Attacks/EyeBasic.tscn" type="PackedScene" id=2]
@@ -12,6 +12,56 @@
 [ext_resource path="res://Battle/Fights/subeye1.tres" type="Resource" id=10]
 [ext_resource path="res://Battle/EnemyObjects/EnemyObjects.gd" type="Script" id=11]
 [ext_resource path="res://Battle/Attacks/Mirror.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Battle/Projectiles/Assets/portrait virus.png" type="Texture" id=13]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 13 )
+region = Rect2( 480, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 13 )
+region = Rect2( 640, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 13 )
+region = Rect2( 800, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 13 )
+region = Rect2( 960, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 13 )
+region = Rect2( 1120, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 13 )
+region = Rect2( 1280, 0, 160, 160 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "roar",
+"speed": 6.67
+} ]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -53,6 +103,9 @@ position = Vector2( 0, -1 )
 [node name="Scroll" parent="BG" index="0"]
 visible = true
 
+[node name="HUD" parent="HUDControls" index="0"]
+portrait_frames = SubResource( 13 )
+
 [node name="BGMap" parent="Organ/BG" index="0"]
 frames = SubResource( 1 )
 
@@ -63,10 +116,21 @@ frames = SubResource( 2 )
 frames = SubResource( 3 )
 background = ExtResource( 4 )
 
-[node name="Player" parent="." index="3"]
-position = Vector2( 0, 0 )
+[node name="Player" parent="." index="4"]
+position = Vector2( -20, 64 )
 
-[node name="AttackChoreography" parent="." index="6"]
+[node name="CenterAngles" type="Position2D" parent="." index="7"]
+
+[node name="Top" type="Position2D" parent="CenterAngles" index="0"]
+position = Vector2( 177, -133 )
+
+[node name="Bottom" type="Position2D" parent="CenterAngles" index="1"]
+position = Vector2( 177, 133 )
+
+[node name="EnemyObjects" type="Node2D" parent="." index="8"]
+script = ExtResource( 11 )
+
+[node name="AttackChoreography" parent="." index="9"]
 choreography_steps = ExtResource( 3 )
 
 [node name="BaseSequence" parent="AttackChoreography" index="1" instance=ExtResource( 9 )]
@@ -160,17 +224,6 @@ position = Vector2( 433, 292 )
 [node name="Timer" type="Timer" parent="AttackChoreography/BaseSequence2/CentredSequence" index="7"]
 
 [node name="Mirror" parent="AttackChoreography" index="3" instance=ExtResource( 12 )]
-
-[node name="CenterAngles" type="Position2D" parent="." index="7"]
-
-[node name="Top" type="Position2D" parent="CenterAngles" index="0"]
-position = Vector2( 177, -133 )
-
-[node name="Bottom" type="Position2D" parent="CenterAngles" index="1"]
-position = Vector2( 177, 133 )
-
-[node name="EnemyObjects" type="Node2D" parent="." index="8"]
-script = ExtResource( 11 )
 
 [editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic0"]

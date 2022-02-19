@@ -3,6 +3,7 @@ class_name Player
 
 signal died
 signal hp_changed(value)
+signal hurt
 
 export var move_speed = 400
 export var ghost_time: float = 2
@@ -17,7 +18,8 @@ export var max_hp = 3 setget change_max_hp
 func change_max_hp(value):
 	max_hp = min(value, 0)
 	#call hp setter
-	self.hp = min(hp, max_hp)
+	if hp:
+		self.hp = min(hp, max_hp)
 
 
 #do not onready
@@ -54,7 +56,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = velocity.normalized()
 	
 	var force = total_force.normalized()
-	force *= min(total_force.length(), 0.5)
+	force *= min(total_force.length(), 0.8)
 	velocity += force
 	total_force -= force
 	if dead:
@@ -91,6 +93,7 @@ func end_ghost() -> void:
 func end_invuln() -> void:
 	if not dead:
 		invuln = false
+		$Sprite.material.set('shader_param/ghosting', false)
 		$Hurtbox/Collision.set_deferred("disabled", false)
 
 
@@ -103,5 +106,7 @@ func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	playback.travel("Hurt")
 	$InvulnTimer.start()
 	$Hurtbox/Collision.set_deferred("disabled", true)
+	$Sprite.material.set('shader_param/ghosting', true)
 	invuln = true
 	self.hp -= 1
+	emit_signal('hurt')

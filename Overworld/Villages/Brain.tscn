@@ -201,6 +201,9 @@ FrameCount = 4
 texture = ExtResource( 16 )
 hframes = 4
 
+[node name="TrackerCamera" parent="." index="6"]
+position = Vector2( 10, -4 )
+
 [node name="Label" type="Label" parent="." index="8"]
 margin_left = 104.0
 margin_top = -299.0
