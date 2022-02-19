@@ -19,3 +19,6 @@ func _on_Player_hp_changed(value) -> void:
 func _on_AttackChoreography_script_loaded(time) -> void:
 	timebar.start(time)
 
+
+func _on_Player_hurt() -> void:
+	portrait.roar()

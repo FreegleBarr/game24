@@ -199,6 +199,7 @@ choreography_steps = ExtResource( 16 )
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="hp_changed" from="Player" to="HUDControls/HUD" method="_on_Player_hp_changed"]
 [connection signal="hp_changed" from="Player" to="Camera" method="_on_Player_hp_changed"]
+[connection signal="hurt" from="Player" to="HUDControls/HUD" method="_on_Player_hurt"]
 [connection signal="fight_over" from="AttackChoreography" to="." method="_on_AttackChoreography_fight_over"]
 [connection signal="script_loaded" from="AttackChoreography" to="HUDControls/HUD" method="_on_AttackChoreography_script_loaded"]
 
