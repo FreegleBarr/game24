@@ -1,14 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Battle/Arenas/Assets/Lungs/background mask 2.png" type="Texture" id=1]
-[ext_resource path="res://Battle/Arenas/Assets/Lungs/walls 0.png" type="Texture" id=2]
 [ext_resource path="res://Battle/Arenas/Assets/Lungs/silhoutte.png" type="Texture" id=3]
-[ext_resource path="res://Battle/Arenas/Assets/Lungs/wall 1.png" type="Texture" id=4]
-[ext_resource path="res://Battle/Arenas/Assets/Lungs/walls 2.png" type="Texture" id=5]
 [ext_resource path="res://Battle/Arenas/Assets/Lungs/background mask 0.png" type="Texture" id=6]
 [ext_resource path="res://Battle/Arenas/Assets/Lungs/background mask 1.png" type="Texture" id=7]
 [ext_resource path="res://Battle/Arenas/Arena.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Battle/Arenas/Assets/Lungs/BG 1.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,23 +27,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "gimmick",
-"speed": 5.0
-} ]
-
 [node name="Lungs" instance=ExtResource( 8 )]
-
-[node name="HUD" parent="CanvasLayer" index="0"]
-visible = false
 
 [node name="Organ" parent="." index="2"]
 scale = Vector2( 0.5, 0.5 )
@@ -58,15 +38,11 @@ tile_data = PoolIntArray( -524290, 0, 0, -524289, 0, 0, -589824, 0, 0, -589823, 
 [node name="BGMap" parent="Organ/BG" index="0"]
 frames = SubResource( 1 )
 animation = "gimmick"
+frame = 3
 playing = true
 
 [node name="Silloutte" parent="Organ" index="1"]
 frames = SubResource( 2 )
 
-[node name="WallSprite" parent="Organ" index="2"]
-frames = SubResource( 3 )
-animation = "gimmick"
-playing = true
-background = ExtResource( 9 )
-
+[editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BulletSpawn"]

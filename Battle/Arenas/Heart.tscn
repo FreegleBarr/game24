@@ -59,4 +59,5 @@ background = ExtResource( 5 )
 [node name="InnerWalls" parent="Organ" index="3"]
 texture = ExtResource( 6 )
 
+[editable path="ProjectileManagers"]
 [editable path="AttackChoreography/BulletSpawn"]
