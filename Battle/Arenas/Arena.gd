@@ -9,7 +9,6 @@ tool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("i")
-	$AttackChoreography.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +32,7 @@ func _on_AttackChoreography_fight_over() -> void:
 func _on_Player_died() -> void:
 	$BG/Scroll.lost()
 	$Splash.lost()
+
+
+func _on_StartTimer_timeout() -> void:
+	$AttackChoreography.start()

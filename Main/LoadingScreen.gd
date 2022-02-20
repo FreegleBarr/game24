@@ -15,10 +15,11 @@ func _ready() -> void:
 	
 func show():
 	showing = true
-	visible = true
 	tween.interpolate_property(self, "modulate",
 			Color(0,0,0,0), Color(1,1,1,1), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+	visible = true
+	
 	if wait_timer:
 		timer.start()
 
@@ -31,7 +32,6 @@ func unshow():
 	tween.start()
 
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
-	tween.stop_all()
 	if showing:
 		modulate = Color(1,1,1,1)
 		emit_signal("screen_hid")

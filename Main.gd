@@ -10,7 +10,7 @@ var BrainVillage := preload("res://Overworld/Villages/Brain.tscn")
 var BrainBattle := preload("res://Battle/Arenas/Brain.tscn")
 
 onready var loading := $CanvasLayer/LoadingScreen
-onready var current_scene := $Dummy
+onready var current_scene := $Splash
 
 var scenes := {
 	'title': Title,
@@ -20,7 +20,10 @@ var scenes := {
 	'brain_battle': BrainBattle
 }
 
+
 func _ready() -> void:
+	$Splash.call_deferred("show")
+	yield($Splash, "splash_done")
 	_on_change_scene(selected_scene)
 
 func _on_change_scene(target: String) -> void:
@@ -37,7 +40,7 @@ func _on_change_scene(target: String) -> void:
 	current_scene = packed.instance()
 	current_scene.pause_mode = Node.PAUSE_MODE_STOP
 	call_deferred('add_child', current_scene)
-	yield(current_scene, "ready")
+	yield(current_scene, "tree_entered")
 	current_scene.connect("change_scene", self, "_on_change_scene")
 	loading.unshow()
 	yield(loading, "screen_shown")

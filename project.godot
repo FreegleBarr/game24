@@ -130,6 +130,7 @@ _global_script_class_icons={
 
 config/name="Game 24"
 run/main_scene="res://Main.tscn"
+boot_splash/image="res://Main/Assets/splash dummy.png"
 boot_splash/use_filter=false
 config/icon="res://Icons/icon.png"
 
