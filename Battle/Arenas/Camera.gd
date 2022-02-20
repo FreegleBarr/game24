@@ -12,6 +12,8 @@ func _physics_process(delta: float) -> void:
 	if abs(position.y) >= limits.y:
 		velocity.y = -0.99*velocity.y
 	
-func _on_Player_hp_changed(_value: float) -> void:
+
+func _on_Player_hurt() -> void:
 	var force := Vector2.RIGHT.rotated(randf()*TAU)*50
 	velocity += force
+	pass # Replace with function body.

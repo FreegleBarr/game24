@@ -1,11 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://Main/TitleScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main/LoadingScreen.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 1 )
+selected_scene = "title"
 
-[node name="TitleScreen" parent="." instance=ExtResource( 2 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
 
-[connection signal="change_scene" from="TitleScreen" to="." method="_on_change_scene"]
+[node name="LoadingScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
+wait_timer = true
+
+[node name="Dummy" type="Node" parent="."]

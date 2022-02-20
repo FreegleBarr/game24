@@ -6,18 +6,25 @@
 [ext_resource path="res://cut scenes/screen1/text 1.png" type="Texture" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
-shader_param/show_time = 0.0
+shader_param/show_time = -1.0
 
-[node name="Fragment" type="Node2D"]
+[node name="Fragment" type="AspectRatioContainer"]
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 texts = [ ExtResource( 4 ) ]
 
-[node name="Image" type="Sprite" parent="."]
+[node name="Image" type="TextureRect" parent="."]
 material = SubResource( 1 )
+margin_right = 1000.0
+margin_bottom = 1000.0
 texture = ExtResource( 1 )
-centered = false
-
-[node name="Text" type="Sprite" parent="."]
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Tween" type="Tween" parent="."]
