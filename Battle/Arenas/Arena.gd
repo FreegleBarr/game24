@@ -27,7 +27,9 @@ func _on_AttackChoreography_fight_over() -> void:
 	if not $Player.dead:
 		print("You Win")
 		$BG/Scroll.won()
+		$Splash.won()
 
 
 func _on_Player_died() -> void:
 	$BG/Scroll.lost()
+	$Splash.lost()

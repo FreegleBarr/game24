@@ -1,25 +1,80 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Overworld/Villages/Collision.gd" type="Script" id=1]
 [ext_resource path="res://Overworld/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Overworld/Objects/Monument.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Overworld/Utils/TrackerCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Overworld/Villages/VillageGround.gd" type="Script" id=8]
+[ext_resource path="res://Overworld/Villages/Village.gd" type="Script" id=9]
+[ext_resource path="res://Overworld/Dialogue/Mitochondria.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 11 )
 
 [node name="Village" type="Node2D"]
+script = ExtResource( 9 )
+player = NodePath("YSort/Player")
 
-[node name="BG" type="Sprite" parent="."]
+[node name="VillageBG" type="Polygon2D" parent="."]
+color = Color( 0.156863, 0.0352941, 0.0352941, 1 )
+polygon = PoolVector2Array( -822, -286, -538, -654, 64, -858, 956, -754, 1436, -220, 1414, 368, 890, 758, 88, 860, -521, 877, -902, 1134, -1256, 804, -792, 616, -866, 102 )
 
-[node name="Collision" type="StaticBody2D" parent="."]
-script = ExtResource( 1 )
+[node name="BackgroundSprite" type="Sprite" parent="."]
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 257, 143 )
+
+[node name="ColorRect" type="ColorRect" parent="SpawnPoint"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SpawnPoint"]
+margin_left = 4.0
+margin_top = 6.0
+margin_right = 94.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "SPAWN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VillageGround" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VillageGround"]
+polygon = PoolVector2Array( -822, -286, -538, -654, 64, -858, 956, -754, 1436, -220, 1414, 368, 890, 758, 88, 860, -521, 877, -902, 1134, -1256, 804, -792, 616, -866, 102 )
+
+[node name="CayoteTimer" type="Timer" parent="VillageGround"]
 
 [node name="YSort" type="YSort" parent="."]
-
-[node name="Village" type="Sprite" parent="YSort"]
-
-[node name="Monument" parent="YSort" instance=ExtResource( 3 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -2, 217 )
 
 [node name="TrackerCamera" parent="." instance=ExtResource( 4 )]
+position = Vector2( 10, -5 )
 current = true
+process_mode = 0
+smoothing_speed = 10.0
 tracked = NodePath("../YSort/Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2( 720, 360 )
+transform = Transform2D( 1, 0, 0, 1, 720, 360 )
+
+[connection signal="body_entered" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_entered"]
+[connection signal="body_exited" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_exited"]
+[connection signal="timeout" from="VillageGround/CayoteTimer" to="VillageGround" method="_on_CayoteTimer_timeout"]

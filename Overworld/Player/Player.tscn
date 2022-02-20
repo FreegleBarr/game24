@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Overworld/Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://Overworld/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Overworld/Player/InteractableDetector.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 6.99998
@@ -12,7 +13,7 @@ radius = 100.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "Default"
-length = 0.3
+length = 3.75
 loop = true
 step = 0.15
 tracks/0/type = "value"
@@ -22,10 +23,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3, 3.15, 3.3, 3.45, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -45,23 +46,29 @@ tracks/0/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 0
+collision_mask = 33
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 2
+hframes = 26
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 scale = Vector2( 2, 2 )
 shape = SubResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="InteractableDetector" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableDetector"]
 visible = false
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Default"
 anims/Default = SubResource( 3 )
 anims/RESET = SubResource( 4 )
+
+[connection signal="area_exited" from="InteractableDetector" to="InteractableDetector" method="_on_area_exited"]

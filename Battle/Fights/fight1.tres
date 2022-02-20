@@ -4,10 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "BulletSpawn
-sleep 1
-BulletSpawn
-sleep 2
-nowait BulletSpawn
-nowait BulletSpawn
-BulletSpawn"
+steps = "sleep 1"

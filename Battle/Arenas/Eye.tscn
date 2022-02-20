@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Battle/Arenas/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Attacks/EyeBasic.tscn" type="PackedScene" id=2]
@@ -8,6 +8,60 @@
 [ext_resource path="res://Battle/Arenas/Assets/Eyes/Eye arena inner.png" type="Texture" id=6]
 [ext_resource path="res://Battle/Attacks/EyeWallWalker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Battle/Arenas/CentredSequence.gd" type="Script" id=8]
+[ext_resource path="res://Battle/AttackChoreography.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Battle/Fights/subeye1.tres" type="Resource" id=10]
+[ext_resource path="res://Battle/EnemyObjects/EnemyObjects.gd" type="Script" id=11]
+[ext_resource path="res://Battle/Attacks/Mirror.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Battle/Projectiles/Assets/portrait virus.png" type="Texture" id=13]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 13 )
+region = Rect2( 480, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 13 )
+region = Rect2( 640, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 13 )
+region = Rect2( 800, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 13 )
+region = Rect2( 960, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 13 )
+region = Rect2( 1120, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 13 )
+region = Rect2( 1280, 0, 160, 160 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "roar",
+"speed": 6.67
+} ]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -46,8 +100,11 @@ animations = [ {
 [node name="Eye" instance=ExtResource( 1 )]
 position = Vector2( 0, -1 )
 
+[node name="Scroll" parent="BG" index="0"]
+visible = true
+
 [node name="HUD" parent="HUDControls" index="0"]
-visible = false
+portrait_frames = SubResource( 13 )
 
 [node name="BGMap" parent="Organ/BG" index="0"]
 frames = SubResource( 1 )
@@ -59,53 +116,8 @@ frames = SubResource( 2 )
 frames = SubResource( 3 )
 background = ExtResource( 4 )
 
-[node name="Player" parent="." index="3"]
-position = Vector2( 0, 0 )
-
-[node name="AttackChoreography" parent="." index="6"]
-choreography_steps = ExtResource( 3 )
-
-[node name="EyeWallWalker" parent="AttackChoreography" index="3" instance=ExtResource( 7 )]
-
-[node name="CentredSequence" type="Node" parent="AttackChoreography" index="4"]
-script = ExtResource( 8 )
-
-[node name="EyeBasic0" parent="AttackChoreography/CentredSequence" index="0" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic0" index="0"]
-position = Vector2( 433, -292 )
-
-[node name="EyeBasic1" parent="AttackChoreography/CentredSequence" index="1" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic1" index="0"]
-position = Vector2( 489, -231 )
-
-[node name="EyeBasic2" parent="AttackChoreography/CentredSequence" index="2" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic2" index="0"]
-position = Vector2( 529, -124 )
-
-[node name="EyeBasic3" parent="AttackChoreography/CentredSequence" index="3" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic3" index="0"]
-position = Vector2( 540, 0 )
-
-[node name="EyeBasic4" parent="AttackChoreography/CentredSequence" index="4" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic4" index="0"]
-position = Vector2( 529, 124 )
-
-[node name="EyeBasic5" parent="AttackChoreography/CentredSequence" index="5" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic5" index="0"]
-position = Vector2( 489, 231 )
-
-[node name="EyeBasic6" parent="AttackChoreography/CentredSequence" index="6" instance=ExtResource( 2 )]
-
-[node name="SpawnPosition" parent="AttackChoreography/CentredSequence/EyeBasic6" index="0"]
-position = Vector2( 433, 292 )
-
-[node name="Timer" type="Timer" parent="AttackChoreography/CentredSequence" index="7"]
+[node name="Player" parent="." index="4"]
+position = Vector2( -20, 64 )
 
 [node name="CenterAngles" type="Position2D" parent="." index="7"]
 
@@ -115,12 +127,116 @@ position = Vector2( 177, -133 )
 [node name="Bottom" type="Position2D" parent="CenterAngles" index="1"]
 position = Vector2( 177, 133 )
 
+[node name="EnemyObjects" type="Node2D" parent="." index="8"]
+script = ExtResource( 11 )
+
+[node name="AttackChoreography" parent="." index="9"]
+choreography_steps = ExtResource( 3 )
+
+[node name="BaseSequence" parent="AttackChoreography" index="1" instance=ExtResource( 9 )]
+choreography_steps = ExtResource( 10 )
+
+[node name="EyeWallWalker" parent="AttackChoreography/BaseSequence" index="1" instance=ExtResource( 7 )]
+
+[node name="CentredSequence" type="Node" parent="AttackChoreography/BaseSequence" index="2"]
+script = ExtResource( 8 )
+
+[node name="EyeBasic0" parent="AttackChoreography/BaseSequence/CentredSequence" index="0" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic0" index="0"]
+position = Vector2( 433, -292 )
+
+[node name="EyeBasic1" parent="AttackChoreography/BaseSequence/CentredSequence" index="1" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic1" index="0"]
+position = Vector2( 489, -231 )
+
+[node name="EyeBasic2" parent="AttackChoreography/BaseSequence/CentredSequence" index="2" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic2" index="0"]
+position = Vector2( 529, -124 )
+
+[node name="EyeBasic3" parent="AttackChoreography/BaseSequence/CentredSequence" index="3" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic3" index="0"]
+position = Vector2( 540, 0 )
+
+[node name="EyeBasic4" parent="AttackChoreography/BaseSequence/CentredSequence" index="4" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic4" index="0"]
+position = Vector2( 529, 124 )
+
+[node name="EyeBasic5" parent="AttackChoreography/BaseSequence/CentredSequence" index="5" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic5" index="0"]
+position = Vector2( 489, 231 )
+
+[node name="EyeBasic6" parent="AttackChoreography/BaseSequence/CentredSequence" index="6" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence/CentredSequence/EyeBasic6" index="0"]
+position = Vector2( 433, 292 )
+
+[node name="Timer" type="Timer" parent="AttackChoreography/BaseSequence/CentredSequence" index="7"]
+
+[node name="BaseSequence2" parent="AttackChoreography" index="2" instance=ExtResource( 9 )]
+choreography_steps = ExtResource( 10 )
+
+[node name="EyeWallWalker" parent="AttackChoreography/BaseSequence2" index="1" instance=ExtResource( 7 )]
+
+[node name="CentredSequence" type="Node" parent="AttackChoreography/BaseSequence2" index="2"]
+script = ExtResource( 8 )
+
+[node name="EyeBasic0" parent="AttackChoreography/BaseSequence2/CentredSequence" index="0" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic0" index="0"]
+position = Vector2( 433, -292 )
+
+[node name="EyeBasic1" parent="AttackChoreography/BaseSequence2/CentredSequence" index="1" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic1" index="0"]
+position = Vector2( 489, -231 )
+
+[node name="EyeBasic2" parent="AttackChoreography/BaseSequence2/CentredSequence" index="2" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic2" index="0"]
+position = Vector2( 529, -124 )
+
+[node name="EyeBasic3" parent="AttackChoreography/BaseSequence2/CentredSequence" index="3" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic3" index="0"]
+position = Vector2( 540, 0 )
+
+[node name="EyeBasic4" parent="AttackChoreography/BaseSequence2/CentredSequence" index="4" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic4" index="0"]
+position = Vector2( 529, 124 )
+
+[node name="EyeBasic5" parent="AttackChoreography/BaseSequence2/CentredSequence" index="5" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic5" index="0"]
+position = Vector2( 489, 231 )
+
+[node name="EyeBasic6" parent="AttackChoreography/BaseSequence2/CentredSequence" index="6" instance=ExtResource( 2 )]
+
+[node name="SpawnPosition" parent="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic6" index="0"]
+position = Vector2( 433, 292 )
+
+[node name="Timer" type="Timer" parent="AttackChoreography/BaseSequence2/CentredSequence" index="7"]
+
+[node name="Mirror" parent="AttackChoreography" index="3" instance=ExtResource( 12 )]
+
 [editable path="ProjectileManagers"]
-[editable path="AttackChoreography/BulletSpawn"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic0"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic1"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic2"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic3"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic4"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic5"]
-[editable path="AttackChoreography/CentredSequence/EyeBasic6"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic0"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic1"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic2"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic3"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic4"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic5"]
+[editable path="AttackChoreography/BaseSequence/CentredSequence/EyeBasic6"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic0"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic1"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic2"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic3"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic4"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic5"]
+[editable path="AttackChoreography/BaseSequence2/CentredSequence/EyeBasic6"]

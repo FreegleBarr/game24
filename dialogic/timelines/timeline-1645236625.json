@@ -1,0 +1,180 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"condition": "",
+			"definition": "1645237333-648",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"anchor_id": "anchor-1645237596",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1645237333-648",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1645237599",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1645237596",
+			"index": 0,
+			"name": "convo0"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Erm... Hello?"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Is there a problem?"
+		},
+		{
+			"choice": "No, no problem!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, good. Hmm..."
+		},
+		{
+			"choice": "You're a friendly skeleton?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Of course. Skeletons are friendly creatures, in general."
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sorry! I've just never spoken to one before!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Listen, could you do me a favour?"
+		},
+		{
+			"choice": "Sure!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Talk to me again."
+		},
+		{
+			"definition": "1645237333-648",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1645237599",
+			"index": 0,
+			"name": "convo1"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Go away!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1645236625.json",
+		"name": "Skully-Intro"
+	}
+}

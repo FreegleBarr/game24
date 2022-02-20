@@ -15,6 +15,20 @@ func create_collision_polygon():
 		$Walls.add_child(polygon_node)
 
 
+func transition():
+	material.set('shader_param/flashing', true)
+	visible = true
+	$Timer.start()
+
 func _ready() -> void:
 	create_collision_polygon()
 
+
+
+func _on_Timer_timeout() -> void:
+	material.set('shader_param/flashing', false)
+	for child in $Walls.get_children():
+		child.set_deferred("disabled", not child.disabled)
+		visible = child.disabled
+	material.set('shader_param/disappearing', visible)
+		

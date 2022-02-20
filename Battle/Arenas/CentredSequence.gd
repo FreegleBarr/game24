@@ -2,6 +2,8 @@ extends BaseAttack
 
 signal spawn_bullet(type, pos, dir)
 
+export(String) var projectile_type = 'virus'
+
 onready var timer = $Timer
 
 func _ready() -> void:
@@ -30,5 +32,10 @@ func start(args: Array):
 		yield(timer, "timeout")
 	emit_signal("attack_done")
 
-func _on_bullet_spawn(type: String, pos: Vector2, dir: Vector2):
-	emit_signal("spawn_bullet", type, pos, dir)	
+func _on_bullet_spawn(_type: String, pos: Vector2, dir: Vector2):
+	emit_signal("spawn_bullet", projectile_type, pos, dir)	
+
+func time(args: Array) -> float:
+	var delays := get_child_count()-2
+	var time := args[0] as float
+	return time*delays

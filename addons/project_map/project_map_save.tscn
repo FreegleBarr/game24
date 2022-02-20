@@ -1,0 +1,219 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://addons/project_map/node_selected.stylebox" type="StyleBox" id=1]
+[ext_resource path="res://addons/project_map/node.stylebox" type="StyleBox" id=2]
+[ext_resource path="res://addons/project_map/group.stylebox" type="StyleBox" id=3]
+[ext_resource path="res://addons/project_map/group_selected.stylebox" type="StyleBox" id=4]
+[ext_resource path="res://addons/project_map/pm_group_node.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/project_map/pm_file_node.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/project_map/pm_comment_node.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/project_map/project_map.gd" type="Script" id=8]
+[ext_resource path="res://addons/project_map/pm_comment_node.gd" type="Script" id=9]
+[ext_resource path="res://addons/project_map/pm_file_node.gd" type="Script" id=10]
+[ext_resource path="res://addons/project_map/pm_group_node.gd" type="Script" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="ProjectMap" type="GraphEdit"]
+margin_right = 1541.0
+margin_bottom = 1249.0
+rect_min_size = Vector2( 500, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_offset = Vector2( -172, -440 )
+snap_distance = 24
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GroupNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 316.0
+margin_top = 464.0
+margin_right = 484.0
+margin_bottom = 872.0
+rect_min_size = Vector2( 168, 408 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 3 )
+offset = Vector2( 144, 24 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Projectiles"
+
+[node name="CommentNode" type="GraphNode" parent="." instance=ExtResource( 7 )]
+margin_left = 562.0
+margin_top = 268.0
+margin_right = 1057.0
+margin_bottom = 623.0
+rect_min_size = Vector2( 495, 355 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 2 )
+custom_styles/comment = SubResource( 3 )
+offset = Vector2( 390, -172 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "Welcome to Project Map
+
+To start, drag files from the Godot filesystem into this screen to create file nodes. Click on the name to open it.
+
+Drag the icons to move the nodes.
+
+Click \"Add Group\" or \"Add Comment\" and click anywhere to add a group/comment node.
+
+What you are reading is a comment node. Use the bottom-right handle to resize it, it appears when hovering the comment.
+Click on the icon and press delete to delete it."
+comment_rect = Vector2( 495, 355 )
+
+[node name="FileNode5" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 324.0
+margin_top = 496.0
+margin_right = 430.0
+margin_bottom = 558.0
+mouse_filter = 1
+custom_constants/port_offset = 0
+custom_styles/frame = ExtResource( 2 )
+custom_styles/selectedframe = ExtResource( 1 )
+offset = Vector2( 152, 56 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Battle/Projectiles/Base.tscn"
+icon_class = "Node2D"
+script_path = "res://Battle/Projectiles/Base.gd"
+script_name = "Base.gd"
+
+[node name="FileNode4" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 324.0
+margin_top = 784.0
+margin_right = 477.0
+margin_bottom = 846.0
+mouse_filter = 1
+custom_constants/port_offset = 0
+custom_styles/frame = ExtResource( 2 )
+custom_styles/selectedframe = ExtResource( 1 )
+offset = Vector2( 152, 344 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Battle/Projectiles/NerveShock.tscn"
+icon_class = "Node2D"
+script_path = "res://Battle/Projectiles/NerveShock.gd"
+script_name = "NerveShock.gd"
+
+[node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 324.0
+margin_top = 712.0
+margin_right = 467.0
+margin_bottom = 774.0
+mouse_filter = 1
+custom_constants/port_offset = 0
+custom_styles/frame = ExtResource( 2 )
+custom_styles/selectedframe = ExtResource( 1 )
+offset = Vector2( 152, 272 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Battle/Projectiles/RockyRock.tscn"
+icon_class = "Node2D"
+script_path = "res://Battle/Projectiles/RockyRock.gd"
+script_name = "RockyRock.gd"
+
+[node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 324.0
+margin_top = 640.0
+margin_right = 445.0
+margin_bottom = 702.0
+mouse_filter = 1
+custom_constants/port_offset = 0
+custom_styles/frame = ExtResource( 2 )
+custom_styles/selectedframe = ExtResource( 1 )
+offset = Vector2( 152, 200 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Battle/Projectiles/Cancer.tscn"
+icon_class = "Node2D"
+script_path = "res://Battle/Projectiles/Cancer.gd"
+script_name = "Cancer.gd"
+
+[node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 324.0
+margin_top = 568.0
+margin_right = 432.0
+margin_bottom = 630.0
+mouse_filter = 1
+custom_constants/port_offset = 0
+custom_styles/frame = ExtResource( 2 )
+custom_styles/selectedframe = ExtResource( 1 )
+offset = Vector2( 152, 128 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Battle/Projectiles/Virus.tscn"
+icon_class = "Node2D"
+script_path = "res://Battle/Projectiles/Virus.gd"
+script_name = "Virus.gd"
+
+[connection signal="delete_nodes_request" from="." to="." method="_on_GraphEdit_delete_nodes_request"]

@@ -1,11 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Battle/Projectiles/Managers/ProjectileManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/Virus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Projectiles/Managers.gd" type="Script" id=3]
+[ext_resource path="res://Battle/Projectiles/Managers/NerveShockManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Battle/Projectiles/Cancer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Battle/Projectiles/Managers/CancerManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Battle/Projectiles/Managers/RockyRockManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Battle/Projectiles/RockyRock.tscn" type="PackedScene" id=8]
 
 [node name="ProjectileManagers" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Virus" parent="." instance=ExtResource( 1 )]
 ProjType = ExtResource( 2 )
+
+[node name="Nerve Shock" parent="." instance=ExtResource( 4 )]
+
+[node name="Cancer" parent="." instance=ExtResource( 6 )]
+ProjType = ExtResource( 5 )
+
+[node name="Rocky Rock" parent="." instance=ExtResource( 7 )]
+ProjType = ExtResource( 8 )

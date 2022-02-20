@@ -1,11 +1,16 @@
 extends KinematicBody2D
+class_name Player
 
 signal died
 signal hp_changed(value)
+signal hurt
 
 export var move_speed = 400
+export var ghost_time: float = 2
 
-var dead: bool = false
+var dead := false
+var ghosting := false
+var invuln := false
 
 onready var playback = $AnimationTree.get('parameters/playback')
 
@@ -13,7 +18,8 @@ export var max_hp = 3 setget change_max_hp
 func change_max_hp(value):
 	max_hp = min(value, 0)
 	#call hp setter
-	self.hp = min(hp, max_hp)
+	if hp:
+		self.hp = min(hp, max_hp)
 
 
 #do not onready
@@ -26,7 +32,16 @@ func change_hp(value):
 
 func _ready() -> void:
 	self.hp = max_hp
-	
+	Battle.player = self
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		ghost()
+
+var total_force := Vector2()
+func apply_force(force: Vector2):
+	total_force += force
+
 var velocity: Vector2
 func _physics_process(_delta: float) -> void:
 	velocity = Vector2()
@@ -38,7 +53,12 @@ func _physics_process(_delta: float) -> void:
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
-		
+	velocity = velocity.normalized()
+	
+	var force = total_force.normalized()
+	force *= min(total_force.length(), 0.8)
+	velocity += force
+	total_force -= force
 	if dead:
 		pass
 	elif velocity.length():
@@ -46,11 +66,7 @@ func _physics_process(_delta: float) -> void:
 			$Sprite.flip_h = false
 		elif velocity.x < 0:
 			$Sprite.flip_h = true
-#		playback.travel("Move")
 		velocity = move_and_slide(velocity * move_speed)
-	else:
-		pass
-#		playback.travel("Idle")
 
 func die():
 	#TODO: die
@@ -60,12 +76,39 @@ func die():
 	$Collision.set_deferred("disabled", true)
 	$Hurtbox/Collision.set_deferred("disabled", true)
 
+func ghost():
+	if $GhostCooldown.is_stopped() and not ghosting:
+		$Sprite.material.set('shader_param/ghosting', true)
+		ghosting = true
+		$Hurtbox/Collision.set_deferred("disabled", true)
+		$GhostTimer.start()
+
+func end_ghost() -> void:
+	if ghosting:
+		$GhostCooldown.start()
+		$Sprite.material.set('shader_param/ghosting', false)
+		ghosting = false
+		$Hurtbox/Collision.set_deferred("disabled", false)
+
+func end_invuln() -> void:
+	if not dead:
+		invuln = false
+		$Sprite.material.set('shader_param/ghosting', false)
+		$Hurtbox/Collision.set_deferred("disabled", false)
+
 
 func _on_Button_button_down() -> void:
 	self.hp = -9999
 
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
+	if invuln:
+		return
 	area.owner.contact()
 	playback.travel("Hurt")
+	$InvulnTimer.start()
+	$Hurtbox/Collision.set_deferred("disabled", true)
+	$Sprite.material.set('shader_param/ghosting', true)
+	invuln = true
 	self.hp -= 1
+	emit_signal('hurt')

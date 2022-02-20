@@ -1,21 +1,21 @@
 {
 	"color": "#ffffffff",
 	"description": "",
-	"display_name": "",
+	"display_name": "Display Name",
 	"display_name_bool": false,
 	"id": "character-1644862958.json",
 	"mirror_portraits": false,
 	"name": "Skelly",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": 30,
+	"offset_y": -350,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": ""
+			"path": "res://Overworld/Dialogue/Portraits/portrait skully billy.png"
 		}
 	],
 	"scale": 100,
-	"theme": ""
+	"theme": "theme-1645222956.cfg"
 }
