@@ -1,0 +1,14 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+uniform float show_time = -1.;
+
+void fragment(){
+	COLOR = vec4(0.);
+	if (show_time != -1.){
+		float time = TIME-show_time;
+		COLOR = texture(TEXTURE, UV);
+		COLOR *= 1./(1.+exp(-time*10.));
+	}
+}"

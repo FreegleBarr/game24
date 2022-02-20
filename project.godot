@@ -98,6 +98,11 @@ _global_script_classes=[ {
 "class": "ProjectileManager",
 "language": "GDScript",
 "path": "res://Battle/Projectiles/Managers/ProjectileManager.gd"
+}, {
+"base": "Node2D",
+"class": "ScreenFragment",
+"language": "GDScript",
+"path": "res://Main/ScreenFragment.gd"
 } ]
 _global_script_class_icons={
 "BaseAttack": "",
@@ -117,13 +122,14 @@ _global_script_class_icons={
 "HistoryRow": "",
 "Player": "",
 "Projectile": "",
-"ProjectileManager": ""
+"ProjectileManager": "",
+"ScreenFragment": ""
 }
 
 [application]
 
 config/name="Game 24"
-run/main_scene="res://Overworld/Villages/Brain.tscn"
+run/main_scene="res://Main.tscn"
 boot_splash/use_filter=false
 config/icon="res://Icons/icon.png"
 
