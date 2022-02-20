@@ -102,6 +102,8 @@ func _on_Button_button_down() -> void:
 
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
+	if invuln:
+		return
 	area.owner.contact()
 	playback.travel("Hurt")
 	$InvulnTimer.start()

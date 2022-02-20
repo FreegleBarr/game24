@@ -139,7 +139,7 @@ func load_script(choreography_steps) -> void:
 	emit_signal("script_loaded", time())
 
 func time():
-	var total_time: float = 0
+	total_time = 0
 	var nowait_time: float = 0
 	var subchor_time: float = 0
 	for action in execution_order:

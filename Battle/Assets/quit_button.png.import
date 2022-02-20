@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/png-transparent-capybara-rodent-rat-wikia-rat-mammal-animals-fauna.png-371db2de41ae0354b5ff408ea0a52d0e.stex"
+path="res://.import/quit_button.png-d1a73da6ee56f5a7083976551cfd875e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Battle/Assets/png-transparent-capybara-rodent-rat-wikia-rat-mammal-animals-fauna.png"
-dest_files=[ "res://.import/png-transparent-capybara-rodent-rat-wikia-rat-mammal-animals-fauna.png-371db2de41ae0354b5ff408ea0a52d0e.stex" ]
+source_file="res://Battle/Assets/quit_button.png"
+dest_files=[ "res://.import/quit_button.png-d1a73da6ee56f5a7083976551cfd875e.stex" ]
 
 [params]
 

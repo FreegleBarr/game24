@@ -5,7 +5,5 @@
 [resource]
 script = ExtResource( 1 )
 steps = "start BaseSequence
-Mirror 16 1
 sleep 0.5
-start BaseSequence
-Mirror 16 1"
+start BaseSequence2"

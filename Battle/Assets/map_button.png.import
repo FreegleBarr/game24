@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pngfind.com-green-circle-png-1713863.png-a37879ccf68c76121652b4437b82c902.stex"
+path="res://.import/map_button.png-3beb7a587ba659109ef39261acdd07d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Battle/Assets/pngfind.com-green-circle-png-1713863.png"
-dest_files=[ "res://.import/pngfind.com-green-circle-png-1713863.png-a37879ccf68c76121652b4437b82c902.stex" ]
+source_file="res://Battle/Assets/map_button.png"
+dest_files=[ "res://.import/map_button.png-3beb7a587ba659109ef39261acdd07d4.stex" ]
 
 [params]
 

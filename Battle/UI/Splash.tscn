@@ -1,10 +1,47 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Battle/Projectiles/Assets/win splash screen.png" type="Texture" id=1]
 [ext_resource path="res://Battle/UI/Splash.gd" type="Script" id=2]
-[ext_resource path="res://Battle/Projectiles/Assets/win background scroll.png" type="Texture" id=3]
-[ext_resource path="res://Battle/Projectiles/Assets/lose background scroll.png" type="Texture" id=4]
+[ext_resource path="res://Battle/Assets/map_button.png" type="Texture" id=3]
+[ext_resource path="res://Battle/Assets/quit_button.png" type="Texture" id=4]
 [ext_resource path="res://Battle/Projectiles/Assets/lose screen splash.png" type="Texture" id=5]
+[ext_resource path="res://Battle/Assets/retry_button.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 25, 43, 271, 254 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 627, 47, 269, 250 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 307, 26, 289, 271 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 210, 160 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 420, 0, 210, 160 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 210, 0, 210, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 200, 140 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 400, 0, 200, 140 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 200, 0, 200, 140 )
 
 [node name="Splash" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -14,8 +51,6 @@ lose = ExtResource( 5 )
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1280.0
-margin_right = 1280.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,28 +60,67 @@ margin_left = 390.0
 margin_top = 110.0
 margin_right = 890.0
 margin_bottom = 610.0
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
 
-[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+[node name="Buttons" type="Control" parent="CenterContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 590.0
-margin_top = 258.0
-margin_right = 690.0
-margin_bottom = 462.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="Lose" type="VBoxContainer" parent="CenterContainer/Buttons"]
+margin_left = -150.0
+margin_top = -232.0
+margin_right = 150.0
+margin_bottom = 232.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Okay3" type="TextureButton" parent="CenterContainer/Buttons"]
-margin_right = 100.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 3 )
+[node name="Retry" type="TextureButton" parent="CenterContainer/Buttons/Lose"]
+margin_right = 300.0
+margin_bottom = 254.0
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 3 )
 
-[node name="Cancel" type="TextureButton" parent="CenterContainer/Buttons"]
-margin_top = 104.0
-margin_right = 100.0
-margin_bottom = 204.0
-texture_normal = ExtResource( 4 )
+[node name="CC" type="CenterContainer" parent="CenterContainer/Buttons/Lose"]
+margin_top = 258.0
+margin_right = 300.0
+margin_bottom = 418.0
+
+[node name="Overworld" type="TextureButton" parent="CenterContainer/Buttons/Lose/CC"]
+margin_left = 45.0
+margin_right = 255.0
+margin_bottom = 160.0
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 5 )
+texture_hover = SubResource( 6 )
+
+[node name="Win" type="VBoxContainer" parent="CenterContainer/Buttons"]
+visible = false
+margin_left = -105.0
+margin_top = -80.0
+margin_right = 105.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="CenterContainer" parent="CenterContainer/Buttons/Win"]
+margin_right = 210.0
+margin_bottom = 160.0
+
+[node name="Map" type="TextureButton" parent="CenterContainer/Buttons/Win/CC"]
+margin_right = 210.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 210, 160 )
+texture_normal = SubResource( 7 )
+texture_pressed = SubResource( 8 )
+texture_hover = SubResource( 9 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -54,5 +128,8 @@ texture_normal = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="pressed" from="CenterContainer/Buttons/Lose/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Lose/CC/Overworld" to="." method="_on_Overworld_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Win/CC/Map" to="." method="_on_Map_pressed"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="tween_completed" from="Tween2" to="." method="_on_Tween_tween_completed"]
