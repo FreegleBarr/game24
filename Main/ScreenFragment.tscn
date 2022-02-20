@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://cut scenes/screen1/frame 1.png" type="Texture" id=1]
+[ext_resource path="res://Shaders/ComicFade.tres" type="Shader" id=2]
+[ext_resource path="res://Main/ScreenFragment.gd" type="Script" id=3]
+[ext_resource path="res://cut scenes/screen1/text 1.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/show_time = 0.0
+
+[node name="Fragment" type="Node2D"]
+script = ExtResource( 3 )
+texts = [ ExtResource( 4 ) ]
+
+[node name="Image" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Text" type="Sprite" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
