@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Map/Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Map/Standalone.gd" type="Script" id=2]
+
+[node name="Standalone" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Map" parent="." instance=ExtResource( 1 )]
+toggleabble = false
+
+[node name="brain" parent="Map" index="1"]
+modulate = Color( 1, 0.509804, 0.627451, 1 )
+
+[node name="CollisionPolygon2D" parent="Map/Areas/Brain" index="0"]
+visible = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[editable path="Map"]

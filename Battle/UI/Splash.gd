@@ -8,10 +8,12 @@ onready var splash = $CenterContainer/Splash
 onready var win_buttons = $CenterContainer/Buttons/Win
 onready var lose_buttons = $CenterContainer/Buttons/Lose
 
+func disable_overworld():
+	lose_buttons.get_node("CC/Overworld").visible = false
 
 func _ready() -> void:
-	return
 	$CenterContainer.rect_position.x = 1280
+	$CenterContainer/Buttons.modulate = Color(1,1,1,0)
 
 func won():
 	splash.texture = win

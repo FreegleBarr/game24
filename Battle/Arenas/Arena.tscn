@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/Managers.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Battle/Arenas/Assets/Brain/outer walls.png" type="Texture" id=15]
 [ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=16]
 [ext_resource path="res://Battle/Arenas/InnerWalls.gd" type="Script" id=17]
+[ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
@@ -48,6 +49,8 @@ export(StreamTexture) var win
 export(StreamTexture) var lose
 export(StreamTexture) var battle
 
+func _ready() -> void:
+	material.set(\"shader_param/tex\", battle)
 
 func lost():
 	material.set(\"shader_param/tex\", lose)
@@ -127,6 +130,7 @@ friction = 0.0
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
+Village = "res://Overworld/Villages/Brain.tscn"
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
@@ -196,11 +200,20 @@ position = Vector2( -305, 62 )
 [node name="AttackChoreography" parent="." instance=ExtResource( 3 )]
 choreography_steps = ExtResource( 16 )
 
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 18 )]
+
+[connection signal="change_scene" from="Splash" to="." method="_on_Splash_change_scene"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="hp_changed" from="Player" to="HUDControls/HUD" method="_on_Player_hp_changed"]
-[connection signal="hp_changed" from="Player" to="Camera" method="_on_Player_hp_changed"]
 [connection signal="hurt" from="Player" to="HUDControls/HUD" method="_on_Player_hurt"]
+[connection signal="hurt" from="Player" to="Camera" method="_on_Player_hurt"]
 [connection signal="fight_over" from="AttackChoreography" to="." method="_on_AttackChoreography_fight_over"]
 [connection signal="script_loaded" from="AttackChoreography" to="HUDControls/HUD" method="_on_AttackChoreography_script_loaded"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 
 [editable path="ProjectileManagers"]

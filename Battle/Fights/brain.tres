@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource( 1 )
-steps = "WallWalker
+steps = "WallWalker 4 1
 sleep 1
-WallWalker
+WallWalker 8 0.5
 sleep 1
-WallWalker
+WallWalker 16 0.25
 sleep 1
-WallWalker
+WallWalker 32 0.125
 sleep 1
-WallWalker
+WallWalker 64 0.0625
 sleep 1"

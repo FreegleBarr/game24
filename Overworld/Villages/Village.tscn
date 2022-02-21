@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://Overworld/Villages/BattleStarter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Overworld/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Overworld/Assets/antibody.png" type="Texture" id=3]
 [ext_resource path="res://Overworld/Utils/TrackerCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Music/Village.wav" type="AudioStream" id=5]
+[ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Overworld/Villages/VillageGround.gd" type="Script" id=8]
 [ext_resource path="res://Overworld/Villages/Village.gd" type="Script" id=9]
 [ext_resource path="res://Overworld/Dialogue/Mitochondria.ttf" type="DynamicFontData" id=11]
@@ -20,6 +24,7 @@ polygon = PoolVector2Array( -822, -286, -538, -654, 64, -858, 956, -754, 1436, -
 [node name="BackgroundSprite" type="Sprite" parent="."]
 
 [node name="SpawnPoint" type="Position2D" parent="."]
+visible = false
 position = Vector2( 257, 143 )
 
 [node name="ColorRect" type="ColorRect" parent="SpawnPoint"]
@@ -64,6 +69,13 @@ __meta__ = {
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( -2, 217 )
 
+[node name="BattleStarter" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 213, 52 )
+SpriteTexture = ExtResource( 3 )
+
+[node name="Sprite" parent="YSort/BattleStarter" index="0"]
+texture = ExtResource( 3 )
+
 [node name="TrackerCamera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 10, -5 )
 current = true
@@ -75,6 +87,12 @@ tracked = NodePath("../YSort/Player")
 offset = Vector2( 720, 360 )
 transform = Transform2D( 1, 0, 0, 1, 720, 360 )
 
+[node name="MusicPlayer" parent="." instance=ExtResource( 6 )]
+stream = ExtResource( 5 )
+volume = -10.0
+
 [connection signal="body_entered" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_entered"]
 [connection signal="body_exited" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_exited"]
 [connection signal="timeout" from="VillageGround/CayoteTimer" to="VillageGround" method="_on_CayoteTimer_timeout"]
+
+[editable path="YSort/BattleStarter"]

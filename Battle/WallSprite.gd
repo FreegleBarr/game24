@@ -1,5 +1,6 @@
 extends AnimatedSprite
 
+
 export(StreamTexture) var background
 
 func create_collision_polygon():

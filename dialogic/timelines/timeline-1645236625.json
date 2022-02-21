@@ -75,7 +75,7 @@
 		{
 			"character": "character-1645113855.json",
 			"event_id": "dialogic_001",
-			"portrait": "",
+			"portrait": "Default",
 			"text": "Erm... Hello?"
 		},
 		{
@@ -95,7 +95,7 @@
 			"value": ""
 		},
 		{
-			"character": "",
+			"character": "character-1644862958.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Oh, good. Hmm..."
@@ -116,7 +116,7 @@
 		{
 			"character": "character-1645113855.json",
 			"event_id": "dialogic_001",
-			"portrait": "",
+			"portrait": "Speaking",
 			"text": "Sorry! I've just never spoken to one before!"
 		},
 		{

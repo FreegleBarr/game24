@@ -10,4 +10,5 @@ func start(time):
 	timer.start()
 
 func _process(_delta: float) -> void:
-	value = timer.time_left
+	if not timer.is_stopped():
+		value = timer.time_left

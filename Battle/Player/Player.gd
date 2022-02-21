@@ -32,6 +32,7 @@ func change_hp(value):
 
 func _ready() -> void:
 	self.hp = max_hp
+	$Sprite.material.set('shader_param/ghosting', false)
 	Battle.player = self
 
 func _input(event: InputEvent) -> void:
@@ -77,6 +78,8 @@ func die():
 	$Hurtbox/Collision.set_deferred("disabled", true)
 
 func ghost():
+	#Not implemented fully
+	return
 	if $GhostCooldown.is_stopped() and not ghosting:
 		$Sprite.material.set('shader_param/ghosting', true)
 		ghosting = true

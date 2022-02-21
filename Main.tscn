@@ -1,3 +1,20 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Main/Splash.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main/LoadingScreen.tscn" type="PackedScene" id=3]
+
+[node name="Main" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+selected_scene = "brain_battle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="LoadingScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
+color = Color( 0.0705882, 0.0392157, 0.101961, 1 )
+
+[node name="Splash" parent="." instance=ExtResource( 2 )]
+pause_mode = 1

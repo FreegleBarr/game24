@@ -1,15 +1,12 @@
 extends Node2D
 tool
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+signal change_scene(target)
 
+export(String, FILE, "*.tscn") var Village
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("i")
-	$AttackChoreography.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +30,19 @@ func _on_AttackChoreography_fight_over() -> void:
 func _on_Player_died() -> void:
 	$BG/Scroll.lost()
 	$Splash.lost()
+
+
+func _on_StartTimer_timeout() -> void:
+	$AttackChoreography.start()
+
+
+
+
+func _on_Splash_change_scene(target) -> void:
+	match (target):
+		"map":
+			emit_signal("change_scene", "map")
+		"overworld":
+			emit_signal("change_scene", Village)
+		"battle":
+			emit_signal("change_scene", filename)
