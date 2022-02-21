@@ -20,8 +20,7 @@ func contact(destroy_self:=true):
 	if destroy_self:
 		get_parent().call_deferred("remove_child", self)
 
-func setup(pos: Vector2, _dir: Vector2):
-	# _dir is currently ignored
+func setup(pos: Vector2, dir: Vector2):
 	
 	var spawn_timer = [1, 1.5, 2][randi()%3]
 	
@@ -29,12 +28,14 @@ func setup(pos: Vector2, _dir: Vector2):
 	
 	if variant == TYPES.ROTATE:
 		rotation_degrees = randi()*360
-
+	else:
+		rotation = PI/2 +position.angle_to_point(dir)
 	var h_dir = sign(Battle.player.position.x - pos.x)
 	direction = Vector2(h_dir, 0)
 	position = pos
 
 func _physics_process(delta: float) -> void:
+	return
 	if variant == TYPES.MOVE:
 		position += direction*move_speed*delta
 	

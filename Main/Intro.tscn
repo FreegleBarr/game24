@@ -97,8 +97,6 @@ size_flags_vertical = 3
 
 [node name="BorderB" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
 material = SubResource( 28 )
-anchor_top = -0.931944
-anchor_bottom = -0.931944
 margin_top = 670.0
 margin_right = 1280.0
 margin_bottom = 720.0

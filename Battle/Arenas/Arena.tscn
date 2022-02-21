@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Battle/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Projectiles/Managers.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Battle/Fights/fight1.tres" type="Resource" id=16]
 [ext_resource path="res://Battle/Arenas/InnerWalls.gd" type="Script" id=17]
 [ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Battle/EnemyObjects/EnemyObjects.gd" type="Script" id=19]
 
 [sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
@@ -206,6 +207,9 @@ one_shot = true
 autostart = true
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 18 )]
+
+[node name="EnemyObjects" type="Node2D" parent="."]
+script = ExtResource( 19 )
 
 [connection signal="change_scene" from="Splash" to="." method="_on_Splash_change_scene"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]

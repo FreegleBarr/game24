@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Battle/Arenas/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Attacks/EyeBasic.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Battle/Arenas/Assets/Eyes/Eye arena inner.png" type="Texture" id=6]
 [ext_resource path="res://Battle/Attacks/EyeWallWalker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Battle/Arenas/CentredSequence.gd" type="Script" id=8]
-[ext_resource path="res://Battle/EnemyObjects/EnemyObjects.gd" type="Script" id=11]
 [ext_resource path="res://Battle/Attacks/Mirror.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Battle/Projectiles/Assets/portrait virus.png" type="Texture" id=13]
 [ext_resource path="res://Battle/Arenas/Eye.gd" type="Script" id=14]
@@ -127,10 +126,7 @@ position = Vector2( 177, -133 )
 [node name="Bottom" type="Position2D" parent="CenterAngles" index="1"]
 position = Vector2( 177, 133 )
 
-[node name="EnemyObjects" type="Node2D" parent="." index="8"]
-script = ExtResource( 11 )
-
-[node name="AttackChoreography" parent="." index="9"]
+[node name="AttackChoreography" parent="." index="8"]
 choreography_steps = ExtResource( 3 )
 
 [node name="Mirror" parent="AttackChoreography" index="1" instance=ExtResource( 12 )]

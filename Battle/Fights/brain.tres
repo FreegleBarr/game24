@@ -6,11 +6,21 @@
 script = ExtResource( 1 )
 steps = "WallWalker 4 1
 sleep 1
-WallWalker 8 0.5
+nowait WallWalker 8 1
+WallWalker2 8 1
 sleep 1
-WallWalker 16 0.25
+RandomSpawner 8 1
 sleep 1
-WallWalker 32 0.125
-sleep 1
-WallWalker 64 0.0625
-sleep 1"
+nowait RandomSpawner 8 1
+CenterTarget 8 1
+sleep 2
+nowait WallWalker 8 1
+CenterTarget 8 1
+sleep 2
+nowait WallWalker2 8 1
+RandomSpawner 8 1
+sleep 2
+nowait WallWalker 4 1
+nowait WallWalker2 4 1
+nowait RandomSpawner 4 1
+CenterTarget 4 1"
