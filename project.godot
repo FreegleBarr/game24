@@ -132,6 +132,7 @@ config/name="Game 24"
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://Main/Assets/splash dummy.png"
 boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://Icons/icon.png"
 
 [autoload]

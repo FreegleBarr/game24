@@ -208,6 +208,10 @@ FrameCount = 4
 texture = ExtResource( 16 )
 hframes = 4
 
+[node name="BattleStarter" parent="YSort" index="29"]
+position = Vector2( 1219, -184 )
+dialogues = [ "timeline-1645237985.json" ]
+
 [node name="TrackerCamera" parent="." index="6"]
 position = Vector2( 10, -4 )
 
@@ -242,3 +246,4 @@ __meta__ = {
 [editable path="YSort/Fisherman"]
 [editable path="YSort/RichWoman"]
 [editable path="YSort/Jenkins"]
+[editable path="YSort/BattleStarter"]

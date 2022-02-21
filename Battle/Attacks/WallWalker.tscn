@@ -14,3 +14,5 @@ script = ExtResource( 1 )
 curve = SubResource( 1 )
 
 [node name="SpawnPoint" type="PathFollow2D" parent="Path2D"]
+
+[node name="Timer" type="Timer" parent="."]

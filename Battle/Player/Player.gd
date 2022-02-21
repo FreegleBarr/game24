@@ -32,6 +32,7 @@ func change_hp(value):
 
 func _ready() -> void:
 	self.hp = max_hp
+	$Sprite.material.set('shader_param/ghosting', false)
 	Battle.player = self
 
 func _input(event: InputEvent) -> void:

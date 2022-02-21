@@ -136,7 +136,7 @@ func load_script(choreography_steps) -> void:
 #					{"atk": attack, 
 #					"args": words.slice(1, len(words) - 1)}
 #				))
-	emit_signal("script_loaded", time())
+	time()
 
 func time():
 	total_time = 0
@@ -162,6 +162,7 @@ func time():
 	return total_time
 
 func start():
+	emit_signal("script_loaded", total_time)
 	print("h")
 	current_inst = 0
 	next_inst()
