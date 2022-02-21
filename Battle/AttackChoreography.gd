@@ -163,6 +163,7 @@ func time():
 
 func start():
 	emit_signal("script_loaded", total_time)
+	print(total_time)
 	print("h")
 	current_inst = 0
 	next_inst()

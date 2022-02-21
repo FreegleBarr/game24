@@ -7,11 +7,12 @@ export(String) var projtype = 'virus'
 onready var timer = $Timer
 
 func start(args: Array) -> void:
+	var repeats := int(args[0])
+	var wait_time := float(args[1])
+	
 	var direction: Vector2 = -$Pivot/SpawnPoint.global_position
 	var position: Vector2 = $Pivot/SpawnPoint.global_position
 	emit_signal("spawn_bullet", projtype, position, direction)
-	var repeats := int(args[0])
-	var wait_time := float(args[1])
 	for _i in range(repeats-1):
 		timer.wait_time = wait_time
 		timer.start()

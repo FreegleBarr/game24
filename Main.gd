@@ -1,7 +1,7 @@
 extends Node2D
 
 #Set to title if not debugging
-export(String, "title", "intro", "eye_battle", "brain_village", "brain_battle", "map") var selected_scene
+export(String, "title", "intro", "eye_battle", "brain_village", "brain_battle", "map", "credits") var selected_scene
 
 var Title := preload("res://Main/TitleScreen.tscn")
 var Intro := preload("res://Main/Intro.tscn")
@@ -9,6 +9,8 @@ var EyeBattle := preload("res://Battle/Arenas/Eye.tscn")
 var BrainVillage := preload("res://Overworld/Villages/Brain.tscn")
 var BrainBattle := preload("res://Battle/Arenas/Brain.tscn")
 var Map := preload("res://Map/Standalone.tscn")
+var Credits := preload("res://Main/Win.tscn")
+var Splash := preload("res://Main/Splash.tscn")
 
 onready var loading := $CanvasLayer/LoadingScreen
 onready var current_scene := $Splash
@@ -20,13 +22,21 @@ var scenes := {
 	'brain_village': BrainVillage,
 	'brain_battle': BrainBattle,
 	'map': Map,
+	'credits': Credits, 
+	'splash': Splash
 }
-
 
 func _ready() -> void:
 	Main.main = self
-	$Splash.call_deferred("show")
-	yield($Splash, "splash_done")
+	start()
+
+func restart():
+	yield(_on_change_scene('splash'), "completed")
+	start()
+
+func start() -> void:
+	current_scene.call_deferred("show")
+	yield(current_scene, "splash_done")
 	_on_change_scene(selected_scene)
 
 func _on_change_scene(target) -> void:

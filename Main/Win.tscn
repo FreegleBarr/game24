@@ -58,15 +58,15 @@ __meta__ = {
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
 margin_left = 494.0
-margin_top = 69.0
+margin_top = 42.0
 margin_right = 786.0
-margin_bottom = 650.0
+margin_bottom = 677.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 285.0
-margin_bottom = 574.0
+margin_bottom = 628.0
 theme = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/VBoxContainer"]
@@ -80,7 +80,7 @@ percent_visible = 0.0
 [node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/VBoxContainer"]
 margin_top = 55.0
 margin_right = 278.0
-margin_bottom = 403.0
+margin_bottom = 457.0
 text = "
 More is comming soon...
 
@@ -93,14 +93,16 @@ Aprzn123
 Bell
 FreegleBarr
 Mallard
-"
+Discussion and Ideas:
+Finn
+ZeeAwt"
 align = 1
 percent_visible = 0.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/CenterContainer/PanelContainer/VBoxContainer"]
-margin_top = 407.0
+margin_top = 461.0
 margin_right = 278.0
-margin_bottom = 567.0
+margin_bottom = 621.0
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer"]
 margin_left = 39.0
@@ -111,3 +113,4 @@ texture_pressed = SubResource( 27 )
 texture_hover = ExtResource( 4 )
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
