@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Overworld/Villages/Village.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Overworld/Assets/npc rich person.png" type="Texture" id=2]
@@ -19,11 +19,13 @@
 [ext_resource path="res://Overworld/Assets/npc turtle soul.png" type="Texture" id=17]
 [ext_resource path="res://Overworld/Assets/npc rescue.png" type="Texture" id=18]
 [ext_resource path="res://Overworld/Assets/npc rescue flipped.png" type="Texture" id=19]
+[ext_resource path="res://Battle/Arenas/Brain.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 15 )
 
 [node name="Brain" instance=ExtResource( 1 )]
+BattleScene = ExtResource( 20 )
 
 [node name="VillageBG" parent="." index="0"]
 visible = false

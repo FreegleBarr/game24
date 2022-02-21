@@ -19,8 +19,8 @@ func run():
 		for row in page.get_children():
 			row.start()
 			yield(row, "done")
-			$Camera2D.position.y += (1000-720)/(page.get_child_count()-1)
-		$Camera2D.position.y = 0
+			$Camera2D.position.y += (1000)/(page.get_child_count())
+		$Camera2D.position.y = -150
 		tween.interpolate_property(page, "modulate",
 			Color(1,1,1,1), Color(0,0,0,0), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		tween.start()

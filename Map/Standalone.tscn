@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Map/Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Map/Standalone.gd" type="Script" id=2]
 
-[node name="CanvasLayer" type="Node2D"]
+[node name="Standalone" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
+toggleabble = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

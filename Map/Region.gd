@@ -13,7 +13,8 @@ func _ready():
 
 func on_click():
 	print("Clicked on ", name)
-	get_tree().change_scene_to(destination_scene)
+	if Overworld.village:
+		Overworld.village.call_deferred("emit_signal","change_scene", destination_scene)
 
 
 func _on_mouse_entered():

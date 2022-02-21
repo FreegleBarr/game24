@@ -2,10 +2,14 @@ extends Node2D
 
 export(NodePath) onready var player = get_node(player) as KinematicBody2D
 
+export(PackedScene) var BattleScene
+
+signal change_scene(target)
 signal player_fallen(last_pos)
 signal npc_interaction(b)
 
 func _ready():
+	Overworld.village = self
 	connect("player_fallen", self, "_on_player_fallen")
 	respawn_player()
 	$SpawnPoint/Label.text = name
@@ -23,3 +27,6 @@ func respawn_player(last_pos:=Vector2()):
 
 func _on_player_fallen(last_pos:=Vector2()):
 	respawn_player()
+
+func start_battle():
+	emit_signal("change_scene", BattleScene)

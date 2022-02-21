@@ -1,9 +1,7 @@
 extends Node2D
 
-
-func _ready():
-	pass
+export var toggleabble := true
 
 func _input(event):
-	if Input.is_action_just_pressed("map"):
+	if toggleabble and Input.is_action_just_pressed("map"):
 		visible = !visible

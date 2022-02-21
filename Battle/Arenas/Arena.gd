@@ -36,3 +36,5 @@ func _on_Player_died() -> void:
 
 func _on_StartTimer_timeout() -> void:
 	$AttackChoreography.start()
+
+

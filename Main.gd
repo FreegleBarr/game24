@@ -1,13 +1,14 @@
 extends Node2D
 
 #Set to title if not debugging
-export(String, "title", "intro", "eye_battle", "brain_village", "brain_battle") var selected_scene
+export(String, "title", "intro", "eye_battle", "brain_village", "brain_battle", "map") var selected_scene
 
 var Title := preload("res://Main/TitleScreen.tscn")
 var Intro := preload("res://Main/Intro.tscn")
 var EyeBattle := preload("res://Battle/Arenas/Eye.tscn")
 var BrainVillage := preload("res://Overworld/Villages/Brain.tscn")
 var BrainBattle := preload("res://Battle/Arenas/Brain.tscn")
+var Map := preload("res://Map/Standalone.tscn")
 
 onready var loading := $CanvasLayer/LoadingScreen
 onready var current_scene := $Splash
@@ -17,21 +18,25 @@ var scenes := {
 	'intro': Intro,
 	'eye_battle': EyeBattle,
 	'brain_village': BrainVillage,
-	'brain_battle': BrainBattle
+	'brain_battle': BrainBattle,
+	'map': Map,
 }
 
 
 func _ready() -> void:
+	Main.main = self
 	$Splash.call_deferred("show")
 	yield($Splash, "splash_done")
 	_on_change_scene(selected_scene)
 
-func _on_change_scene(target: String) -> void:
+func _on_change_scene(target) -> void:
 	loading.show()
 	get_tree().paused = true
 	yield(loading, "screen_hid")
 	var packed: PackedScene
-	if scenes.has(target):
+	if target is PackedScene:
+		packed = target
+	elif scenes.has(target):
 		packed = scenes[target]
 	else:
 		packed = load(target)
@@ -45,3 +50,5 @@ func _on_change_scene(target: String) -> void:
 	loading.unshow()
 	yield(loading, "screen_shown")
 	get_tree().paused = false
+
+

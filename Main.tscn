@@ -7,7 +7,7 @@
 [node name="Main" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 1 )
-selected_scene = "title"
+selected_scene = "map"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -15,7 +15,6 @@ layer = 10
 [node name="LoadingScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
 visible = false
 color = Color( 0.0705882, 0.0392157, 0.101961, 1 )
-wait_timer = true
 
 [node name="Splash" parent="." instance=ExtResource( 2 )]
 pause_mode = 1

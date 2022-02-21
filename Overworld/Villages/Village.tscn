@@ -75,6 +75,8 @@ tracked = NodePath("../YSort/Player")
 offset = Vector2( 720, 360 )
 transform = Transform2D( 1, 0, 0, 1, 720, 360 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_entered"]
 [connection signal="body_exited" from="VillageGround" to="VillageGround" method="_on_VillageGround_body_exited"]
 [connection signal="timeout" from="VillageGround/CayoteTimer" to="VillageGround" method="_on_CayoteTimer_timeout"]

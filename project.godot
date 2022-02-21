@@ -137,6 +137,8 @@ config/icon="res://Icons/icon.png"
 [autoload]
 
 Battle="*res://Battle/autoload.gd"
+Main="*res://Main/autoload.gd"
+Overworld="*res://Overworld/autoload.gd"
 
 [debug]
 
