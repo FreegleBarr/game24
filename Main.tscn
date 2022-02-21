@@ -7,11 +7,9 @@
 [node name="Main" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 1 )
-<<<<<<< Updated upstream
+
 selected_scene = "brain_battle"
-=======
-selected_scene = "intro"
->>>>>>> Stashed changes
+
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
