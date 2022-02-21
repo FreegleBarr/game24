@@ -78,6 +78,8 @@ func die():
 	$Hurtbox/Collision.set_deferred("disabled", true)
 
 func ghost():
+	#Not implemented fully
+	return
 	if $GhostCooldown.is_stopped() and not ghosting:
 		$Sprite.material.set('shader_param/ghosting', true)
 		ghosting = true
