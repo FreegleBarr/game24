@@ -20,7 +20,7 @@
 [ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Battle/EnemyObjects/EnemyObjects.gd" type="Script" id=19]
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 uniform float speed = 1.;
 uniform vec2 direction = vec2(1.);
@@ -35,14 +35,14 @@ void fragment(){
 	COLOR = texture(tex, coord);
 }"
 
-[sub_resource type="ShaderMaterial" id=11]
-shader = SubResource( 10 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/speed = 1.0
 shader_param/direction = Vector2( 1, 1 )
 shader_param/rect_size = Vector2( 2000, 1000 )
 shader_param/tex = ExtResource( 9 )
 
-[sub_resource type="GDScript" id=12]
+[sub_resource type="GDScript" id=3]
 script/source = "extends ColorRect
 
 
@@ -60,7 +60,7 @@ func won():
 	material.set(\"shader_param/tex\", win)
 "
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 void fragment(){
@@ -71,10 +71,10 @@ void fragment(){
 }
 "
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=6]
 0/name = "Arena background.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -90,7 +90,7 @@ shader = SubResource( 1 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
@@ -111,7 +111,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
@@ -124,10 +124,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="PhysicsMaterial" id=9]
+[sub_resource type="PhysicsMaterial" id=10]
 friction = 0.0
 
-[sub_resource type="PhysicsMaterial" id=13]
+[sub_resource type="PhysicsMaterial" id=11]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
@@ -138,10 +138,10 @@ layer = -1
 
 [node name="Scroll" type="ColorRect" parent="BG"]
 visible = false
-material = SubResource( 11 )
+material = SubResource( 2 )
 margin_right = 2000.0
 margin_bottom = 1000.0
-script = SubResource( 12 )
+script = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,27 +161,27 @@ __meta__ = {
 }
 
 [node name="BG" type="TileMap" parent="Organ"]
-material = SubResource( 2 )
-tile_set = SubResource( 3 )
+material = SubResource( 5 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 50, 50 )
 format = 1
 tile_data = PoolIntArray( -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -393224, 0, 0, -393223, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -262153, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -131082, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 589820, 0, 0 )
 
 [node name="BGMap" type="AnimatedSprite" parent="Organ/BG"]
 show_behind_parent = true
-frames = SubResource( 5 )
+frames = SubResource( 7 )
 
 [node name="Silloutte" type="AnimatedSprite" parent="Organ"]
 frames = SubResource( 8 )
 
 [node name="Contour" type="AnimatedSprite" parent="Organ"]
-frames = SubResource( 7 )
+frames = SubResource( 9 )
 script = ExtResource( 14 )
 background = ExtResource( 8 )
 
 [node name="Walls" type="StaticBody2D" parent="Organ/Contour"]
 collision_mask = 0
-physics_material_override = SubResource( 9 )
+physics_material_override = SubResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Organ/Contour/Walls"]
 
@@ -189,7 +189,7 @@ physics_material_override = SubResource( 9 )
 script = ExtResource( 17 )
 
 [node name="Walls" type="StaticBody2D" parent="Organ/InnerWalls"]
-physics_material_override = SubResource( 13 )
+physics_material_override = SubResource( 11 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -305, 62 )
@@ -206,16 +206,14 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="MusicPlayer" parent="." instance=ExtResource( 18 )]
-
 [node name="EnemyObjects" type="Node2D" parent="."]
 script = ExtResource( 19 )
 
 [connection signal="change_scene" from="Splash" to="." method="_on_Splash_change_scene"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="hp_changed" from="Player" to="HUDControls/HUD" method="_on_Player_hp_changed"]
-[connection signal="hurt" from="Player" to="HUDControls/HUD" method="_on_Player_hurt"]
 [connection signal="hurt" from="Player" to="Camera" method="_on_Player_hurt"]
+[connection signal="hurt" from="Player" to="HUDControls/HUD" method="_on_Player_hurt"]
 [connection signal="fight_over" from="AttackChoreography" to="." method="_on_AttackChoreography_fight_over"]
 [connection signal="script_loaded" from="AttackChoreography" to="HUDControls/HUD" method="_on_AttackChoreography_script_loaded"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

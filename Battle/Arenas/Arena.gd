@@ -7,6 +7,7 @@ export(String, FILE, "*.tscn") var Village
 
 func _ready() -> void:
 	print("i")
+	AudioHandler.change_sound_to("Boss")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

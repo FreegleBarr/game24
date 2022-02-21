@@ -2,6 +2,9 @@ extends Node2D
 
 export var toggleabble := true
 
+func _ready():
+	AudioHandler.change_sound_to("Village")
+
 func _input(event):
 	if toggleabble and Input.is_action_just_pressed("map"):
 		visible = !visible

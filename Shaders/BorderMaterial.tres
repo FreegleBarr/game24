@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=24]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 uniform float speed;
 uniform vec2 direction = vec2(0.,1.);
@@ -13,6 +13,6 @@ void fragment(){
 }"
 
 [resource]
-shader = SubResource( 24 )
+shader = SubResource( 1 )
 shader_param/speed = 0.1
 shader_param/direction = Vector2( 0, 1 )

@@ -16,7 +16,7 @@ func _ready():
 	var Map = load("res://Map/Map.tscn").instance()
 	$CanvasLayer.add_child(Map)
 	Map.hide()
-	pass
+	AudioHandler.change_sound_to("Village")
 
 func respawn_player(last_pos:=Vector2()):
 	if last_pos == Vector2():

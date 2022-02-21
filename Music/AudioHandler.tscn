@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Music/BossSong.wav" type="AudioStream" id=1]
+[ext_resource path="res://Music/VillageSoft.wav" type="AudioStream" id=2]
+[ext_resource path="res://Main/AudioHandler.gd" type="Script" id=3]
+
+[node name="AudioHandler" type="Node"]
+script = ExtResource( 3 )
+names = [ "Boss", "Village" ]
+sounds = [ ExtResource( 1 ), ExtResource( 2 ) ]
+
+[node name="FadeIn" type="Tween" parent="."]
+
+[node name="FadeOut" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="FadeOut" to="." method="_stop_faded_sound"]
