@@ -1,8 +1,9 @@
 [gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Map/Region.gd" type="Script" id=1]
 [ext_resource path="res://Map/Map.gd" type="Script" id=2]
-[ext_resource path="res://Map/map.png" type="Texture" id=3]
+[ext_resource path="res://Map/map1.png" type="Texture" id=3]
 [ext_resource path="res://Overworld/Villages/Lungs.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Overworld/Villages/Eye.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Overworld/Villages/Heart.tscn" type="PackedScene" id=6]
@@ -56,8 +57,15 @@ shader_param/lungs = ExtResource( 12 )
 shader_param/liver = ExtResource( 14 )
 shader_param/heart = ExtResource( 15 )
 shader_param/eyes = ExtResource( 13 )
+[ext_resource path="res://Map/map3.png" type="Texture" id=11]
+[ext_resource path="res://Map/map2.png" type="Texture" id=12]
+[ext_resource path="res://Map/map4.png" type="Texture" id=13]
+[ext_resource path="res://Map/map5.png" type="Texture" id=14]
+[ext_resource path="res://Map/map7.png" type="Texture" id=15]
+[ext_resource path="res://Map/map6.png" type="Texture" id=16]
 
 [node name="Map" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -96,10 +104,13 @@ collision_mask = 0
 script = ExtResource( 1 )
 destination_scene = ExtResource( 9 )
 
+[node name="Sprite" type="Sprite" parent="Areas/Brain"]
+texture = ExtResource( 11 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Brain"]
 visible = false
 position = Vector2( -3.44828, -9.1954 )
-polygon = PoolVector2Array( 206.897, -149.425, 174.713, -147.126, 144.828, -119.54, 127.586, -64.3678, 157.471, -35.6322, 212.644, -35.6322, 270.115, -79.3103, 285.057, -108.046, 278.161, -129.885, 248.276, -136.782, 217.241, -150.575 )
+polygon = PoolVector2Array( 206.897, -149.425, 174.713, -147.126, 144.828, -119.54, 127.586, -64.3678, 157.471, -35.6322, 213.793, -34.4828, 270.115, -79.3103, 291.954, -112.644, 278.161, -129.885, 248.276, -136.782, 217.241, -150.575 )
 
 [node name="Eye" type="Area2D" parent="Areas"]
 position = Vector2( -14, -27 )
@@ -113,6 +124,11 @@ destination_scene = ExtResource( 5 )
 position = Vector2( -114.943, 3.44828 )
 polygon = PoolVector2Array( 475.862, -110.345, 440.23, -110.345, 401.149, -81.6092, 439.08, -62.069, 478.161, -59.7701, 496.552, -90.8046 )
 
+[node name="Sprite" type="Sprite" parent="Areas/Eye"]
+modulate = Color( 0.996078, 1, 0.898039, 1 )
+position = Vector2( 0, -1.90735e-06 )
+texture = ExtResource( 12 )
+
 [node name="Lungs" type="Area2D" parent="Areas"]
 position = Vector2( -14, -27 )
 scale = Vector2( 0.87, 0.87 )
@@ -124,6 +140,9 @@ destination_scene = ExtResource( 4 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Lungs"]
 position = Vector2( -341.379, 70.1149 )
 polygon = PoolVector2Array( 468.966, -117.241, 440.23, -110.345, 327.586, -91.954, 260.92, -59.7701, 219.54, -10.3448, 210.345, 35.6322, 232.184, 65.5172, 289.655, 62.069, 320.69, 32.1839, 354.023, -14.9425, 391.954, -48.2759, 414.943, -33.3333, 413.793, -10.3448, 381.609, 24.1379, 363.218, 64.3678, 352.874, 105.747, 360.92, 140.23, 406.897, 155.172, 463.218, 109.195, 487.356, 39.0805, 488.506, -100 )
+
+[node name="Sprite" type="Sprite" parent="Areas/Lungs"]
+texture = ExtResource( 14 )
 
 [node name="Heart" type="Area2D" parent="Areas"]
 position = Vector2( -14, -27 )
@@ -137,6 +156,9 @@ destination_scene = ExtResource( 6 )
 position = Vector2( -422.988, 168.966 )
 polygon = PoolVector2Array( 473.563, -94.2529, 459.77, -109.195, 435.632, -110.345, 428.736, -102.299, 419.54, -83.908, 418.391, -50.5747, 422.988, -41.3793, 448.276, -50.5747, 459.77, -78.1609 )
 
+[node name="Sprite" type="Sprite" parent="Areas/Heart"]
+texture = ExtResource( 13 )
+
 [node name="Kidneys" type="Area2D" parent="Areas"]
 position = Vector2( -14, -27 )
 scale = Vector2( 0.87, 0.87 )
@@ -148,6 +170,9 @@ destination_scene = ExtResource( 7 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Kidneys"]
 position = Vector2( -864.368, 221.839 )
 polygon = PoolVector2Array( 472.414, -110.345, 437.931, -111.494, 410.345, -72.4138, 436.782, -37.931, 475.862, -13.7931, 509.195, -20.6897, 522.989, -65.5172 )
+
+[node name="Sprite" type="Sprite" parent="Areas/Kidneys"]
+texture = ExtResource( 15 )
 
 [node name="Stomach" type="Area2D" parent="Areas"]
 position = Vector2( -14, -27 )
@@ -163,3 +188,6 @@ polygon = PoolVector2Array( 431.034, -108.046, 391.954, -66.6667, 372.414, -9.19
 
 [connection signal="mouse_entered" from="Areas/Brain" to="." method="_on_Brain_mouse_entered"]
 [connection signal="mouse_exited" from="Areas/Brain" to="." method="_on_Brain_mouse_exited"]
+[node name="Sprite" type="Sprite" parent="Areas/Stomach"]
+self_modulate = Color( 0.996078, 1, 0.898039, 1 )
+texture = ExtResource( 16 )

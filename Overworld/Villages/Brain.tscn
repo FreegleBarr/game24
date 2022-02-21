@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Overworld/Villages/Village.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Overworld/Assets/npc rich person.png" type="Texture" id=2]
@@ -24,6 +24,9 @@
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 15 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 117.75 )
+
 [node name="Brain" instance=ExtResource( 1 )]
 BattleScene = ExtResource( 20 )
 
@@ -31,7 +34,12 @@ BattleScene = ExtResource( 20 )
 visible = false
 position = Vector2( -339, -263 )
 
-[node name="BrainMockup" type="Sprite" parent="." index="1"]
+[node name="BackgroundSprite" parent="." index="1"]
+position = Vector2( 311, 179 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="BrainMockup" type="Sprite" parent="." index="2"]
 visible = false
 position = Vector2( -2324, -807 )
 scale = Vector2( 2, 2 )
@@ -207,16 +215,18 @@ hframes = 4
 
 [node name="BattleStarter" parent="YSort" index="29"]
 position = Vector2( 1219, -184 )
+input_pickable = true
 dialogues = [ "timeline-1645237985.json" ]
 
 [node name="TrackerCamera" parent="." index="6"]
 position = Vector2( 10, -4 )
 
-[node name="Label" type="Label" parent="." index="8"]
+[node name="Label" type="Label" parent="." index="7"]
 margin_left = 104.0
 margin_top = -299.0
 margin_right = 250.0
 margin_bottom = -274.0
+mouse_default_cursor_shape = 8
 custom_fonts/font = SubResource( 1 )
 text = "TEST NPCs"
 __meta__ = {
@@ -228,10 +238,29 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RightWalls" type="Node2D" parent="." index="8"]
+
+[node name="UpperWall" type="StaticBody2D" parent="RightWalls" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightWalls/UpperWall" index="0"]
+polygon = PoolVector2Array( 1082, -687, 1000, -516, 982, -432, 938, -382, 956, -310, 1000, -307, 1135, -617, 1346, -510, 1448, -382, 1477, -182, 1506, -175, 1508, -308, 1441, -491, 1353, -560, 1182, -629 )
+
+[node name="MiddleWall" type="StaticBody2D" parent="RightWalls" index="1"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="RightWalls/MiddleWall" index="0"]
+position = Vector2( 977, -188.25 )
+shape = SubResource( 2 )
+
+[node name="LowerWall" type="StaticBody2D" parent="RightWalls" index="2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightWalls/LowerWall" index="0"]
+polygon = PoolVector2Array( 936, -66, 982, 19, 1023, 65, 1086, 101, 1130, 150, 1121, 211, 1214.18, 252.851, 1356, 215, 1510, 18, 1510, -154, 1477, -161, 1472, 10, 1344, 179, 1198, 193, 1178, 102, 979, -65 )
 
 [editable path="YSort/TestSkully"]
 [editable path="YSort/Skully"]
