@@ -30,6 +30,7 @@ visible = false
 position = Vector2( -339, -263 )
 
 [node name="BrainMockup" type="Sprite" parent="." index="1"]
+visible = false
 position = Vector2( -2324, -807 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
@@ -183,7 +184,11 @@ texture = ExtResource( 3 )
 
 [node name="Fisherman" parent="YSort" index="26" instance=ExtResource( 6 )]
 position = Vector2( -756, -85 )
+SpriteTexture = ExtResource( 2 )
 dialogues = [ "timeline-1645237985.json", "timeline-1645238676.json" ]
+
+[node name="Sprite" parent="YSort/Fisherman" index="0"]
+texture = ExtResource( 2 )
 
 [node name="RichWoman" parent="YSort" index="27" instance=ExtResource( 6 )]
 position = Vector2( -193, -696 )
