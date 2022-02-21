@@ -24,6 +24,7 @@ polygon = PoolVector2Array( -822, -286, -538, -654, 64, -858, 956, -754, 1436, -
 [node name="BackgroundSprite" type="Sprite" parent="."]
 
 [node name="SpawnPoint" type="Position2D" parent="."]
+visible = false
 position = Vector2( 257, 143 )
 
 [node name="ColorRect" type="ColorRect" parent="SpawnPoint"]
@@ -69,6 +70,7 @@ __meta__ = {
 position = Vector2( -2, 217 )
 
 [node name="BattleStarter" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 213, 52 )
 SpriteTexture = ExtResource( 3 )
 
 [node name="Sprite" parent="YSort/BattleStarter" index="0"]

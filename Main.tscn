@@ -7,7 +7,7 @@
 [node name="Main" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 1 )
-selected_scene = "title"
+selected_scene = "brain_village"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
