@@ -8,12 +8,13 @@ const pink = Color("#bf247b")
 const cream = Color("#feffe5")
 
 func _ready():
-	connect("input_event", self, "_on_input_event")
-	connect("mouse_entered", self, "_on_mouse_entered")
-	connect("mouse_exited", self, "_on_mouse_exited")
+	if not $CollisionPolygon2D.disabled:
+		connect("input_event", self, "_on_input_event")
+		connect("mouse_entered", self, "_on_mouse_entered")
+		connect("mouse_exited", self, "_on_mouse_exited")
 	
-	sprite.modulate = cream
-	pass
+		sprite.modulate = cream
+		pass
 
 func on_click():
 	print("Clicked on ", name)
