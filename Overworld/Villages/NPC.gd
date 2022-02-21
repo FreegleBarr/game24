@@ -3,7 +3,8 @@ extends Area2D
 
 export(Texture) var SpriteTexture setget set_texture
 export(int, 1, 15) var FrameCount := 1 setget set_frame_count
-export(Array, String, "TimelineDropdown") var dialogues = [null,null]
+export(Array, String, "TimelineDropdown") var dialogues
+
 
 var dialogue_index := 0
 var d_node
@@ -27,10 +28,13 @@ func _ready():
 	set_selected(false)
 	set_interacting(false)
 	set_texture(SpriteTexture)
+	
 
 func _on_Dialogic(arg:String):
+	owner._on_Dialogic(arg)
 	print(name, ": ", arg)
 	dialogue_index += 1
+	dialogue_index %= int(max(1,dialogues.size()))
 	if current_dialogue():
 		Dialogic.start(current_dialogue())
 
@@ -51,6 +55,8 @@ func _input(event):
 func current_dialogue():
 	if dialogue_index < dialogues.size():
 		return dialogues[dialogue_index]
+
+	
 
 func dialogue_end(timeline_name):
 	set_interacting(false)

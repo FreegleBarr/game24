@@ -1,0 +1,97 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645114443.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, hello! Can I help?"
+		},
+		{
+			"character": "character-1645114443.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No young soul. Everything is quiet under control!"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmmm.. If you're sure!"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do you know happen to know how to fight off this infection?"
+		},
+		{
+			"character": "character-1645114443.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Not really. I just know you've got to keep moving. Keep breathing."
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Keep breathing? That seems obvious!"
+		},
+		{
+			"character": "character-1645114443.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah, in and out. In for 3 seconds, hold for 3 seconds, and out for 5. Works a charm!"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmm... Thanks!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1645482524.json",
+		"name": "fallen1"
+	}
+}

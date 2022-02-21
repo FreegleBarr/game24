@@ -50,90 +50,91 @@ polygon = PoolVector2Array( -839, 16, -864, -261, -649, -600, -389, -773, 77, -8
 [node name="Player" parent="YSort" index="0"]
 position = Vector2( -4, 1 )
 
-[node name="BigVirus" type="Sprite" parent="YSort/Player" index="4"]
-position = Vector2( 1363, -235 )
+[node name="BigVirus" type="Sprite" parent="YSort" index="1"]
+position = Vector2( 1359, -234 )
 texture = ExtResource( 3 )
 
-[node name="Building2" type="Sprite" parent="YSort" index="1"]
+[node name="Building2" type="Sprite" parent="YSort" index="2"]
 position = Vector2( 508, 116 )
 texture = ExtResource( 4 )
 
-[node name="MeatBox" type="Sprite" parent="YSort" index="2"]
+[node name="MeatBox" type="Sprite" parent="YSort" index="3"]
 position = Vector2( 938, -49 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox8" type="Sprite" parent="YSort" index="3"]
+[node name="MeatBox8" type="Sprite" parent="YSort" index="4"]
 position = Vector2( 1071, -632 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox9" type="Sprite" parent="YSort" index="4"]
+[node name="MeatBox9" type="Sprite" parent="YSort" index="5"]
 position = Vector2( 1045, -582 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox10" type="Sprite" parent="YSort" index="5"]
+[node name="MeatBox10" type="Sprite" parent="YSort" index="6"]
 position = Vector2( 1003, -516 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox11" type="Sprite" parent="YSort" index="6"]
+[node name="MeatBox11" type="Sprite" parent="YSort" index="7"]
 position = Vector2( 986, -440 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox12" type="Sprite" parent="YSort" index="7"]
+[node name="MeatBox12" type="Sprite" parent="YSort" index="8"]
 position = Vector2( 941, -388 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox13" type="Sprite" parent="YSort" index="8"]
+[node name="MeatBox13" type="Sprite" parent="YSort" index="9"]
 position = Vector2( 955, -327 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox2" type="Sprite" parent="YSort" index="9"]
+[node name="MeatBox2" type="Sprite" parent="YSort" index="10"]
 position = Vector2( 988, 10 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox3" type="Sprite" parent="YSort" index="10"]
+[node name="MeatBox3" type="Sprite" parent="YSort" index="11"]
 position = Vector2( 1026, 66 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox4" type="Sprite" parent="YSort" index="11"]
+[node name="MeatBox4" type="Sprite" parent="YSort" index="12"]
 position = Vector2( 1086, 98 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox5" type="Sprite" parent="YSort" index="12"]
+[node name="MeatBox5" type="Sprite" parent="YSort" index="13"]
 position = Vector2( 1131, 147 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox6" type="Sprite" parent="YSort" index="13"]
+[node name="MeatBox6" type="Sprite" parent="YSort" index="14"]
 position = Vector2( 1122, 209 )
 texture = ExtResource( 13 )
 
-[node name="MeatBox7" type="Sprite" parent="YSort" index="14"]
+[node name="MeatBox7" type="Sprite" parent="YSort" index="15"]
 position = Vector2( 1190, 238 )
 texture = ExtResource( 13 )
 
-[node name="GiantTurtleCoin" type="Sprite" parent="YSort" index="15"]
+[node name="GiantTurtleCoin" type="Sprite" parent="YSort" index="16"]
 position = Vector2( -160, 416 )
 texture = ExtResource( 12 )
 
-[node name="House1" type="Sprite" parent="YSort" index="16"]
+[node name="House1" type="Sprite" parent="YSort" index="17"]
 position = Vector2( -300, -797 )
 texture = ExtResource( 11 )
 
-[node name="FishermanTent" type="Sprite" parent="YSort" index="17"]
+[node name="FishermanTent" type="Sprite" parent="YSort" index="18"]
 position = Vector2( -577, -149 )
 texture = ExtResource( 9 )
 
-[node name="Building1" type="Sprite" parent="YSort" index="18"]
+[node name="Building1" type="Sprite" parent="YSort" index="19"]
 position = Vector2( 423, -857 )
 texture = ExtResource( 5 )
 
-[node name="Skully" parent="YSort" index="19" instance=ExtResource( 6 )]
+[node name="Skully" parent="YSort" index="20" instance=ExtResource( 6 )]
 position = Vector2( 873, -166 )
 SpriteTexture = ExtResource( 7 )
+dialogues = [ "timeline-1645482775.json" ]
 
 [node name="Sprite" parent="YSort/Skully" index="0"]
 texture = ExtResource( 7 )
 
-[node name="Rescue1" parent="YSort" index="20" instance=ExtResource( 6 )]
+[node name="Rescue1" parent="YSort" index="21" instance=ExtResource( 6 )]
 position = Vector2( 535, -713 )
 SpriteTexture = ExtResource( 18 )
 FrameCount = 5
@@ -142,7 +143,7 @@ FrameCount = 5
 texture = ExtResource( 18 )
 hframes = 5
 
-[node name="Rescue2" parent="YSort" index="21" instance=ExtResource( 6 )]
+[node name="Rescue2" parent="YSort" index="22" instance=ExtResource( 6 )]
 position = Vector2( 316, -714 )
 SpriteTexture = ExtResource( 19 )
 FrameCount = 5
@@ -151,45 +152,38 @@ FrameCount = 5
 texture = ExtResource( 19 )
 hframes = 5
 
-[node name="Edward" parent="YSort" index="22" instance=ExtResource( 6 )]
+[node name="Edward" parent="YSort" index="23" instance=ExtResource( 6 )]
 position = Vector2( 393, 254 )
 SpriteTexture = ExtResource( 14 )
 FrameCount = 7
-dialogues = [ "timeline-1645236625.json", null ]
+dialogues = [ "timeline-1645482342.json" ]
 
 [node name="Sprite" parent="YSort/Edward" index="0"]
 texture = ExtResource( 14 )
 hframes = 7
 
-[node name="Turtle" parent="YSort" index="23" instance=ExtResource( 6 )]
-position = Vector2( -30, 422 )
+[node name="Turtle" parent="YSort" index="24" instance=ExtResource( 6 )]
+position = Vector2( -28, 422 )
 SpriteTexture = ExtResource( 17 )
 FrameCount = 4
-dialogues = [ "timeline-1645236625.json", null ]
+dialogues = [ "timeline-1645481979.json" ]
 
 [node name="Sprite" parent="YSort/Turtle" index="0"]
 texture = ExtResource( 17 )
 hframes = 4
 
-[node name="Fisherman" parent="YSort" index="24" instance=ExtResource( 6 )]
+[node name="Fisherman" parent="YSort" index="25" instance=ExtResource( 6 )]
 position = Vector2( -756, -85 )
 SpriteTexture = ExtResource( 2 )
-dialogues = [ "timeline-1645237985.json", "timeline-1645238676.json" ]
 
 [node name="Sprite" parent="YSort/Fisherman" index="0"]
-texture = ExtResource( 2 )
-
-[node name="RichWoman" parent="YSort" index="25" instance=ExtResource( 6 )]
-position = Vector2( -193, -696 )
-SpriteTexture = ExtResource( 2 )
-
-[node name="Sprite" parent="YSort/RichWoman" index="0"]
 texture = ExtResource( 2 )
 
 [node name="Jenkins" parent="YSort" index="26" instance=ExtResource( 6 )]
 position = Vector2( -277, -643 )
 SpriteTexture = ExtResource( 16 )
 FrameCount = 4
+dialogues = [ "timeline-1645482524.json" ]
 
 [node name="Sprite" parent="YSort/Jenkins" index="0"]
 texture = ExtResource( 16 )
@@ -198,7 +192,7 @@ hframes = 4
 [node name="BattleStarter" parent="YSort" index="27"]
 position = Vector2( 1164, -182 )
 input_pickable = true
-dialogues = [ "timeline-1645237985.json" ]
+dialogues = [ "timeline-1645485285.json" ]
 
 [node name="TrackerCamera" parent="." index="6"]
 position = Vector2( 10, -4 )
@@ -231,6 +225,5 @@ polygon = PoolVector2Array( 936, -66, 982, 19, 1023, 65, 1086, 101, 1130, 150, 1
 [editable path="YSort/Edward"]
 [editable path="YSort/Turtle"]
 [editable path="YSort/Fisherman"]
-[editable path="YSort/RichWoman"]
 [editable path="YSort/Jenkins"]
 [editable path="YSort/BattleStarter"]

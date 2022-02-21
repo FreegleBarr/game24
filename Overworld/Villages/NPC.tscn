@@ -38,6 +38,7 @@ __meta__ = {
 "_edit_group_": true
 }
 SpriteTexture = ExtResource( 2 )
+dialogues = [ "timeline-1645481091.json" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

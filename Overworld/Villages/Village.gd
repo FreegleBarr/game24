@@ -18,6 +18,23 @@ func _ready():
 	Map.hide()
 	pass
 
+
+func _on_Dialogic(arg):
+	var current = int(Dialogic.get_variable("success"))
+	print(arg, ": current -> ", current)
+	if arg == "yes":
+		Dialogic.set_variable("success", current + 1)
+	elif arg == "reset_success":
+		Dialogic.set_variable("success", 0)
+	elif arg == "battle":
+		print("battle?")
+		emit_signal("change_scene", "brain_battle")
+	
+	if int(Dialogic.get_variable("success")) == 3:
+		print("SUCCCESSSS!")
+		remove_child($RightWalls)
+		
+
 func respawn_player(last_pos:=Vector2()):
 	if last_pos == Vector2():
 		player.position = $SpawnPoint.position

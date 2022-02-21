@@ -1,0 +1,133 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "35..."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "36..."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "37..."
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello?"
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh.. er..."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "998..."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "999..."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "1000!"
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey pal! How can I help?"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do you know how to fight off this infection?"
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmm... not really. I just know that you need a strong head to tackle any problems. Talking to loved ones is important, man."
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That was... surprisingly helpful! Thanks."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Anytime! 1001..."
+		},
+		{
+			"character": "character-1645114344.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "1002..."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1645482342.json",
+		"name": "ed1"
+	}
+}

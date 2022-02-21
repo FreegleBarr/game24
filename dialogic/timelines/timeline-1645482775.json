@@ -1,0 +1,327 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"condition": "",
+			"definition": "1645483040-648",
+			"event_id": "dialogic_012",
+			"value": "3"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"definition": "1645483040-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Aaah!"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello?"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, hello!"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'm awfully sorry to have scared you."
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, no problem. You're a friendly skeleton..."
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Of course. Did you expect otherwise?"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Erm, no... of course not!"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Can I help you?"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I need to get behind you. To battle this infection!"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No can do, soul. Not unless you know the wisdom of the organs. I can test you if you like?"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "quiz"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sure!"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What food could heal all problems?"
+		},
+		{
+			"choice": "spinach",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "soup",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "mushroom pizza",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "yes",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "warm bread",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What breathing excercises help the most?"
+		},
+		{
+			"choice": "In for 3, hold for 3, out for 3",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "In for 3, hold for 3, out for 5",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "yes",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "In for 5, hold for 5, out for 3",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "In for 3, hold for 5, out for 5",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What is the best for a strong head?"
+		},
+		{
+			"choice": "Lots of sleep",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Reading",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Long showers",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Talking to loved ones",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "yes",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1645483040-648",
+			"event_id": "dialogic_012",
+			"value": "3"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well done! You are very knowledgeable!"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "finished"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good luck with the fight!"
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thank you! Goodbye."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1644862958.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmmm... that's not right. Try talking to some people to gain more knowledge."
+		},
+		{
+			"character": "character-1645113855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay, I will! Thanks."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1645482775.json",
+		"name": "skully1"
+	}
+}

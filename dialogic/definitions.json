@@ -8,6 +8,12 @@
 			"name": "skully_i",
 			"type": 0,
 			"value": "0"
+		},
+		{
+			"id": "1645483040-648",
+			"name": "success",
+			"type": 0,
+			"value": "0"
 		}
 	]
 }
