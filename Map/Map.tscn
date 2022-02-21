@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Map/Region.gd" type="Script" id=1]
 [ext_resource path="res://Map/Map.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Overworld/Villages/Kidneys.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Overworld/Villages/Stomach.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Overworld/Villages/Brain.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Map/menu_pattern.png" type="Texture" id=10]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 2 )
@@ -91,3 +92,15 @@ destination_scene = ExtResource( 8 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Stomach"]
 position = Vector2( -686.207, 159.77 )
 polygon = PoolVector2Array( 431.034, -108.046, 391.954, -66.6667, 372.414, -9.1954, 551.724, -12.6437, 545.977, -67.8161, 510.345, -101.149 )
+
+[node name="BG" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_left = -928.0
+margin_top = -558.0
+margin_right = 928.0
+margin_bottom = 599.0
+texture = ExtResource( 10 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
