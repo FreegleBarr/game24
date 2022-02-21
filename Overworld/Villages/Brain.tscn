@@ -36,7 +36,7 @@ position = Vector2( -339, -263 )
 
 [node name="BackgroundSprite" parent="." index="1"]
 position = Vector2( 311, 179 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
 
 [node name="BrainMockup" type="Sprite" parent="." index="2"]
@@ -44,11 +44,6 @@ visible = false
 position = Vector2( -2324, -807 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
-
-[node name="BackgroundSprite" parent="." index="2"]
-position = Vector2( 311, 179 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 8 )
 
 [node name="SpawnPoint" parent="." index="3"]
 position = Vector2( -44, -175 )
