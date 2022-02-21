@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Map/Region.gd" type="Script" id=1]
 [ext_resource path="res://Map/Map.gd" type="Script" id=2]
@@ -10,14 +10,68 @@
 [ext_resource path="res://Overworld/Villages/Stomach.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Overworld/Villages/Brain.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Map/menu_pattern.png" type="Texture" id=10]
+[ext_resource path="res://Map/map7.png" type="Texture" id=11]
+[ext_resource path="res://Map/map5.png" type="Texture" id=12]
+[ext_resource path="res://Map/map2.png" type="Texture" id=13]
+[ext_resource path="res://Map/map6.png" type="Texture" id=14]
+[ext_resource path="res://Map/map4.png" type="Texture" id=15]
+[ext_resource path="res://Map/map3.png" type="Texture" id=16]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform vec4 grey: hint_color;
+uniform sampler2D kidneys;
+uniform sampler2D lungs;
+uniform sampler2D liver;
+uniform sampler2D heart;
+uniform sampler2D eyes;
+uniform sampler2D brain;
+uniform bool mouse_over = false;
+
+vec4 grey_out(vec4 color, sampler2D organ, vec2 coord){
+	vec4 op = texture(organ, coord);
+	if (op.a == 0.){
+		return color;
+	} else {
+		return color*grey;
+	}
+}
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	COLOR = grey_out(COLOR, kidneys, UV);
+	COLOR = grey_out(COLOR, lungs, UV);
+	COLOR = grey_out(COLOR, eyes, UV);
+	COLOR = grey_out(COLOR, heart, UV);
+	COLOR = grey_out(COLOR, liver, UV);
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/grey = Color( 0.470588, 0.490196, 0.545098, 1 )
+shader_param/mouse_over = false
+shader_param/kidneys = ExtResource( 11 )
+shader_param/lungs = ExtResource( 12 )
+shader_param/liver = ExtResource( 14 )
+shader_param/heart = ExtResource( 15 )
+shader_param/eyes = ExtResource( 13 )
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
 position = Vector2( -14, -27 )
 scale = Vector2( 0.87, 0.87 )
 texture = ExtResource( 3 )
+
+[node name="brain" type="Sprite" parent="."]
+position = Vector2( -14, -27 )
+scale = Vector2( 0.87, 0.87 )
+texture = ExtResource( 16 )
+
+[node name="Tween" type="Tween" parent="brain"]
 
 [node name="BG" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -43,6 +97,7 @@ script = ExtResource( 1 )
 destination_scene = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Brain"]
+visible = false
 position = Vector2( -3.44828, -9.1954 )
 polygon = PoolVector2Array( 206.897, -149.425, 174.713, -147.126, 144.828, -119.54, 127.586, -64.3678, 157.471, -35.6322, 212.644, -35.6322, 270.115, -79.3103, 285.057, -108.046, 278.161, -129.885, 248.276, -136.782, 217.241, -150.575 )
 
@@ -105,3 +160,6 @@ destination_scene = ExtResource( 8 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Stomach"]
 position = Vector2( -686.207, 159.77 )
 polygon = PoolVector2Array( 431.034, -108.046, 391.954, -66.6667, 372.414, -9.1954, 551.724, -12.6437, 545.977, -67.8161, 510.345, -101.149 )
+
+[connection signal="mouse_entered" from="Areas/Brain" to="." method="_on_Brain_mouse_entered"]
+[connection signal="mouse_exited" from="Areas/Brain" to="." method="_on_Brain_mouse_exited"]

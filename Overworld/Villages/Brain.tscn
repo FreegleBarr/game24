@@ -39,14 +39,11 @@ texture = ExtResource( 10 )
 
 [node name="BackgroundSprite" parent="." index="2"]
 position = Vector2( 311, 179 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
 
 [node name="SpawnPoint" parent="." index="3"]
 position = Vector2( -44, -175 )
-
-[node name="VillageGround" parent="." index="4"]
-visible = false
 
 [node name="CollisionPolygon2D" parent="VillageGround" index="0"]
 polygon = PoolVector2Array( -839, 16, -864, -261, -649, -600, -389, -773, 77, -821, 553, -821, 1107, -665, 1362, -546, 1438, -484, 1497, -300, 1503, 16, 1347, 209, 1062, 302, 711, 330, 437, 415, 315, 542, -95, 565, -296, 783, -395, 967, -384, 1026, -517, 1176, -748, 1145, -658, 1040, -567, 760, -616, 554, -797, 398, -876, 183 )

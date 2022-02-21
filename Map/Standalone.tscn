@@ -9,6 +9,12 @@ script = ExtResource( 2 )
 [node name="Map" parent="." instance=ExtResource( 1 )]
 toggleabble = false
 
+[node name="brain" parent="Map" index="1"]
+modulate = Color( 1, 0.509804, 0.627451, 1 )
+
+[node name="CollisionPolygon2D" parent="Map/Areas/Brain" index="0"]
+visible = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
