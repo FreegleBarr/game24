@@ -129,6 +129,9 @@ script = ExtResource( 11 )
 
 [node name="Timer" type="Timer" parent="AttackChoreography/CenterTarget" index="0"]
 
+[node name="SpawnPoint" type="Position2D" parent="AttackChoreography/CenterTarget" index="1"]
+position = Vector2( -15, -101 )
+
 [connection signal="timeout" from="Organ/InnerWalls/Timer" to="Organ/InnerWalls" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

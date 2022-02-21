@@ -12,10 +12,10 @@ sleep 1
 RandomSpawner 8 1
 sleep 1
 nowait RandomSpawner 8 1
-CenterTarget 8 1
+CenterTarget 4 2
 sleep 2
 nowait WallWalker 8 1
-CenterTarget 8 1
+CenterTarget 4 2
 sleep 2
 nowait WallWalker2 8 1
 RandomSpawner 8 1
@@ -23,4 +23,4 @@ sleep 2
 nowait WallWalker 4 1
 nowait WallWalker2 4 1
 nowait RandomSpawner 4 1
-CenterTarget 4 1"
+CenterTarget 2 2"

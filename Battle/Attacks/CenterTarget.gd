@@ -11,7 +11,7 @@ func time(args: Array):
 	return (repeats-1)*delay
 
 func attack():
-	var pos = Vector2()
+	var pos = $SpawnPoint.position
 	var dir = Battle.player.position
 	emit_signal("spawn_bullet", 'nerve shock', pos, dir)
 
