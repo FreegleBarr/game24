@@ -35,7 +35,7 @@ func _on_change_scene(target: String) -> void:
 		packed = scenes[target]
 	else:
 		packed = load(target)
-	
+
 	current_scene.queue_free()
 	current_scene = packed.instance()
 	current_scene.pause_mode = Node.PAUSE_MODE_STOP

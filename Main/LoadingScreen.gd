@@ -12,14 +12,14 @@ var showing := false
 
 func _ready() -> void:
 	visible = false
-	
+
 func show():
 	showing = true
 	tween.interpolate_property(self, "modulate",
 			Color(0,0,0,0), Color(1,1,1,1), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	visible = true
-	
+
 	if wait_timer:
 		timer.start()
 
