@@ -5,7 +5,7 @@
 
 [node name="Virus" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-move_speed = 500
+move_speed = 400
 
 [node name="Area2D" parent="FloatableSprite" index="0"]
 collision_layer = 2
