@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Main/Rows.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main/Intro.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://cut scenes/screen2/Layer 2.png" type="Texture" id=13]
 [ext_resource path="res://cut scenes/screen2/Layer 3.png" type="Texture" id=14]
 [ext_resource path="res://cut scenes/screen2/Layer 1.png" type="Texture" id=15]
+[ext_resource path="res://Overworld/Dialogue/Mitochondria.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="Shader" id=24]
 code = "shader_type canvas_item;
@@ -50,6 +51,9 @@ shader = SubResource( 26 )
 shader_param/speed = 0.1
 shader_param/direction = Vector2( 1, 0 )
 
+[sub_resource type="DynamicFont" id=29]
+font_data = ExtResource( 16 )
+
 [sub_resource type="ShaderMaterial" id=28]
 shader = SubResource( 26 )
 shader_param/speed = 0.1
@@ -58,11 +62,13 @@ shader_param/direction = Vector2( 1, 0 )
 [node name="Intro" type="Node2D"]
 script = ExtResource( 2 )
 pages = [ NodePath("Page1"), NodePath("Page2") ]
+subtitles = [ "A long time ago on a familiar blue planet", "two friends were walking", "when they were startled by an Earthquake!", "from the ground rose a stone giant, who bellowed... ", "\"I was the protector of this planet, little ones. I have seen mountains rise and oceans form... and I have seen great destruction.\"", "\"I bestow upon you my power. friend. You must grow to meet this big responsibility.\"", "The capybara grew, and became protector on the land.", "Many centuries later, an unknown virus fell to Earth and began to infect all that it could.", "The capybara lay down his life to protect the inhabitants of the land.", "He provided shelter for all life, in order to save them from the virus.", "The capybara's soul became weak but resisted the virus.", "The eyes. The window to the soul.", "The soul found antibodies fighting for their host. All was not lost.", "All was not lost." ]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+visible = false
 material = SubResource( 25 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,10 +98,26 @@ stretch_mode = 2
 [node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
 margin_top = 134.0
 margin_right = 1280.0
-margin_bottom = 666.0
+margin_bottom = 616.0
 size_flags_vertical = 3
 
+[node name="Subtitle" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 620.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = SubResource( 29 )
+text = "TEXT GOES HERE"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BorderB" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+visible = false
 material = SubResource( 28 )
 margin_top = 670.0
 margin_right = 1280.0

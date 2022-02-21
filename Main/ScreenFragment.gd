@@ -21,6 +21,6 @@ func start():
 #		$Text.modulate = Color(0)
 #		tween.interpolate_property($Text, "modulate",
 #				Color(0), Color(1), Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
-		
+	owner.advance_subtitle()	
 	yield(controller, "procceed")
 	emit_signal("ended")

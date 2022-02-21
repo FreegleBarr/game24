@@ -8,6 +8,7 @@
 pause_mode = 2
 script = ExtResource( 1 )
 selected_scene = "brain_battle"
+selected_scene = "intro"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10

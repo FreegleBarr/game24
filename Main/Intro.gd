@@ -6,13 +6,26 @@ signal change_scene(target)
 export(Array, NodePath) var pages
 onready var tween: Tween = $Tween
 
+export(Array, String, MULTILINE) var subtitles
+var current_subtitle := 0
+
+func advance_subtitle():
+	$CanvasLayer/VBoxContainer/Subtitle.text = subtitles[current_subtitle]
+	current_subtitle += 1
+
+
 func _ready() -> void:
+	
+	
+	
+	
 	for i in range(pages.size()):
 		pages[i] = get_node(pages[i])
 	for page in pages:
 		for row in page.get_children():
 			row.controller = self
 	call_deferred("run")
+	
 
 func run():
 	for page in pages:
