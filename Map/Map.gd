@@ -11,7 +11,7 @@ func _on_Brain_mouse_entered() -> void:
 	var tween = $brain/Tween
 	tween.stop_all()
 	tween.interpolate_property($brain, 'modulate',
-		$brain.modulate, Color(1,38.0/255,167.0/255, 1), 0.5, Tween.TRANS_CIRC, Tween.EASE_IN_OUT)
+		$brain.modulate, Color(1,38.0/255,167.0/255, 1), 0.2, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween.start()
 
 func _on_Brain_mouse_exited() -> void:

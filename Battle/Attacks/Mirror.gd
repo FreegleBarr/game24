@@ -31,3 +31,8 @@ func start(args: Array):
 		yield(timer, "timeout")
 		attack()
 	emit_signal('attack_done')
+
+func time(args: Array):
+	var repeats := args[0] as int
+	var time := args[1] as float
+	return (repeats-1)*time
