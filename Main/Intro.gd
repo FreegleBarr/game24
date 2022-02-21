@@ -28,12 +28,14 @@ func _ready() -> void:
 	
 
 func run():
-	for page in pages:
-		for row in page.get_children():
+	for _page in pages:
+		var page = _page as CenterContainer
+		for _row in page.get_children():
+			var row = _row as CenterContainer
 			row.start()
 			yield(row, "done")
 			$Camera2D.position.y += (1000)/(page.get_child_count())
-		$Camera2D.position.y = -150
+		$Camera2D.position.y = -150 # HELP ME FREEGLE!
 		tween.interpolate_property(page, "modulate",
 			Color(1,1,1,1), Color(0,0,0,0), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		tween.start()
