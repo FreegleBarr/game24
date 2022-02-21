@@ -154,6 +154,7 @@ func time():
 				else:
 					if nowait_time > 0:
 						time = max(nowait_time, time)
+					nowait_time = 0
 					total_time += time
 					if subchor_time > 0:
 						subchor_time -= time

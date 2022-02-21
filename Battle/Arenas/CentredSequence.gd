@@ -38,4 +38,4 @@ func _on_bullet_spawn(_type: String, pos: Vector2, dir: Vector2):
 func time(args: Array) -> float:
 	var delays := get_child_count()-2
 	var time := args[0] as float
-	return time*delays
+	return time*6

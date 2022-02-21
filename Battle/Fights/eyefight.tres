@@ -6,23 +6,23 @@
 script = ExtResource( 1 )
 steps = "CentredSequence 2 0
 sleep 1
-EyeWallWalker 6 2
+EyeWallWalker 7 2
 sleep 1
-nowait EyeWallWalker 6 2
+nowait EyeWallWalker 7 2
 CentredSequence 2 0
 sleep 1
-nowait EyeWallWalker 6 2
+nowait EyeWallWalker 7 2
 CentredSequence 2 1
 sleep 1
 Mirror 6 2
 sleep 1
-nowait Mirror 6 2
-EyeWallWalker 6 2
+nowait Mirror 7 2
+EyeWallWalker 7 2
 sleep 1
-nowait Mirror 6 2
-nowait EyeWallWalker 6 2
+nowait Mirror 7 2
+nowait EyeWallWalker 7 2
 CentredSequence 2 0
 sleep 4
-nowait Mirror 6 2
-nowait EyeWallWalker 6 2
+nowait Mirror 7 2
+nowait EyeWallWalker 7 2
 CentredSequence 2 0"
