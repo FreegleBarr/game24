@@ -65,7 +65,7 @@ func dialogue_end(timeline_name):
 
 func set_interacting(b:bool):
 	interacting = b
-	$Label.visible = b
+#	$Label.visible = b
 
 func set_selected(b:bool):
 	selected = b

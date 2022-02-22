@@ -19,3 +19,11 @@ wait_timer = true
 
 [node name="Splash" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.996078, 1, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

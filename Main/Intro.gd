@@ -16,6 +16,8 @@ func advance_subtitle():
 
 func _ready() -> void:
 	
+	for t in subtitles:
+		print(t)
 	
 	
 	
